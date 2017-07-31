@@ -1,0 +1,11 @@
+﻿#
+# wanghao
+#
+User-agent: *
+Disallow: /Super/
+Disallow: /Handler/
+Disallow: /User/
+Disallow: /Controls/
+
+
+UPDATE T_News SET ztbz='否',TZZT='否'

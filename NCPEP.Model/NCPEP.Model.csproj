@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CC097BEF-E573-4C80-AD85-F66BC3C805CD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NCPEP.Model</RootNamespace>
+    <AssemblyName>NCPEP.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>NCPEP.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminType.cs" />
+    <Compile Include="AdminUser.cs" />
+    <Compile Include="Arbitration.cs" />
+    <Compile Include="AuditOpinion.cs" />
+    <Compile Include="Bid.cs" />
+    <Compile Include="BidAuction.cs" />
+    <Compile Include="BidCancellation.cs" />
+    <Compile Include="BidCancellationScan.cs" />
+    <Compile Include="BidChange.cs" />
+    <Compile Include="BidChangeScan.cs" />
+    <Compile Include="BidClinchScan.cs" />
+    <Compile Include="BidContractScan.cs" />
+    <Compile Include="BidFile.cs" />
+    <Compile Include="BidLost.cs" />
+    <Compile Include="BidLostScan.cs" />
+    <Compile Include="BidPlacard.cs" />
+    <Compile Include="BidPrintGrounds.cs" />
+    <Compile Include="BidReturnInfo.cs" />
+    <Compile Include="BidTrans.cs" />
+    <Compile Include="Contacts.cs" />
+    <Compile Include="IndicatorsRelations.cs" />
+    <Compile Include="Job.cs" />
+    <Compile Include="LiceTran.cs" />
+    <Compile Include="LiceTranCheck.cs" />
+    <Compile Include="LiceTranScan.cs" />
+    <Compile Include="Links.cs" />
+    <Compile Include="MemberTypeCertification.cs" />
+    <Compile Include="News.cs" />
+    <Compile Include="NewsType.cs" />
+    <Compile Include="ShortMessageSending.cs" />
+    <Compile Include="TOnlineNumber.cs" />
+    <Compile Include="Organization.cs" />
+    <Compile Include="Permissions.cs" />
+    <Compile Include="Placard.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyType.cs" />
+    <Compile Include="RolePermissions.cs" />
+    <Compile Include="SoftReg.cs" />
+    <Compile Include="StandardMode.cs" />
+    <Compile Include="StandardType.cs" />
+    <Compile Include="SysFun.cs" />
+    <Compile Include="SysLog.cs" />
+    <Compile Include="TempUser.cs" />
+    <Compile Include="TranProcess.cs" />
+    <Compile Include="TurnOutType.cs" />
+    <Compile Include="T_AdminUser.cs" />
+    <Compile Include="T_Bid.cs" />
+    <Compile Include="T_BidPlacard.cs" />
+    <Compile Include="T_BidTrans.cs" />
+    <Compile Include="T_Dyjl.cs" />
+    <Compile Include="T_Dysq.cs" />
+    <Compile Include="T_Dyzt.cs" />
+    <Compile Include="T_Fujian.cs" />
+    <Compile Include="T_FujianBiao.cs" />
+    <Compile Include="T_IndicatorsRelations.cs" />
+    <Compile Include="T_Jzs.cs" />
+    <Compile Include="T_LiceTran.cs" />
+    <Compile Include="T_MemberTypeCertification.cs" />
+    <Compile Include="T_News.cs" />
+    <Compile Include="T_NewsType.cs" />
+    <Compile Include="T_Notice.cs" />
+    <Compile Include="T_Organization.cs" />
+    <Compile Include="T_PropertyType.cs" />
+    <Compile Include="T_TurnOutType.cs" />
+    <Compile Include="T_UploadTypeIndicator.cs" />
+    <Compile Include="T_Wztou.cs" />
+    <Compile Include="T_XmBeian.cs" />
+    <Compile Include="T_XMGG.cs" />
+    <Compile Include="T_YQ.cs" />
+    <Compile Include="UploadTypeIndicator.cs" />
+    <Compile Include="WebIntention.cs" />
+    <Compile Include="WebUserVeri.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="NCPEP.pfx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

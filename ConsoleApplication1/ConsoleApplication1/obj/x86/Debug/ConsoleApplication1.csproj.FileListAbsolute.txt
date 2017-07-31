@@ -1,0 +1,4 @@
+F:\mywork\newland\农村产权网站\南昌产权交易\NCPEP-1.1111\NCPEP-1.1110\2010版本\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+F:\mywork\newland\农村产权网站\南昌产权交易\NCPEP-1.1111\NCPEP-1.1110\2010版本\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+F:\mywork\newland\农村产权网站\南昌产权交易\NCPEP-1.1111\NCPEP-1.1110\2010版本\ConsoleApplication1\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.exe
+F:\mywork\newland\农村产权网站\南昌产权交易\NCPEP-1.1111\NCPEP-1.1110\2010版本\ConsoleApplication1\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.pdb

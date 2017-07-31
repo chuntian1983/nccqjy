@@ -1,0 +1,10 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="weixinweb.index" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html><head>    <meta charset="UTF-8">  	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">    <title>Basic Panel - jQuery EasyUI Mobile Demo</title>      <link rel="stylesheet" type="text/css" href="js/themes/metro/easyui.css">      <link rel="stylesheet" type="text/css" href="js/themes/mobile.css">      <link rel="stylesheet" type="text/css" href="js/themes/icon.css">      <script type="text/javascript" src="js/jquery.min.js"></script>      <script type="text/javascript" src="js/jquery.easyui.min.js"></script>     <script type="text/javascript" src="js/jquery.easyui.mobile.js"></script> </head><body>	<div class="easyui-navpanel">		<header>			<div class="m-toolbar">				<div class="m-title">长洲区农经站</div>			</div>		</header>		<footer>			<div class="m-buttongroup m-buttongroup-justified" style="width:100%">
+                <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-large-picture',size:'large',iconAlign:'top',plain:true">Picture</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-large-clipart',size:'large',iconAlign:'top',plain:true">Clip Art</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-large-shapes',size:'large',iconAlign:'top',plain:true">Shapes</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-large-smartart',size:'large',iconAlign:'top',plain:true">SmartArt</a>
+            </div>		</footer>	</div></body>	</html>
