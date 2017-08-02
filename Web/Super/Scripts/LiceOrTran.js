@@ -41,6 +41,9 @@ function showOperDiv(p) {
     } else {
         $("#show3").css("display", "none");
     }
+    if (p == "2") {
+        $('#trjingbiao').show();
+    } else { $('#trjingbiao').css("display", "none"); }
 };
 jQuery(function ($) {
     $('#tLiceTranType').combotree({
@@ -56,10 +59,24 @@ jQuery(function ($) {
         url: '../Ashx/LiceOrTran.ashx?action=t',
         required: true,
         onSelect: function (rec) {
-            rec.id;
+            var va = rec.id;
+            if (va == "2") {
+                $('#trjingbiao').show();
+            } else { $('#trjingbiao').css("display", "none"); }
+
         }
     });
 });
+////2017-8-2
+//jQuery(function ($) {
+//    $("#txtLiceTranType").onSelect(function () {
+//        alert('3');
+//        var t = $('#txtLiceTranType').combotree('tree'); // get the tree object
+//        var n = t.tree('getSelected'); 	// get selected node
+//        alert(n.text);
+//        // 这里可以写些验证代码
+//    });
+//});
 function OnltCheckGridView(p) {
     $('#ltCheck').datagrid({
         nowrap: true,
@@ -167,6 +184,7 @@ function GridView() {
 { field: 'string', title: '上传', width: 150, align: 'left', sortable: true, formatter: function (value, row, index) { return row.AuditType == 1 ? "<span style='color:blue;'>双击查看附件</span>" : "<span style='color:blue;' onclick='OnUploadFile(" + row.Id + ");'>上传扫描件</span>"; } },
 { field: 'MemberTypeId', title: '类型', width: 80, align: 'left', sortable: true },
 { field: 'Name', title: '姓名', width: 80, align: 'left', sortable: true },
+{ field: 'jbyhm', title: '竞标用户名', width: 80, align: 'left', sortable: true },
 { field: 'Addr', title: '住址', width: 150, align: 'left', sortable: true },
 { field: 'Contact', title: '联系人', width: 80, align: 'left', sortable: true },
 { field: 'Corporate', title: '法人代表', width: 80, align: 'left', sortable: true },
@@ -261,6 +279,8 @@ jQuery(function ($) {
                 $("#txtOrganizationCode").textbox('setValue', data.OrganizationCode);
                 $("#txtCapital").textbox('setValue', data.Capital);
                 $("#txtFK_WebUserVeriId").val(data.FK_WebUserVeriId);
+                $("#txtJBYhm").textbox('setValue', data.JBYhm);
+                $("#txtJBmm").textbox('setValue', data.JBmm);
             }, "json");
             $("#btnCreate").hide();
             $("#btnEdit").show();
@@ -356,8 +376,8 @@ jQuery(function ($) {
             success: function (data) {
                 
                 msgShow("提示", data, "info");
-                OnEmptyTextClick();
-                $('#newAdd').window('close');
+//                OnEmptyTextClick();
+//                $('#newAdd').window('close');
                 $('#tdg').datagrid('reload');
             }
         });

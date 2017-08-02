@@ -54,6 +54,9 @@ namespace NCPEP.Bll
                 case "up":
                     returnDate = Update(context);
                     break;
+                case "upsrf":
+                    returnDate =Updatesrf(context);
+                    break;
                 case "by":
                     returnDate = JsonHelper<LiceTran>.JsonWriter(GetById(context));
                     break;
@@ -289,9 +292,9 @@ namespace NCPEP.Bll
                 //{
                 //    sqlWhere += string.Format(" a.OrgCode = '{0}'  ", adminUser.OrgCode);
                 //}
-                if (!string.IsNullOrEmpty(context.Request.QueryString["LiceTranType"] as string))
+                    if (!string.IsNullOrEmpty(context.Request.QueryString["LiceTranId"] as string))
                 {
-                    LiceTranType = context.Request.QueryString["LiceTranType"];
+                    LiceTranType = context.Request.QueryString["LiceTranId"];
                 }
                 sqlWhere += string.Format(" and a.LiceTranType = {0}", LiceTranType);
                 string Name = context.Request.QueryString["Name"];
@@ -314,13 +317,33 @@ namespace NCPEP.Bll
             try
             {
                 SysLogBll.Create("出让/受让方", "增加出让/受让方操作", adminUser.AdminName);
-                if (dal.Create(GetModels(context)))
+                if (context.Request.Form["JBYhm"] != null)
                 {
-                    return "添加成功！";
+                    if (dal.Exist(context.Request.Form["JBYhm"].ToString()))
+                    {
+                        return "该用户名已经存在，请重新填写建议用手机号码！";
+                    }
+                    else {
+                        if (dal.Create(GetModels(context)))
+                        {
+                            return "添加成功！";
+                        }
+                        else
+                        {
+                            return "添加失败请重新操作! ";
+                        }
+                    }
                 }
                 else
                 {
-                    return "添加失败请重新操作! ";
+                    if (dal.Create(GetModels(context)))
+                    {
+                        return "添加成功！";
+                    }
+                    else
+                    {
+                        return "添加失败请重新操作! ";
+                    }
                 }
 
             }
@@ -336,6 +359,26 @@ namespace NCPEP.Bll
             try
             {
                 SysLogBll.Create("出让/受让方", "更新出让/受让方操作", adminUser.AdminName);
+                if (dal.Update(GetModels(context)))
+                {
+                    return "更新成功！";
+                }
+                else
+                {
+                    return "更新失败请重新操作! ";
+                }
+            }
+            catch (Exception ex)
+            {
+                SystemErrorPlug.ErrorRecord("时间:[" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "]类名:[" + this.GetType().Name + "],行号:[" + Component.GetLineNum().ToString() + "行],错误信息:[" + ex.Message + "]");
+                return "更新失败请重新操作，错误代码：500 ";
+            }
+        }
+        private dynamic Updatesrf(HttpContext context)
+        {
+            try
+            {
+                SysLogBll.Create("受让方", "更新受让方操作", adminUser.AdminName);
                 if (dal.Update(GetModels(context)))
                 {
                     return "更新成功！";
@@ -420,6 +463,10 @@ namespace NCPEP.Bll
             try { model.AuditType = int.Parse(context.Request.Form["AuditType"].ToString()); }
             catch { }
             try { model.FK_WebUserVeriId = int.Parse(context.Request.Form["FK_WebUserVeriId"].ToString()); }
+            catch { }
+            try { model.JBYhm = context.Request.Form["JBYhm"].ToString(); }
+            catch { }
+            try { model.JBmm = context.Request.Form["JBmm"].ToString(); }
             catch { }
             return model;
         }

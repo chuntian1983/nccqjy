@@ -42,6 +42,18 @@ namespace NCPEP.Model
 		private DateTime _applydate=DateTime.Now;
 		private int _audittype= 0;
         private int _licetrantype=0;
+        private string _jbyhm = string.Empty;
+        private string _jbmm = string.Empty;
+        public string JBYhm
+        {
+            get { return _jbyhm; }
+            set { _jbyhm = value; }
+        }
+        public string JBmm
+        {
+            get { return _jbmm; }
+            set { _jbmm = value; }
+        }
 		/// <summary>
 		/// 
 		/// </summary>

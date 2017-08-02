@@ -22,12 +22,14 @@ using NCPEP.Com.Util;
 using NCPEP.Model;
 using System.Data;
 using System.Data.SqlClient;
+using Maticsoft.DBUtility;
+
 
 namespace NCPEP.Dal
 {
     public class LiceTranDal
     {
-        private dynamic db = null;
+        private MsSqlHelper db = null;
         public LiceTranDal()
         {
             db = new MsSqlHelper();
@@ -92,9 +94,9 @@ namespace NCPEP.Dal
             {
                 StringBuilder strSql = new StringBuilder();
                 strSql.Append("insert into T_LiceTran(");
-                strSql.Append("OrgCode,MemberTypeId,Name,Addr,Contact,Corporate,IDCard,OrganizationCode,Tel,Owner,Capital,ApplyDate,AuditType,LiceTranType,FK_WebUserVeriId)");
+                strSql.Append("OrgCode,MemberTypeId,Name,Addr,Contact,Corporate,IDCard,OrganizationCode,Tel,Owner,Capital,ApplyDate,AuditType,LiceTranType,FK_WebUserVeriId,jbyhm,jbmm)");
                 strSql.Append(" values (");
-                strSql.Append("@OrgCode,@MemberTypeId,@Name,@Addr,@Contact,@Corporate,@IDCard,@OrganizationCode,@Tel,@Owner,@Capital,@ApplyDate,@AuditType,@LiceTranType,@FK_WebUserVeriId)");
+                strSql.Append("@OrgCode,@MemberTypeId,@Name,@Addr,@Contact,@Corporate,@IDCard,@OrganizationCode,@Tel,@Owner,@Capital,@ApplyDate,@AuditType,@LiceTranType,@FK_WebUserVeriId,@JBYhm,@JBmm)");
                 if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
@@ -140,6 +142,19 @@ namespace NCPEP.Dal
                 throw;
             }
         }
+        public bool Exist(string jbyhm)
+        {
+            string strsql = "select * from T_LiceTran where jbyhm='"+jbyhm+"'";
+            DataTable dt = DbHelperSQL.Query(strsql).Tables[0];
+            if (dt.Rows.Count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         //
         public bool Update(LiceTran model)
         {
@@ -161,7 +176,9 @@ namespace NCPEP.Dal
                 strSql.Append("ApplyDate=@ApplyDate,");
                 strSql.Append("AuditType=@AuditType,");
                 strSql.Append("FK_WebUserVeriId=@FK_WebUserVeriId,");
-                strSql.Append("LiceTranType=@LiceTranType");
+                strSql.Append("LiceTranType=@LiceTranType,");
+                strSql.Append("JBYhm=@jbyhm,");
+                strSql.Append("JBmm=@jbmm");
                 strSql.Append(" where Id=@Id");
                 if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
@@ -189,7 +206,7 @@ namespace NCPEP.Dal
         {
             try
             {
-                string strSql = " select a.Id,b.OrgShortName as OrgCode,c.TypeCertificationName as MemberTypeId,a.Name,a.Addr,a.Contact,a.Corporate,a.IDCard,a.OrganizationCode,a.Tel,a.[Owner],a.Capital,a.ApplyDate,a.AuditType,a.LiceTranType,a.FK_WebUserVeriId from T_LiceTran as a left join T_Organization as b on a.OrgCode = b.OrgCode left join T_MemberTypeCertification as c on a.MemberTypeId = c.Id ";
+                string strSql = " select a.jbyhm,a.Id,b.OrgShortName as OrgCode,c.TypeCertificationName as MemberTypeId,a.Name,a.Addr,a.Contact,a.Corporate,a.IDCard,a.OrganizationCode,a.Tel,a.[Owner],a.Capital,a.ApplyDate,a.AuditType,a.LiceTranType,a.FK_WebUserVeriId from T_LiceTran as a left join T_Organization as b on a.OrgCode = b.OrgCode left join T_MemberTypeCertification as c on a.MemberTypeId = c.Id ";
                 if (!string.IsNullOrEmpty(sqlWhere))
                 {
                     strSql += string.Format(" where {0}", sqlWhere);
@@ -207,9 +224,9 @@ namespace NCPEP.Dal
         {
             try
             {
-                dynamic model = null;
+                LiceTran model = null;
                 StringBuilder strSql = new StringBuilder();
-                strSql.Append("select Id,OrgCode,MemberTypeId,Name,Addr,Contact,Corporate,IDCard,OrganizationCode,Tel,Owner,Capital,ApplyDate,AuditType,LiceTranType,FK_WebUserVeriId from T_LiceTran ");
+                strSql.Append("select Id,OrgCode,MemberTypeId,Name,Addr,Contact,Corporate,IDCard,OrganizationCode,Tel,Owner,Capital,ApplyDate,AuditType,LiceTranType,FK_WebUserVeriId,jbyhm,jbmm from T_LiceTran ");
                 strSql.Append(" where Id=@Id");
                 SqlParameter[] parameters = {
 					new SqlParameter("@Id", SqlDbType.Int,4)
@@ -242,6 +259,10 @@ namespace NCPEP.Dal
                         catch { }
                         try { model.FK_WebUserVeriId = int.Parse(read["FK_WebUserVeriId"].ToString()); }
                         catch { }
+                        try { model.JBYhm = read["jbyhm"].ToString(); }
+                        catch { }
+                        try { model.JBmm = read["jbmm"].ToString(); }
+                        catch { }
                     }
                     read.Dispose();
                 }
@@ -260,7 +281,7 @@ namespace NCPEP.Dal
             catch { throw; }
         }
         //
-        private SqlParameter[] GetSqlParameter(dynamic model)
+        private SqlParameter[] GetSqlParameter(LiceTran model)
         {
             SqlParameter[] parameters = {
 				new SqlParameter("@OrgCode", SqlDbType.NVarChar,100),
@@ -278,7 +299,9 @@ namespace NCPEP.Dal
 					new SqlParameter("@AuditType", SqlDbType.Int,4),
 					new SqlParameter("@LiceTranType", SqlDbType.Int,4),
 					new SqlParameter("@Id", SqlDbType.Int,4),
-                    new SqlParameter("@FK_WebUserVeriId", SqlDbType.Int,4),           
+                    new SqlParameter("@FK_WebUserVeriId", SqlDbType.Int,4), 
+                    new SqlParameter("@JBYhm",SqlDbType.VarChar,50),
+                    new SqlParameter("@JBmm",SqlDbType.VarChar,50)
                                         };
             parameters[0].Value = model.OrgCode;
             parameters[1].Value = model.MemberTypeId;
@@ -296,6 +319,8 @@ namespace NCPEP.Dal
             parameters[13].Value = model.LiceTranType;
             parameters[14].Value = model.Id;
             parameters[15].Value = model.FK_WebUserVeriId;
+            parameters[16].Value = model.JBYhm;
+            parameters[17].Value = model.JBmm;
             return parameters;
         }
     }

@@ -10,7 +10,7 @@
 namespace Web.Super.Lt {
     
     
-    public partial class LiceOrTran {
+    public partial class LiceOrTran2 {
         
         /// <summary>
         /// Head1 控件。

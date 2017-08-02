@@ -21,7 +21,7 @@
     </style>
 </head>
 <body class="easyui-layout">
-    <div region="north" title="出让/受让方信息列表" split="true" style="height: 370px; overflow: hidden;
+    <div region="north" title="出让方信息列表" split="true" style="height: 370px; overflow: hidden;
         border: 0px;" border="false">
         <div id="tool">
             <a id="btnAdd" class="easyui-linkbutton" icon="icon-add" href="javascript:void(0)">新建</a>
@@ -51,7 +51,7 @@
         </table>
     </div>
     <div id="newAdd" class="easyui-window" modal="true" collapsible="false" minimizable="false"
-        maximizable="false" icon="icon-save" style="width: 660px; height: 320px; padding: 5px;
+        maximizable="false" icon="icon-save" style="width: 660px; height: 350px; padding: 5px;
         background: #fafafa;">
         <form id="forms" runat="server">
         <table width="640" class="tb" border="0px" cellpadding="0" cellspacing="0">
@@ -153,6 +153,24 @@
                     </td>
                 </tr>
             </span>
+          
+                <tr id="trjingbiao" style="display:none;" >
+                    <td height="35">
+                        竞标用户名<span style="color: Red;">**</span>
+                    </td>
+                    <td>
+                        <input type="text" name="JBYhm" id="txtJBYhm" maxlength="100"
+                            class="easyui-textbox" style="width: 150px;" />
+                    </td>
+                    <td>
+                        竞标登陆密码<span style="color: Red;">**</span>
+                    </td>
+                    <td>
+                        <input type="text" name="JBmm" id="txtJBmm" maxlength="100" class="easyui-textbox"
+                            style="width: 150px;" />
+                    </td>
+                </tr>
+            
             <tr align="center">
                 <td colspan="4" height="40">
                     <a id="btnCreate" class="easyui-linkbutton" icon="icon-ok" href="javascript:void(0)">
@@ -198,5 +216,7 @@
         <iframe id="ScanUpload" scrolling="no" frameborder="0" style="width: 100%; height: 100%;">
         </iframe>
     </div>
+   
+    
 </body>
 </html>

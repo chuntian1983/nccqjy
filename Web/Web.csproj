@@ -105,6 +105,7 @@
     <Content Include="css\bootstrap-theme.min.css" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
+    <Content Include="data\ncpep.sql" />
     <Content Include="dzjj.aspx" />
     <Content Include="error.html" />
     <Content Include="Images\01.jpg" />
@@ -558,6 +559,7 @@
     <Content Include="Super\Lt\fujianUpload.aspx" />
     <Content Include="Super\Lt\fujianview.aspx" />
     <Content Include="Super\Lt\jquery.media.js" />
+    <Content Include="Super\Lt\LiceOrTran2.aspx" />
     <Content Include="Super\Lt\WebForm1.aspx" />
     <Content Include="Super\rg\rg.aspx" />
     <Content Include="Super\Scan\warning.aspx" />
@@ -2026,6 +2028,13 @@
     </Compile>
     <Compile Include="Super\Lt\LiceOrTran.aspx.designer.cs">
       <DependentUpon>LiceOrTran.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Lt\LiceOrTran2.aspx.cs">
+      <DependentUpon>LiceOrTran2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Lt\LiceOrTran2.aspx.designer.cs">
+      <DependentUpon>LiceOrTran2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Super\Lt\ScanUpload.aspx.cs">
       <DependentUpon>ScanUpload.aspx</DependentUpon>
