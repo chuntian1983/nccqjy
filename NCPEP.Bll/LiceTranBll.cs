@@ -51,6 +51,9 @@ namespace NCPEP.Bll
                 case "add":
                     returnDate = Create(context);
                     break;
+                case "addsrf":
+                    returnDate = Createsrf(context);
+                    break;
                 case "up":
                     returnDate = Update(context);
                     break;
@@ -316,7 +319,7 @@ namespace NCPEP.Bll
         {
             try
             {
-                SysLogBll.Create("出让/受让方", "增加出让/受让方操作", adminUser.AdminName);
+                SysLogBll.Create("出让方", "增加出让方操作", adminUser.AdminName);
                 if (context.Request.Form["JBYhm"] != null)
                 {
                     if (dal.Exist(context.Request.Form["JBYhm"].ToString()))
@@ -325,6 +328,48 @@ namespace NCPEP.Bll
                     }
                     else {
                         if (dal.Create(GetModels(context)))
+                        {
+                            return "添加成功！";
+                        }
+                        else
+                        {
+                            return "添加失败请重新操作! ";
+                        }
+                    }
+                }
+                else
+                {
+                    if (dal.Create(GetModels(context)))
+                    {
+                        return "添加成功！";
+                    }
+                    else
+                    {
+                        return "添加失败请重新操作! ";
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                SystemErrorPlug.ErrorRecord("时间:[" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "]类名:[" + this.GetType().Name + "],行号:[" + Component.GetLineNum().ToString() + "行],错误信息:[" + ex.Message + "]");
+                return "添加失败请重新操作，错误代码：500 ";
+            }
+        }
+        private dynamic Createsrf(HttpContext context)
+        {
+            try
+            {
+                SysLogBll.Create("受让方", "增加出让/受让方操作", adminUser.AdminName);
+                if (context.Request.Form["JBYhm"] != null)
+                {
+                    if (dal.Exist(context.Request.Form["JBYhm"].ToString()))
+                    {
+                        return "该用户名已经存在，请重新填写建议用手机号码！";
+                    }
+                    else
+                    {
+                        if (dal.Create(GetModelsrf(context)))
                         {
                             return "添加成功！";
                         }
@@ -379,13 +424,20 @@ namespace NCPEP.Bll
             try
             {
                 SysLogBll.Create("受让方", "更新受让方操作", adminUser.AdminName);
-                if (dal.Update(GetModels(context)))
+                if (dal.Exist(context.Request.Form["JBYhm"].ToString(), context.Request.Form["Id"].ToString()))
                 {
-                    return "更新成功！";
+                    return "该用户名已经存在，请重新填写建议用手机号码！";
                 }
                 else
                 {
-                    return "更新失败请重新操作! ";
+                    if (dal.Update(GetModelsrf(context)))
+                    {
+                        return "更新成功！";
+                    }
+                    else
+                    {
+                        return "更新失败请重新操作! ";
+                    }
                 }
             }
             catch (Exception ex)
@@ -446,6 +498,37 @@ namespace NCPEP.Bll
             catch { }
             try { model.LiceTranType = int.Parse(context.Request.Form["LiceTranType"].ToString()); }
             catch { model.LiceTranType = 1; }
+            model.OrgCode = context.Request.Form["OrgCode"].ToString();
+            try { model.MemberTypeId = int.Parse(context.Request.Form["MemberTypeId"].ToString()); }
+            catch { }
+            model.Name = context.Request.Form["Name"].ToString();
+            model.Addr = context.Request.Form["Addr"].ToString();
+            model.Contact = context.Request.Form["Contact"].ToString();
+            model.Corporate = context.Request.Form["Corporate"].ToString();
+            model.IDCard = context.Request.Form["IDCard"].ToString();
+            model.OrganizationCode = context.Request.Form["OrganizationCode"].ToString();
+            model.Tel = context.Request.Form["Tel"].ToString();
+            model.Owner = context.Request.Form["Owner"].ToString();
+            model.Capital = context.Request.Form["Capital"].ToString();
+            try { model.ApplyDate = DateTime.Parse(context.Request.Form["ApplyDate"].ToString()); }
+            catch { }
+            try { model.AuditType = int.Parse(context.Request.Form["AuditType"].ToString()); }
+            catch { }
+            try { model.FK_WebUserVeriId = int.Parse(context.Request.Form["FK_WebUserVeriId"].ToString()); }
+            catch { }
+            try { model.JBYhm = context.Request.Form["JBYhm"].ToString(); }
+            catch { }
+            try { model.JBmm = context.Request.Form["JBmm"].ToString(); }
+            catch { }
+            return model;
+        }
+        private dynamic GetModelsrf(HttpContext context)
+        {
+            LiceTran model = new LiceTran();
+            try { model.Id = int.Parse(context.Request.Form["Id"].ToString()); }
+            catch { }
+            try { model.LiceTranType = 2; }
+            catch { model.LiceTranType =2; }
             model.OrgCode = context.Request.Form["OrgCode"].ToString();
             try { model.MemberTypeId = int.Parse(context.Request.Form["MemberTypeId"].ToString()); }
             catch { }

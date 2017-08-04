@@ -15,11 +15,11 @@ namespace Web.Super
         /// <returns></returns>
         public static string Ver()
         {
-            return "Ver:1.1118";
+            return "Ver:1.1119";
         }
         public static string strVersion()
         {
-            return "1.1118";
+            return "1.1119";
         }
         /// <summary>
         /// 版本升级说明
@@ -30,6 +30,12 @@ namespace Web.Super
 
 
             /*
+             * 
+             * * * * *  2017-8-4更新版本Ver:1.1119
+             * 1.受让方和出让方分开进行管理，受让方添加竞标用户名和密码 
+             * 
+             * 
+             * 
              * 
              * * * *  2017-8-2更新版本Ver:1.1118
              * 1.T_LiceTran表添加2个字段JBYhm，JBmm

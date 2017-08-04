@@ -155,6 +155,25 @@ namespace NCPEP.Dal
                 return false;
             }
         }
+        /// <summary>
+        /// 修改判断竞标用户名是否重复
+        /// </summary>
+        /// <param name="jbyhm"></param>
+        /// <param name="strid"></param>
+        /// <returns></returns>
+        public bool Exist(string jbyhm,string strid)
+        {
+            string strsql = "select * from T_LiceTran where jbyhm='" + jbyhm + "' and id!='"+strid+"'";
+            DataTable dt = DbHelperSQL.Query(strsql).Tables[0];
+            if (dt.Rows.Count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         //
         public bool Update(LiceTran model)
         {

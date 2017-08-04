@@ -372,7 +372,7 @@
             $("#btnCreate").click(function () {
 
                 $('#forms').form('submit', {
-                    url: '../Ashx/LiceOrTran.ashx?action=add',
+                    url: '../Ashx/LiceOrTran.ashx?action=addsrf',
                     async: false,
                     onSubmit: function () {
                         return $(this).form('validate');
