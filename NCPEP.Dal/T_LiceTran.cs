@@ -17,6 +17,22 @@ namespace NCPEP.Dal
         public T_LiceTran()
         { }
         #region  BasicMethod
+        /// <summary>
+        /// 是否存在该记录
+        /// </summary>
+        public bool Exists(int Id)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select count(1) from T_LiceTran");
+            strSql.Append(" where Id=@Id");
+            SqlParameter[] parameters = {
+					new SqlParameter("@Id", SqlDbType.Int,4)
+			};
+            parameters[0].Value = Id;
+
+            return DbHelperSQL.Exists(strSql.ToString(), parameters);
+        }
+
 
         /// <summary>
         /// 增加一条数据
@@ -25,9 +41,9 @@ namespace NCPEP.Dal
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into T_LiceTran(");
-            strSql.Append("FK_WebUserVeriId,LiceTranType,OrgCode,MemberTypeId,Name,Addr,Contact,Corporate,IDCard,OrganizationCode,Tel,Owner,Capital,ApplyDate,AuditType)");
+            strSql.Append("FK_WebUserVeriId,LiceTranType,OrgCode,MemberTypeId,Name,Addr,Contact,Corporate,IDCard,OrganizationCode,Tel,Owner,Capital,ApplyDate,AuditType,JBYhm,JBmm)");
             strSql.Append(" values (");
-            strSql.Append("@FK_WebUserVeriId,@LiceTranType,@OrgCode,@MemberTypeId,@Name,@Addr,@Contact,@Corporate,@IDCard,@OrganizationCode,@Tel,@Owner,@Capital,@ApplyDate,@AuditType)");
+            strSql.Append("@FK_WebUserVeriId,@LiceTranType,@OrgCode,@MemberTypeId,@Name,@Addr,@Contact,@Corporate,@IDCard,@OrganizationCode,@Tel,@Owner,@Capital,@ApplyDate,@AuditType,@JBYhm,@JBmm)");
             strSql.Append(";select @@IDENTITY");
             SqlParameter[] parameters = {
 					new SqlParameter("@FK_WebUserVeriId", SqlDbType.Int,4),
@@ -44,7 +60,9 @@ namespace NCPEP.Dal
 					new SqlParameter("@Owner", SqlDbType.NVarChar,100),
 					new SqlParameter("@Capital", SqlDbType.NVarChar,100),
 					new SqlParameter("@ApplyDate", SqlDbType.DateTime),
-					new SqlParameter("@AuditType", SqlDbType.Int,4)};
+					new SqlParameter("@AuditType", SqlDbType.Int,4),
+					new SqlParameter("@JBYhm", SqlDbType.VarChar,50),
+					new SqlParameter("@JBmm", SqlDbType.NVarChar,50)};
             parameters[0].Value = model.FK_WebUserVeriId;
             parameters[1].Value = model.LiceTranType;
             parameters[2].Value = model.OrgCode;
@@ -60,6 +78,8 @@ namespace NCPEP.Dal
             parameters[12].Value = model.Capital;
             parameters[13].Value = model.ApplyDate;
             parameters[14].Value = model.AuditType;
+            parameters[15].Value = model.JBYhm;
+            parameters[16].Value = model.JBmm;
 
             object obj = DbHelperSQL.GetSingle(strSql.ToString(), parameters);
             if (obj == null)
@@ -92,7 +112,9 @@ namespace NCPEP.Dal
             strSql.Append("Owner=@Owner,");
             strSql.Append("Capital=@Capital,");
             strSql.Append("ApplyDate=@ApplyDate,");
-            strSql.Append("AuditType=@AuditType");
+            strSql.Append("AuditType=@AuditType,");
+            strSql.Append("JBYhm=@JBYhm,");
+            strSql.Append("JBmm=@JBmm");
             strSql.Append(" where Id=@Id");
             SqlParameter[] parameters = {
 					new SqlParameter("@FK_WebUserVeriId", SqlDbType.Int,4),
@@ -110,6 +132,8 @@ namespace NCPEP.Dal
 					new SqlParameter("@Capital", SqlDbType.NVarChar,100),
 					new SqlParameter("@ApplyDate", SqlDbType.DateTime),
 					new SqlParameter("@AuditType", SqlDbType.Int,4),
+					new SqlParameter("@JBYhm", SqlDbType.VarChar,50),
+					new SqlParameter("@JBmm", SqlDbType.NVarChar,50),
 					new SqlParameter("@Id", SqlDbType.Int,4)};
             parameters[0].Value = model.FK_WebUserVeriId;
             parameters[1].Value = model.LiceTranType;
@@ -126,7 +150,9 @@ namespace NCPEP.Dal
             parameters[12].Value = model.Capital;
             parameters[13].Value = model.ApplyDate;
             parameters[14].Value = model.AuditType;
-            parameters[15].Value = model.Id;
+            parameters[15].Value = model.JBYhm;
+            parameters[16].Value = model.JBmm;
+            parameters[17].Value = model.Id;
 
             int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
             if (rows > 0)
@@ -190,7 +216,7 @@ namespace NCPEP.Dal
         {
 
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select  top 1 Id,FK_WebUserVeriId,LiceTranType,OrgCode,MemberTypeId,Name,Addr,Contact,Corporate,IDCard,OrganizationCode,Tel,Owner,Capital,ApplyDate,AuditType from T_LiceTran ");
+            strSql.Append("select  top 1 Id,FK_WebUserVeriId,LiceTranType,OrgCode,MemberTypeId,Name,Addr,Contact,Corporate,IDCard,OrganizationCode,Tel,Owner,Capital,ApplyDate,AuditType,JBYhm,JBmm from T_LiceTran ");
             strSql.Append(" where Id=@Id");
             SqlParameter[] parameters = {
 					new SqlParameter("@Id", SqlDbType.Int,4)
@@ -208,7 +234,7 @@ namespace NCPEP.Dal
                 return null;
             }
         }
-
+       
 
         /// <summary>
         /// 得到一个对象实体
@@ -282,6 +308,14 @@ namespace NCPEP.Dal
                 {
                     model.AuditType = int.Parse(row["AuditType"].ToString());
                 }
+                if (row["JBYhm"] != null)
+                {
+                    model.JBYhm = row["JBYhm"].ToString();
+                }
+                if (row["JBmm"] != null)
+                {
+                    model.JBmm = row["JBmm"].ToString();
+                }
             }
             return model;
         }
@@ -292,7 +326,7 @@ namespace NCPEP.Dal
         public DataSet GetList(string strWhere)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select Id,FK_WebUserVeriId,LiceTranType,OrgCode,MemberTypeId,Name,Addr,Contact,Corporate,IDCard,OrganizationCode,Tel,Owner,Capital,ApplyDate,AuditType ");
+            strSql.Append("select Id,FK_WebUserVeriId,LiceTranType,OrgCode,MemberTypeId,Name,Addr,Contact,Corporate,IDCard,OrganizationCode,Tel,Owner,Capital,ApplyDate,AuditType,JBYhm,JBmm ");
             strSql.Append(" FROM T_LiceTran ");
             if (strWhere.Trim() != "")
             {
@@ -312,7 +346,7 @@ namespace NCPEP.Dal
             {
                 strSql.Append(" top " + Top.ToString());
             }
-            strSql.Append(" Id,FK_WebUserVeriId,LiceTranType,OrgCode,MemberTypeId,Name,Addr,Contact,Corporate,IDCard,OrganizationCode,Tel,Owner,Capital,ApplyDate,AuditType ");
+            strSql.Append(" Id,FK_WebUserVeriId,LiceTranType,OrgCode,MemberTypeId,Name,Addr,Contact,Corporate,IDCard,OrganizationCode,Tel,Owner,Capital,ApplyDate,AuditType,JBYhm,JBmm ");
             strSql.Append(" FROM T_LiceTran ");
             if (strWhere.Trim() != "")
             {
@@ -396,7 +430,37 @@ namespace NCPEP.Dal
 
         #endregion  BasicMethod
         #region  ExtensionMethod
+        /// <summary>
+        /// 用户登陆
+        /// </summary>
+        /// <param name="jbyhm"></param>
+        /// <param name="jbmm"></param>
+        /// <returns></returns>
+        public NCPEP.Model.T_LiceTran GetModeluser(string jbyhm, string jbmm)
+        {
 
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select  top 1 Id,FK_WebUserVeriId,LiceTranType,OrgCode,MemberTypeId,Name,Addr,Contact,Corporate,IDCard,OrganizationCode,Tel,Owner,Capital,ApplyDate,AuditType,JBYhm,JBmm from T_LiceTran  ");
+            strSql.Append(" where jbyhm=@jbyhm and jbmm=@jbmm");
+            SqlParameter[] parameters = {
+					new SqlParameter("@jbyhm", SqlDbType.VarChar,50),
+                    new SqlParameter("@jbmm",SqlDbType.VarChar,50)
+                     
+			};
+            parameters[0].Value = jbyhm;
+            parameters[1].Value = jbmm;
+
+            NCPEP.Model.T_LiceTran model = new NCPEP.Model.T_LiceTran();
+            DataSet ds = DbHelperSQL.Query(strSql.ToString(), parameters);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return DataRowToModel(ds.Tables[0].Rows[0]);
+            }
+            else
+            {
+                return null;
+            }
+        }
         #endregion  ExtensionMethod
     }
 }

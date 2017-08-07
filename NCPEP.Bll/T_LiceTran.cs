@@ -18,6 +18,13 @@ namespace NCPEP.Bll
         { }
         #region  BasicMethod
         /// <summary>
+        /// 是否存在该记录
+        /// </summary>
+        public bool Exists(int Id)
+        {
+            return dal.Exists(Id);
+        }
+        /// <summary>
         /// 增加一条数据
         /// </summary>
         public int Add(NCPEP.Model.T_LiceTran model)
@@ -134,7 +141,17 @@ namespace NCPEP.Bll
 
         #endregion  BasicMethod
         #region  ExtensionMethod
+        /// <summary>
+        /// 用户登陆
+        /// </summary>
+        /// <param name="jbyhm"></param>
+        /// <param name="jbmm"></param>
+        /// <returns></returns>
+        public NCPEP.Model.T_LiceTran GetModeluser(string jbyhm, string jbmm)
+        {
 
+            return dal.GetModeluser(jbyhm, jbmm);
+        }
         #endregion  ExtensionMethod
     }
 }

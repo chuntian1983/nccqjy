@@ -518,6 +518,10 @@ namespace NCPEP.Bll
                 {
                     sqlWhere += string.Format(" and a.BidName like '%{0}%'", context.Request.QueryString["BidName"]);
                 }
+                if (context.Request.QueryString["StandardMode"] != null)
+                {
+                    sqlWhere += string.Format(" and a.StandardMode = '{0}'", context.Request.QueryString["StandardMode"]);
+                }
                 string DepaStatus = context.Request.QueryString["DepaStatus"];
                 if (DepaStatus == "2" || DepaStatus == "1")
                 {

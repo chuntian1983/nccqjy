@@ -37,11 +37,28 @@ namespace NCPEP.Bll
                 case "fun":
                     returnDate = GetSysFun();
                     break;
+                case "funuser":
+                    returnDate = GetSysFunUser();
+                    break;
                 default:
                     returnDate = "请求错误!";
                     break;
             }
             return returnDate;
+        }
+        private string GetSysFunUser()
+        {
+            try
+            {
+                
+                string strsql=@"[{'menuid':'1','menuname':'电子竞价管理','menus':[{'menuid':'19','menuname':'一次竞价','url':'Sys/SysFun.aspx'},{'menuid':'63','menuname':'二次竞价','url':'https://www.baidu.com/'}]}]";
+                return strsql;
+            }
+            catch (Exception ex)
+            {
+                SystemErrorPlug.ErrorRecord("时间:[" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "]类名:[" + this.GetType().Name + "],行号:[" + Component.GetLineNum().ToString() + "行],错误信息:[" + ex.Message + "]");
+                return string.Empty;
+            }
         }
         //
         private string GetSysFun()

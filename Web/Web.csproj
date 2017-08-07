@@ -556,11 +556,13 @@
     <Content Include="Super\Images\login_bg.jpg" />
     <Content Include="Super\Images\mbg.png" />
     <Content Include="Super\Images\news.png" />
+    <Content Include="Super\loginuser.aspx" />
     <Content Include="Super\Lt\fujianUpload.aspx" />
     <Content Include="Super\Lt\fujianview.aspx" />
     <Content Include="Super\Lt\jquery.media.js" />
     <Content Include="Super\Lt\LiceOrTran2.aspx" />
     <Content Include="Super\Lt\WebForm1.aspx" />
+    <Content Include="Super\mainuser.aspx" />
     <Content Include="Super\rg\rg.aspx" />
     <Content Include="Super\Scan\warning.aspx" />
     <Content Include="Super\Scripts\Agreementxx.js" />
@@ -2008,6 +2010,13 @@
     <Compile Include="Super\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Super\loginuser.aspx.cs">
+      <DependentUpon>loginuser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\loginuser.aspx.designer.cs">
+      <DependentUpon>loginuser.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Super\Lt\fujianUpload.aspx.cs">
       <DependentUpon>fujianUpload.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2056,6 +2065,13 @@
     </Compile>
     <Compile Include="Super\Main.aspx.designer.cs">
       <DependentUpon>Main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\mainuser.aspx.cs">
+      <DependentUpon>mainuser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\mainuser.aspx.designer.cs">
+      <DependentUpon>mainuser.aspx</DependentUpon>
     </Compile>
     <Compile Include="Super\Power\Permis.aspx.cs">
       <DependentUpon>Permis.aspx</DependentUpon>

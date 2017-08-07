@@ -30,6 +30,8 @@ namespace NCPEP.Model
         private string _capital;
         private DateTime _applydate;
         private int _audittype;
+        private string _jbyhm;
+        private string _jbmm;
         /// <summary>
         /// 
         /// </summary>
@@ -157,6 +159,22 @@ namespace NCPEP.Model
         {
             set { _audittype = value; }
             get { return _audittype; }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string JBYhm
+        {
+            set { _jbyhm = value; }
+            get { return _jbyhm; }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string JBmm
+        {
+            set { _jbmm = value; }
+            get { return _jbmm; }
         }
         #endregion Model
 
