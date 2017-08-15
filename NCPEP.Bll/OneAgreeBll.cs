@@ -9,6 +9,7 @@ using System.Data;
 using NCPEP.BidCar;
 using NCPEP.Dal;
 
+
 namespace NCPEP.Bll
 {
     public class OneAgreeBll : IReadOnlySessionState, IRequiresSessionState
@@ -55,6 +56,9 @@ namespace NCPEP.Bll
                 case "add":
                     returnDate = AddBidTransaction(context);
                     break;
+                case "ksjj":
+                    returnDate = KSJJ(context);
+                    break;
                 default:
                     context.Response.Write("请求错误!");
                     break;
@@ -79,6 +83,32 @@ namespace NCPEP.Bll
                 bidCarData.CopyDataTableToSql(dataTable);
                 context.Application.Remove(BidId);
                 return "成交成功";
+            }
+            catch (Exception ex)
+            {
+                SystemErrorPlug.ErrorRecord("时间:[" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "]类名:[" + this.GetType().Name + "],行号:[" + Component.GetLineNum().ToString() + "行],错误信息:[" + ex.Message + "]");
+                return "成交失败！";
+            }
+        }
+        private string KSJJ(HttpContext context)
+        {
+            try
+            {
+                
+                string jjsj = context.Request.QueryString["jjsj"];
+                string BidId = context.Request.QueryString["bid"];
+                string qbjg = context.Request.QueryString["qpjg"];
+                Model.T_Bid model = new Model.T_Bid();
+                NCPEP.Dal.T_Bid dal = new Dal.T_Bid();
+                model = dal.GetModel(int.Parse(BidId));
+                model.Jbjzsj = System.DateTime.Now.AddMinutes(double.Parse(jjsj)).ToString();
+                model.Jbqbj = qbjg;
+                model.Jbzt = "1";
+                if (dal.Update(model))
+                {
+                    return "设置成功";
+                }
+                else { return "设置失败"; }
             }
             catch (Exception ex)
             {

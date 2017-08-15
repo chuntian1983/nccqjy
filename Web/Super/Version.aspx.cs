@@ -15,11 +15,11 @@ namespace Web.Super
         /// <returns></returns>
         public static string Ver()
         {
-            return "Ver:1.1119";
+            return "Ver:1.1120";
         }
         public static string strVersion()
         {
-            return "1.1119";
+            return "1.1120";
         }
         /// <summary>
         /// 版本升级说明
@@ -30,6 +30,10 @@ namespace Web.Super
 
 
             /*
+             * 
+             * * * * * *  2017-8-15更新版本Ver:1.1120
+             * 1.t_Bid表添加Jbzt，jbjzsj,jbqbj状态字段,竞标截止时间，竞标起拍价
+             * 2.添加电子竞价系统登录页面和电子竞价系统后台管理
              * 
              * * * * *  2017-8-4更新版本Ver:1.1119
              * 1.受让方和出让方分开进行管理，受让方添加竞标用户名和密码 

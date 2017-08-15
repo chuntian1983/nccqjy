@@ -533,7 +533,10 @@
     <Content Include="Super\Bi\daying.aspx" />
     <Content Include="Super\Bi\Headsqs.aspx" />
     <Content Include="Super\Bi\jzsdysq.aspx" />
+    <Content Include="Super\Bi\OneAgreeUser.aspx" />
     <Content Include="Super\Bi\Supersqs.aspx" />
+    <Content Include="Super\Bi\TwoAgreeUser.aspx" />
+    <Content Include="Super\Bi\WebForm1.aspx" />
     <Content Include="Super\Bi\Xmbeian.aspx" />
     <Content Include="Super\Bi\Xmbeiansh.aspx" />
     <Content Include="Super\Bi\Zbgg.aspx" />
@@ -1870,6 +1873,13 @@
     <Compile Include="Super\Bi\OneAgree.aspx.designer.cs">
       <DependentUpon>OneAgree.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Super\Bi\OneAgreeUser.aspx.cs">
+      <DependentUpon>OneAgreeUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Bi\OneAgreeUser.aspx.designer.cs">
+      <DependentUpon>OneAgreeUser.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Super\Bi\Super.aspx.cs">
       <DependentUpon>Super.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1897,6 +1907,20 @@
     </Compile>
     <Compile Include="Super\Bi\TwoAgree.aspx.designer.cs">
       <DependentUpon>TwoAgree.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Bi\TwoAgreeUser.aspx.cs">
+      <DependentUpon>TwoAgreeUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Bi\TwoAgreeUser.aspx.designer.cs">
+      <DependentUpon>TwoAgreeUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Bi\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Bi\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Super\Bi\Xmbeian.aspx.cs">
       <DependentUpon>Xmbeian.aspx</DependentUpon>

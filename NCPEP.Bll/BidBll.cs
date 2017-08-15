@@ -63,8 +63,12 @@ namespace NCPEP.Bll
                 case "del":
                     returnDate = Delete(context);
                     break;
-                case "paging":
+                case "yicijingbiao":
                     string str = "\"total\":" + SumCount(context) + ",";
+                    returnDate = JsonHelper<Bid>.JsonDataTable(GetAllList(context), "rows").Insert(1, (str));
+                    break;
+                case "paging":
+                     str = "\"total\":" + SumCount(context) + ",";
                     returnDate = JsonHelper<Bid>.JsonDataTable(GetAllList(context), "rows").Insert(1, (str));
                     break;
                 case "dyzt":

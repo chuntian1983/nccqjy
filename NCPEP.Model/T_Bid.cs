@@ -19,17 +19,17 @@ namespace NCPEP.Model
         private int _fk_licetranid;
         private string _bidname;
         private string _listingprice;
-        private DateTime? _startdate = DateTime.Now;
-        private DateTime? _enddate = DateTime.Now.AddYears(10);
+        private DateTime? _startdate;
+        private DateTime? _enddate;
         private string _bidbasic;
         private string _ownership;
         private string _properties;
-        private int? _turnout= 0;
+        private int? _turnout;
         private string _rightsbodies;
         private string _feedingmechanism;
         private string _warrantnumber;
         private string _lowtransaction;
-        private decimal? _turnover = 0;
+        private decimal? _turnover;
         private string _contractdate;
         private string _contractno;
         private string _admissibility;
@@ -37,20 +37,23 @@ namespace NCPEP.Model
         private string _tradingcentername;
         private string _arecontract;
         private string _relatesnum;
-        private int? _depastatus = 0;
-        private int? _returnstatus = 0;
+        private int? _depastatus;
+        private int? _returnstatus;
         private int? _upmanager;
         private string _publicity;
-        private int? _change = 0;
-        private int? _cancel = 0;
-        private int? _lost = 0;
+        private int? _change;
+        private int? _cancel;
+        private int? _lost;
         private int _standardmode;
         private int _standardtype;
-        private DateTime _createdate = DateTime.Now;
+        private DateTime? _createdate = DateTime.Now;
         private string _guimo;
         private string _danwei;
         private string _sfzclz;
         private string _srfjbtj;
+        private string _jbzt;
+        private string _jbjzsj;
+        private string _jbqbj;
         /// <summary>
         /// 
         /// </summary>
@@ -310,7 +313,7 @@ namespace NCPEP.Model
         /// <summary>
         /// 
         /// </summary>
-        public DateTime CreateDate
+        public DateTime? CreateDate
         {
             set { _createdate = value; }
             get { return _createdate; }
@@ -347,7 +350,32 @@ namespace NCPEP.Model
             set { _srfjbtj = value; }
             get { return _srfjbtj; }
         }
+        /// <summary>
+        /// 电子竞价的状态1完成
+        /// </summary>
+        public string Jbzt
+        {
+            set { _jbzt = value; }
+            get { return _jbzt; }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Jbjzsj
+        {
+            set { _jbjzsj = value; }
+            get { return _jbjzsj; }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Jbqbj
+        {
+            set { _jbqbj = value; }
+            get { return _jbqbj; }
+        }
         #endregion Model
+
 
     }
 }

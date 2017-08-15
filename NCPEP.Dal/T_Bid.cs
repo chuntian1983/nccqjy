@@ -17,17 +17,33 @@ namespace NCPEP.Dal
         public T_Bid()
         { }
         #region  BasicMethod
+        /// <summary>
+        /// 是否存在该记录
+        /// </summary>
+        public bool Exists(int Id)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select count(1) from T_Bid");
+            strSql.Append(" where Id=@Id");
+            SqlParameter[] parameters = {
+					new SqlParameter("@Id", SqlDbType.Int,4)
+			};
+            parameters[0].Value = Id;
+
+            return DbHelperSQL.Exists(strSql.ToString(), parameters);
+        }
+
 
         /// <summary>
         /// 增加一条数据
         /// </summary>
-        public int Add(NCPEP.Model.T_Bid model)
+        public int Add( NCPEP.Model.T_Bid model)
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into T_Bid(");
-            strSql.Append("OrgCode,FK_LiceTranId,BidName,ListingPrice,StartDate,EndDate,BidBasic,Ownership,Properties,TurnOut,RightsBodies,FeedingMechanism,WarrantNumber,LowTransaction,Turnover,ContractDate,ContractNo,Admissibility,NoAssurance,TradingCenterName,AreContract,RelatesNum,DepaStatus,ReturnStatus,UpManager,Publicity,Change,Cancel,Lost,StandardMode,StandardType,CreateDate,guimo,danwei,sfzclz,srfjbtj)");
+            strSql.Append("OrgCode,FK_LiceTranId,BidName,ListingPrice,StartDate,EndDate,BidBasic,Ownership,Properties,TurnOut,RightsBodies,FeedingMechanism,WarrantNumber,LowTransaction,Turnover,ContractDate,ContractNo,Admissibility,NoAssurance,TradingCenterName,AreContract,RelatesNum,DepaStatus,ReturnStatus,UpManager,Publicity,Change,Cancel,Lost,StandardMode,StandardType,CreateDate,guimo,danwei,sfzclz,srfjbtj,Jbzt,Jbjzsj,Jbqbj)");
             strSql.Append(" values (");
-            strSql.Append("@OrgCode,@FK_LiceTranId,@BidName,@ListingPrice,@StartDate,@EndDate,@BidBasic,@Ownership,@Properties,@TurnOut,@RightsBodies,@FeedingMechanism,@WarrantNumber,@LowTransaction,@Turnover,@ContractDate,@ContractNo,@Admissibility,@NoAssurance,@TradingCenterName,@AreContract,@RelatesNum,@DepaStatus,@ReturnStatus,@UpManager,@Publicity,@Change,@Cancel,@Lost,@StandardMode,@StandardType,@CreateDate,@guimo,@danwei,@sfzclz,@srfjbtj)");
+            strSql.Append("@OrgCode,@FK_LiceTranId,@BidName,@ListingPrice,@StartDate,@EndDate,@BidBasic,@Ownership,@Properties,@TurnOut,@RightsBodies,@FeedingMechanism,@WarrantNumber,@LowTransaction,@Turnover,@ContractDate,@ContractNo,@Admissibility,@NoAssurance,@TradingCenterName,@AreContract,@RelatesNum,@DepaStatus,@ReturnStatus,@UpManager,@Publicity,@Change,@Cancel,@Lost,@StandardMode,@StandardType,@CreateDate,@guimo,@danwei,@sfzclz,@srfjbtj,@Jbzt,@Jbjzsj,@Jbqbj)");
             strSql.Append(";select @@IDENTITY");
             SqlParameter[] parameters = {
 					new SqlParameter("@OrgCode", SqlDbType.NVarChar,50),
@@ -65,7 +81,10 @@ namespace NCPEP.Dal
 					new SqlParameter("@guimo", SqlDbType.VarChar,50),
 					new SqlParameter("@danwei", SqlDbType.NVarChar,50),
 					new SqlParameter("@sfzclz", SqlDbType.NVarChar,50),
-					new SqlParameter("@srfjbtj", SqlDbType.NVarChar,500)};
+					new SqlParameter("@srfjbtj", SqlDbType.NVarChar,500),
+					new SqlParameter("@Jbzt", SqlDbType.VarChar,50),
+					new SqlParameter("@Jbjzsj", SqlDbType.VarChar,50),
+					new SqlParameter("@Jbqbj", SqlDbType.NVarChar,50)};
             parameters[0].Value = model.OrgCode;
             parameters[1].Value = model.FK_LiceTranId;
             parameters[2].Value = model.BidName;
@@ -102,6 +121,9 @@ namespace NCPEP.Dal
             parameters[33].Value = model.danwei;
             parameters[34].Value = model.sfzclz;
             parameters[35].Value = model.srfjbtj;
+            parameters[36].Value = model.Jbzt;
+            parameters[37].Value = model.Jbjzsj;
+            parameters[38].Value = model.Jbqbj;
 
             object obj = DbHelperSQL.GetSingle(strSql.ToString(), parameters);
             if (obj == null)
@@ -155,7 +177,10 @@ namespace NCPEP.Dal
             strSql.Append("guimo=@guimo,");
             strSql.Append("danwei=@danwei,");
             strSql.Append("sfzclz=@sfzclz,");
-            strSql.Append("srfjbtj=@srfjbtj");
+            strSql.Append("srfjbtj=@srfjbtj,");
+            strSql.Append("Jbzt=@Jbzt,");
+            strSql.Append("Jbjzsj=@Jbjzsj,");
+            strSql.Append("Jbqbj=@Jbqbj");
             strSql.Append(" where Id=@Id");
             SqlParameter[] parameters = {
 					new SqlParameter("@OrgCode", SqlDbType.NVarChar,50),
@@ -194,6 +219,9 @@ namespace NCPEP.Dal
 					new SqlParameter("@danwei", SqlDbType.NVarChar,50),
 					new SqlParameter("@sfzclz", SqlDbType.NVarChar,50),
 					new SqlParameter("@srfjbtj", SqlDbType.NVarChar,500),
+					new SqlParameter("@Jbzt", SqlDbType.VarChar,50),
+					new SqlParameter("@Jbjzsj", SqlDbType.VarChar,50),
+					new SqlParameter("@Jbqbj", SqlDbType.NVarChar,50),
 					new SqlParameter("@Id", SqlDbType.Int,4)};
             parameters[0].Value = model.OrgCode;
             parameters[1].Value = model.FK_LiceTranId;
@@ -231,7 +259,10 @@ namespace NCPEP.Dal
             parameters[33].Value = model.danwei;
             parameters[34].Value = model.sfzclz;
             parameters[35].Value = model.srfjbtj;
-            parameters[36].Value = model.Id;
+            parameters[36].Value = model.Jbzt;
+            parameters[37].Value = model.Jbjzsj;
+            parameters[38].Value = model.Jbqbj;
+            parameters[39].Value = model.Id;
 
             int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
             if (rows > 0)
@@ -295,7 +326,7 @@ namespace NCPEP.Dal
         {
 
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select  top 1 Id,OrgCode,FK_LiceTranId,BidName,ListingPrice,StartDate,EndDate,BidBasic,Ownership,Properties,TurnOut,RightsBodies,FeedingMechanism,WarrantNumber,LowTransaction,Turnover,ContractDate,ContractNo,Admissibility,NoAssurance,TradingCenterName,AreContract,RelatesNum,DepaStatus,ReturnStatus,UpManager,Publicity,Change,Cancel,Lost,StandardMode,StandardType,CreateDate,guimo,danwei,sfzclz,srfjbtj from T_Bid ");
+            strSql.Append("select  top 1 Id,OrgCode,FK_LiceTranId,BidName,ListingPrice,StartDate,EndDate,BidBasic,Ownership,Properties,TurnOut,RightsBodies,FeedingMechanism,WarrantNumber,LowTransaction,Turnover,ContractDate,ContractNo,Admissibility,NoAssurance,TradingCenterName,AreContract,RelatesNum,DepaStatus,ReturnStatus,UpManager,Publicity,Change,Cancel,Lost,StandardMode,StandardType,CreateDate,guimo,danwei,sfzclz,srfjbtj,Jbzt,Jbjzsj,Jbqbj from T_Bid ");
             strSql.Append(" where Id=@Id");
             SqlParameter[] parameters = {
 					new SqlParameter("@Id", SqlDbType.Int,4)
@@ -471,6 +502,18 @@ namespace NCPEP.Dal
                 {
                     model.srfjbtj = row["srfjbtj"].ToString();
                 }
+                if (row["Jbzt"] != null)
+                {
+                    model.Jbzt = row["Jbzt"].ToString();
+                }
+                if (row["Jbjzsj"] != null)
+                {
+                    model.Jbjzsj = row["Jbjzsj"].ToString();
+                }
+                if (row["Jbqbj"] != null)
+                {
+                    model.Jbqbj = row["Jbqbj"].ToString();
+                }
             }
             return model;
         }
@@ -481,7 +524,7 @@ namespace NCPEP.Dal
         public DataSet GetList(string strWhere)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select Id,OrgCode,FK_LiceTranId,BidName,ListingPrice,StartDate,EndDate,BidBasic,Ownership,Properties,TurnOut,RightsBodies,FeedingMechanism,WarrantNumber,LowTransaction,Turnover,ContractDate,ContractNo,Admissibility,NoAssurance,TradingCenterName,AreContract,RelatesNum,DepaStatus,ReturnStatus,UpManager,Publicity,Change,Cancel,Lost,StandardMode,StandardType,CreateDate,guimo,danwei,sfzclz,srfjbtj ");
+            strSql.Append("select Id,OrgCode,FK_LiceTranId,BidName,ListingPrice,StartDate,EndDate,BidBasic,Ownership,Properties,TurnOut,RightsBodies,FeedingMechanism,WarrantNumber,LowTransaction,Turnover,ContractDate,ContractNo,Admissibility,NoAssurance,TradingCenterName,AreContract,RelatesNum,DepaStatus,ReturnStatus,UpManager,Publicity,Change,Cancel,Lost,StandardMode,StandardType,CreateDate,guimo,danwei,sfzclz,srfjbtj,Jbzt,Jbjzsj,Jbqbj ");
             strSql.Append(" FROM T_Bid ");
             if (strWhere.Trim() != "")
             {
@@ -501,7 +544,7 @@ namespace NCPEP.Dal
             {
                 strSql.Append(" top " + Top.ToString());
             }
-            strSql.Append(" Id,OrgCode,FK_LiceTranId,BidName,ListingPrice,StartDate,EndDate,BidBasic,Ownership,Properties,TurnOut,RightsBodies,FeedingMechanism,WarrantNumber,LowTransaction,Turnover,ContractDate,ContractNo,Admissibility,NoAssurance,TradingCenterName,AreContract,RelatesNum,DepaStatus,ReturnStatus,UpManager,Publicity,Change,Cancel,Lost,StandardMode,StandardType,CreateDate,guimo,danwei,sfzclz,srfjbtj ");
+            strSql.Append(" Id,OrgCode,FK_LiceTranId,BidName,ListingPrice,StartDate,EndDate,BidBasic,Ownership,Properties,TurnOut,RightsBodies,FeedingMechanism,WarrantNumber,LowTransaction,Turnover,ContractDate,ContractNo,Admissibility,NoAssurance,TradingCenterName,AreContract,RelatesNum,DepaStatus,ReturnStatus,UpManager,Publicity,Change,Cancel,Lost,StandardMode,StandardType,CreateDate,guimo,danwei,sfzclz,srfjbtj,Jbzt,Jbjzsj,Jbqbj ");
             strSql.Append(" FROM T_Bid ");
             if (strWhere.Trim() != "")
             {
@@ -518,24 +561,6 @@ namespace NCPEP.Dal
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select count(1) FROM T_Bid ");
-            if (strWhere.Trim() != "")
-            {
-                strSql.Append(" where " + strWhere);
-            }
-            object obj = DbHelperSQL.GetSingle(strSql.ToString());
-            if (obj == null)
-            {
-                return 0;
-            }
-            else
-            {
-                return Convert.ToInt32(obj);
-            }
-        }
-        public int GetRecordCount(string strWhere,string tablename)
-        {
-            StringBuilder strSql = new StringBuilder();
-            strSql.Append("select count(1) FROM "+tablename+" ");
             if (strWhere.Trim() != "")
             {
                 strSql.Append(" where " + strWhere);
@@ -575,31 +600,7 @@ namespace NCPEP.Dal
             strSql.AppendFormat(" WHERE TT.Row between {0} and {1}", startIndex, endIndex);
             return DbHelperSQL.Query(strSql.ToString());
         }
-        /// <summary>
-        /// 分页获取数据列表
-        /// </summary>
-        public DataSet GetListByPage(string strWhere, string orderby, int startIndex, int endIndex,string tablename)
-        {
-            StringBuilder strSql = new StringBuilder();
-            strSql.Append("SELECT * FROM ( ");
-            strSql.Append(" SELECT ROW_NUMBER() OVER (");
-            if (!string.IsNullOrEmpty(orderby.Trim()))
-            {
-                strSql.Append("order by T." + orderby);
-            }
-            else
-            {
-                strSql.Append("order by T.Id desc");
-            }
-            strSql.Append(")AS Row, T.*  from "+tablename+" T ");
-            if (!string.IsNullOrEmpty(strWhere.Trim()))
-            {
-                strSql.Append(" WHERE " + strWhere);
-            }
-            strSql.Append(" ) TT");
-            strSql.AppendFormat(" WHERE TT.Row between {0} and {1}", startIndex, endIndex);
-            return DbHelperSQL.Query(strSql.ToString());
-        }
+
         /*
         /// <summary>
         /// 分页获取数据列表

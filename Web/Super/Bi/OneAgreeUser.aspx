@@ -1,6 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OneAgree.aspx.cs" Inherits="Web.Super.Bi.OneAgree" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OneAgreeUser.aspx.cs" Inherits="Web.Super.Bi.OneAgreeUser" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title></title>
@@ -12,7 +13,7 @@
     <script src="../Scripts/easyUI/jquery.easyui.min.js" type="text/javascript" language="javascript"></script>
     <script src="../Scripts/easyUI/locale/easyui-lang-zh_CN.js" type="text/javascript"
         language="javascript"></script>
-
+ <%--        <script src="../Scripts/OneAgree.js" type="text/javascript" language="javascript">--%>
     <script  type="text/javascript" language="javascript">
         jQuery(function ($) {
             GridView();
@@ -23,7 +24,6 @@
             $('#BidScan').window('close');
             $('#BidAuct').window('close');
             $('#BidClinch').window('close');
-            $('#dzjb').window('close');
         });
 
         function msgShow(title, msgString, msgType) {
@@ -40,7 +40,7 @@
         };
         function GridView() {
             $('#tdg').datagrid({
-                height: 350,
+                
                 nowrap: true,
                 striped: true,
                 url: '../Ashx/BidH.ashx?' + $.param({ action: "paging", DepaStatus: 3, StandardMode: 2 }),
@@ -50,7 +50,7 @@
                 sortOrder: 'desc',
                 fitColumns: false,
                 rownumbers: true,
-                fit: false,
+                fit: true,
                 onDblClickRow: function (rowIndex, rowData) {
                     OnProcessClick(rowData.Id);
                     OnBidInfoGridView(rowData.Id);
@@ -63,11 +63,10 @@
 { field: 'FK_LiceTranId', title: '编号', width: 80, align: 'left', sortable: true, hidden: true },
 { field: 'LiceTran', title: '出让方姓名', width: 80, align: 'left', sortable: true },
 { field: 'BidName', title: '标的名称', width: 80, align: 'left', sortable: true },
-{ field: 'Jbzt', title: '竞价状态', width: 80, align: 'left', sortable: true, formatter: function (value, row, index) { return row.Jbzt == 1 ? "<span style='color:blue;'>竞价中</span>" : "<span style='color:red;'>未竞价<span>"; } }
+{ field: 'ReturnStatus', title: '状态', width: 80, align: 'left', sortable: true, formatter: function (value, row, index) { return row.ReturnStatus == 0 ? "<span style='color:blue;'>正常</span>" : "<span style='color:red;'>撤回<span>"; } }
 ]], columns: [[
-{ field: 'Jbqbj', title: '竞价起拍价格', width: 80, align: 'left', sortable: true },
-{ field: 'Jbjzsj', title: '竞标截止时间', width: 120, align: 'left', sortable: true },
-{ field: 'StandardMode', title: '交易方式', width: 80, align: 'left', sortable: true },
+{ field: 'ListingPrice', title: '挂牌价格', width: 80, align: 'left', sortable: true },
+{ field: 'StartDate', title: '转出开始时间', width: 80, align: 'left', sortable: true },
 { field: 'EndDate', title: '转出结束时间', width: 80, align: 'left', sortable: true },
 { field: 'Ownership', title: '权属', width: 80, align: 'left', sortable: true },
 { field: 'Properties', title: '性质', width: 50, align: 'left', sortable: true },
@@ -75,7 +74,7 @@
 { field: 'RightsBodies', title: '确权机构', width: 50, align: 'left', sortable: true },
 { field: 'FeedingMechanism', title: '转出批准机构', width: 80, align: 'left', sortable: true },
 { field: 'WarrantNumber', title: '权证编号', width: 80, align: 'left', sortable: true },
-
+{ field: 'StandardMode', title: '交易方式', width: 80, align: 'left', sortable: true },
 { field: 'TradingCenterName', title: '交易中心名称', width: 80, align: 'left', sortable: true },
 { field: 'RelatesNum', title: '涉及农户数', width: 80, align: 'left', sortable: true },
 { field: 'Publicity', title: '公示期', width: 80, align: 'left', sortable: true },
@@ -160,16 +159,15 @@
                     handler: function () {
                         var rows = $('#tdg').datagrid('getSelections');
                         if (rows.length > 0) {
-                            // $('#BidAuct').window('open');
-                            $('#dzjb').window('open');
-                            //clearInterval(iCount);
-//                            $.get("../Ashx/BidAucti.ashx?action=is", { BidId: rows[0].Id, SeveralBid: "1" }, function (data) {
-//                                if (data == "0") {
-//                                    $("#btnAuct").show();
-//                                } else {
-//                                    $("#btnAuct").hide();
-//                                }
-//                            }, "text");
+                            $('#BidAuct').window('open');
+                            clearInterval(iCount);
+                            $.get("../Ashx/BidAucti.ashx?action=is", { BidId: rows[0].Id, SeveralBid: "1" }, function (data) {
+                                if (data == "0") {
+                                    $("#btnAuct").show();
+                                } else {
+                                    $("#btnAuct").hide();
+                                }
+                            }, "text");
                         } else {
                             msgShow("提示", "您还没有选中一列信息？", "question");
                         }
@@ -412,20 +410,6 @@
             });
         });
         jQuery(function ($) {
-            $("#btnksjj").click(function () {
-
-                var rows = $('#tdg').datagrid('getSelections');
-                
-                $.get("../Ashx/OneAgreeH.ashx?action=ksjj", { jjsj: $("#selshijian").combobox('getValue'), bid: rows[0].Id, qpjg: $('#txtqpjg').textbox('getValue') }, function (data) {
-                    msgShow("提示", data, "info");
-                    
-
-                }, "text");
-                $('#dzjb').window('close');
-                $('#tdg').datagrid('reload');
-            });
-        });
-        jQuery(function ($) {
             $("#btnTransaction").click(function () {
                 var rows = $('#tdg').datagrid('getSelections');
                 $('#BidClinch').window('open');
@@ -443,26 +427,20 @@
     </script>
 </head>
 <body class="easyui-layout">
-    <div region="north" title="出让标信息列表" split="true" style="height: 415px; border: 0px;"
+    <div region="north" title="出让标信息列表" split="true" style="height: 100%; border: 0px;"
         border="false">
+        <div class="layout-panel-north" style=" height:10%">
         &nbsp;&nbsp;标的名称：
         <input type="text" id="tBidName" class="easyui-textbox" style="width: 300px;" required="true" />
         <a href="javascript:void(0)" id="btnQuery" class="easyui-linkbutton" iconcls="icon-search">
             搜索</a>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: Blue;">(支持模糊查询)</span>
+            </div>
+            <div class="layout-panel-south" style=" height:90%">
         <table id="tdg">
         </table>
+        </div>
     </div>
-    <div id="west" region="west" title="退回审核信息" style="width: 45%;">
-        <table id="BidInfo">
-        </table>
-    </div>
-    <div id="center" region="center" title="审核意见" style="width: 25%;">
-        <span id="lblProcess"></span>
-    </div>
-    <div id="east" region="east" title="附件信息" style="width: 30%;">
-        <table id="Scan">
-        </table>
-    </div>
+    
     <div id="ScanImg" title="附件查看" class="easyui-window" modal="true" collapsible="false"
         minimizable="false" maximizable="false" icon="icon-save" style="width: 700px;
         height: 480px; padding: 5px; background: #fafafa;">
@@ -783,36 +761,6 @@
                 <td height="35" colspan="4" align="center">
                     <a href="javascript:void(0)" id="btnAuctAdd" class="easyui-linkbutton" icon="icon-ok">
                         成交</a>
-                </td>
-            </tr>
-        </table>
-    </div>
-     <div id="dzjb" title="组织交易" class="easyui-window" collapsible="false" minimizable="false"
-        maximizable="false" icon="icon-save" modal="true" closable="true" style="width: 520px;
-        height: 180px; padding: 5px; background: #fafafa;">
-        <table width="500" border="0">
-            <tr>
-                <td width="83" align="center" height="35">
-                    竞价时间
-                </td>
-                <td width="151">
-                    <select id="selshijian" class="easyui-combobox" style="width: 120px;">
-                    <option  value="5" selected=selected>5分钟</option>
-                    <option value="10">10分钟</option>
-                    <option value="15">15分钟</option>
-                    </select>
-                </td>
-                <td width="80" align="center">
-                    竞价起拍价格
-                </td>
-                <td width="158">
-                    <input id="txtqpjg" name="tPrice" class="easyui-textbox" />元
-                </td>
-            </tr>
-            <tr>
-                <td height="35" colspan="4" align="center">
-                    <a href="javascript:void(0)" id="btnksjj" class="easyui-linkbutton" icon="icon-ok">
-                        开始竞价</a>
                 </td>
             </tr>
         </table>

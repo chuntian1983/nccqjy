@@ -111,13 +111,13 @@ namespace NCPEP.Bll
         {
             return dal.GetRecordCount(strWhere);
         }
-        /// <summary>
-        /// 分页获取数据列表
-        /// </summary>
-        public int GetRecordCount(string strWhere, string tablename)
-        {
-            return dal.GetRecordCount(strWhere, tablename);
-        }
+        ///// <summary>
+        ///// 分页获取数据列表
+        ///// </summary>
+        //public int GetRecordCount(string strWhere, string tablename)
+        //{
+        //    return dal.GetRecordCount(strWhere, tablename);
+        //}
         /// <summary>
         /// 分页获取数据列表
         /// </summary>
@@ -125,13 +125,13 @@ namespace NCPEP.Bll
         {
             return dal.GetListByPage(strWhere, orderby, startIndex, endIndex);
         }
-        /// <summary>
-        /// 分页获取数据列表
-        /// </summary>
-        public DataSet GetListByPage(string strWhere, string orderby, int startIndex, int endIndex, string tablename)
-        {
-            return dal.GetListByPage(strWhere, orderby, startIndex, endIndex, tablename);
-        }
+        ///// <summary>
+        ///// 分页获取数据列表
+        ///// </summary>
+        //public DataSet GetListByPage(string strWhere, string orderby, int startIndex, int endIndex, string tablename)
+        //{
+        //    return dal.GetListByPage(strWhere, orderby, startIndex, endIndex, tablename);
+        //}
         /// <summary>
         /// 分页获取数据列表
         /// </summary>

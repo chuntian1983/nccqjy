@@ -234,7 +234,7 @@ $(".slider").YuxiSlider({
         <div><img src="images/anniu.jpg" border="0" usemap="#Map">
               <map name="Map" id="Map">
                 <area shape="rect" coords="7,8,144,53" href="User/UsLogin.aspx" target="_blank" />
-                <area shape="rect" coords="171,8,312,54" href="dzjj.aspx" target="_blank" />
+                <area shape="rect" coords="171,8,312,54" href="super/loginuser.aspx" target="_blank" />
               </map>
 			</div>
     </div>

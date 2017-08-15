@@ -175,8 +175,8 @@
        <div title="电子竞价" data-options="iconCls:'icon-ok'" style="overflow:auto;">
                    <ul>
                    
-                      <div><a ref="1" href="#" rel="Bi/OneAgree.aspx"><span class="icon icon-nav">&nbsp;</span><span class="nav">一次竞价项目</span></a></div><br/>
-                      <div><a ref="2" href="#" rel="Bi/TwoAgree.aspx"><span class="icon icon-nav">&nbsp;</span><span class="nav">二次竞价项目</span></a></div><br/>
+                      <div><a ref="1" href="#" rel="Bi/OneAgreeUser.aspx"><span class="icon icon-nav">&nbsp;</span><span class="nav">一次竞价项目</span></a></div><br/>
+                      <div><a ref="2" href="#" rel="Bi/TwoAgreeUser.aspx"><span class="icon icon-nav">&nbsp;</span><span class="nav">二次竞价项目</span></a></div><br/>
                    </ul></div>
 
         </div>
