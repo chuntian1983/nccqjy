@@ -286,6 +286,23 @@ namespace NCPEP.Dal
             }
             catch { throw; }
         }
+        public DataTable GetAllListByDzjb(string sqlWhere, int startIndex, int pageSize, string order)
+        {
+            try
+            {
+                string strSql = " select * from view_dzjb ";
+                if (!string.IsNullOrEmpty(sqlWhere))
+                {
+                    strSql += string.Format(" where {0}", sqlWhere);
+                }
+                if (!string.IsNullOrEmpty(order))
+                {
+                    strSql += order;
+                }
+                return db.ExecuteDataTable(strSql, startIndex * pageSize, pageSize, "T_Bid");
+            }
+            catch { throw; }
+        }
         public DataTable GetAllListByDyzt(string sqlWhere, int startIndex, int pageSize, string order)
         {
             try

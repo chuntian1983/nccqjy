@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
 <link href="../Scripts/easyUI/themes/default/easyui.css" rel="stylesheet" type="text/css" />
     <link href="../Styles/default.css" rel="stylesheet" type="text/css" />
     <link href="../Styles/tbcss.css" rel="stylesheet" type="text/css" />
     <link href="../Scripts/easyUI/themes/icon.css" rel="stylesheet" type="text/css" />
-    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" />
     <script src="../Scripts/easyUI/jquery.min.js" type="text/javascript" language="javascript"></script>
     <script src="../Scripts/easyUI/jquery.easyui.min.js" type="text/javascript" language="javascript"></script>
     <script src="../Scripts/easyUI/locale/easyui-lang-zh_CN.js" type="text/javascript"
@@ -148,6 +148,6 @@
     <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
      <!--  <script src="https://code.jquery.com/jquery.js"></script>-->
       <!-- 包括所有已编译的插件 -->
-      <script src="js/bootstrap.min.js"></script>
+      <script src="../../js/bootstrap.min.js"></script>
 </body>
 </html>

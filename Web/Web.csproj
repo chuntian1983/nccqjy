@@ -190,6 +190,7 @@
     <Content Include="IntenDetails.aspx" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\jquery.js" />
     <Content Include="js\npm.js" />
     <Content Include="kindeditor\asp.net\bin\LitJSON.dll" />
     <Content Include="kindeditor\asp.net\demo.aspx" />
@@ -534,6 +535,7 @@
     <Content Include="Super\Bi\Headsqs.aspx" />
     <Content Include="Super\Bi\jzsdysq.aspx" />
     <Content Include="Super\Bi\OneAgreeUser.aspx" />
+    <Content Include="Super\Bi\OneAgreeUserJb.aspx" />
     <Content Include="Super\Bi\Supersqs.aspx" />
     <Content Include="Super\Bi\TwoAgreeUser.aspx" />
     <Content Include="Super\Bi\WebForm1.aspx" />
@@ -1705,6 +1707,9 @@
     <Compile Include="Super\Ashx\Xmbeian.ashx.cs">
       <DependentUpon>Xmbeian.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Super\Ashx\Ycjb.ashx.cs">
+      <DependentUpon>Ycjb.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Super\Bi\Agreement.aspx.cs">
       <DependentUpon>Agreement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1879,6 +1884,13 @@
     </Compile>
     <Compile Include="Super\Bi\OneAgreeUser.aspx.designer.cs">
       <DependentUpon>OneAgreeUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Bi\OneAgreeUserJb.aspx.cs">
+      <DependentUpon>OneAgreeUserJb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Bi\OneAgreeUserJb.aspx.designer.cs">
+      <DependentUpon>OneAgreeUserJb.aspx</DependentUpon>
     </Compile>
     <Compile Include="Super\Bi\Super.aspx.cs">
       <DependentUpon>Super.aspx</DependentUpon>
@@ -2579,6 +2591,7 @@
     <Content Include="Super\Ashx\Xmbeian.ashx" />
     <None Include="Properties\PublishProfiles\2.pubxml" />
     <None Include="Properties\PublishProfiles\配置文件1.pubxml" />
+    <Content Include="Super\Ashx\Ycjb.ashx" />
     <None Include="Super\Lt\Acrobat.pdf" />
     <None Include="Super\Lt\pdf.rar" />
     <None Include="Super\Scan\caution.log" />

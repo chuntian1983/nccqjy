@@ -1,0 +1,67 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OneAgreeUserJb.aspx.cs" Inherits="Web.Super.Bi.OneAgreeUserJb" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<title></title>
+<link href="../Scripts/easyUI/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+   
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" />
+    <script charset="utf-8" src="../Scripts/kindeditor/kindeditor-min.js" type="text/javascript"
+        language="javascript"></script>
+        <script src="../../My97DatePicker/WdatePicker.js" type="text/javascript"
+        language="javascript"></script>
+        <script src="../../js/jquery.js" type="text/javascript"></script>
+<script src="../../js/bootstrap.min.js" type="text/javascript"></script>
+
+</head>
+<body class="easyui-layout" style="overflow-y: hidden" scroll="no">
+<form runat="server" id="form1">
+ 
+<div class="panel panel-default">
+  <div class="panel-heading">竞价项目信息</div>
+  <div class="panel-body panel-fit">
+   <table class="table table-bordered">
+	
+	<tbody>
+		<tr>
+			<td>Tanmay</td>
+			<td>Bangalore</td>
+			<td>560001</td>
+			<td>560001</td>
+		</tr>
+		<tr>
+			<td>Sachin</td>
+			<td>Mumbai</td>
+			<td>400003</td>
+			<td>560001</td>
+		</tr>
+		<tr>
+			<td>Uma</td>
+			<td>Pune</td>
+			<td>411027</td>
+			<td>560001</td>
+		</tr>
+        <tr>
+			<td colspan=4>
+            
+                <asp:Button ID="Button1" runat="server" Text="返回列表" CssClass="btn btn-primary" 
+                    onclick="Button1_Click" />
+            </td>
+			
+		</tr>
+	</tbody>
+</table>
+  </div>
+</div>
+
+
+</form>
+   
+  
+      
+</body>
+</html>

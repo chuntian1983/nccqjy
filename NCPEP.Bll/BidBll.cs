@@ -14,6 +14,7 @@ namespace NCPEP.Bll
     {
         private BidDal dal = null;
         private dynamic adminUser = null;
+        
         public BidBll()
         {
             dal = new BidDal();
@@ -70,6 +71,10 @@ namespace NCPEP.Bll
                 case "paging":
                      str = "\"total\":" + SumCount(context) + ",";
                     returnDate = JsonHelper<Bid>.JsonDataTable(GetAllList(context), "rows").Insert(1, (str));
+                    break;
+                case "ycjbuser":
+                    //str = "\"total\":" + SumCount(context) + ",";
+                    returnDate = JsonHelper<Bid>.JsonDataTable(GetAllListByYCJBuser(context), "rows");
                     break;
                 case "dyzt":
                     str = "\"total\":" + SumCountByDyzt(context) + ",";
@@ -549,7 +554,45 @@ namespace NCPEP.Bll
                 return null;
             }
         }
+        private DataTable GetAllListByYCJBuser(HttpContext context)
+        {
+            try
+            {
+                string sqlWhere = string.Empty;
+                int startIndex = 0;
+                try { startIndex = int.Parse(context.Request.Form["page"]) - 1; }
+                catch { }
+                int pageSize = 10;
+                try { pageSize = int.Parse(context.Request.Form["rows"].ToString()); }
+                catch { }
+                SysLogBll.Create("出让标", "获取所有的出让标操作", adminUser.AdminName);
+                string order = string.Format(" order by {0} {1}", context.Request.Form["sort"].ToString(), context.Request.Form["order"].ToString());
+                if (context.Request.QueryString["BidName"] != null)
+                {
+                    sqlWhere += string.Format(" and BidName like '%{0}%'", context.Request.QueryString["BidName"]);
+                }
+                if (context.Request.QueryString["StandardMode"] != null)
+                {
+                    sqlWhere += string.Format(" and StandardMode = '{0}'", context.Request.QueryString["StandardMode"]);
+                }
+                string DepaStatus = context.Request.QueryString["DepaStatus"];
+                if (DepaStatus == "2" || DepaStatus == "1")
+                {
 
+                }
+                else
+                {
+                    sqlWhere += string.Format(" and DepaStatus = {0}", DepaStatus);
+                }
+                return dal.GetAllListByDzjb(sqlWhere, startIndex, pageSize, order);
+
+            }
+            catch (Exception ex)
+            {
+                SystemErrorPlug.ErrorRecord("时间:[" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "]类名:[" + this.GetType().Name + "],行号:[" + Component.GetLineNum().ToString() + "行],错误信息:[" + ex.Message + "]");
+                return null;
+            }
+        }
         private DataTable GetAllListByDyzt(HttpContext context)
         {
             try

@@ -415,14 +415,19 @@
             $("#btnksjj").click(function () {
 
                 var rows = $('#tdg').datagrid('getSelections');
-                
+                var va = $('#txtqpjg').textbox('getValue');
+                if (va.length < 1) {
+                    msgShow("提示", "起拍价格不能为空", "info");
+                    return;
+                }
                 $.get("../Ashx/OneAgreeH.ashx?action=ksjj", { jjsj: $("#selshijian").combobox('getValue'), bid: rows[0].Id, qpjg: $('#txtqpjg').textbox('getValue') }, function (data) {
                     msgShow("提示", data, "info");
-                    
+
 
                 }, "text");
                 $('#dzjb').window('close');
                 $('#tdg').datagrid('reload');
+
             });
         });
         jQuery(function ($) {
@@ -806,7 +811,7 @@
                     竞价起拍价格
                 </td>
                 <td width="158">
-                    <input id="txtqpjg" name="tPrice" class="easyui-textbox" />元
+                    <input id="txtqpjg" name="tPrice" class="easyui-textbox" data-options="required:true" />元
                 </td>
             </tr>
             <tr>

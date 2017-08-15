@@ -33,7 +33,16 @@ namespace Web.Super
              * 
              * * * * * *  2017-8-15更新版本Ver:1.1120
              * 1.t_Bid表添加Jbzt，jbjzsj,jbqbj状态字段,竞标截止时间，竞标起拍价
-             * 2.添加电子竞价系统登录页面和电子竞价系统后台管理
+             * 2.添加电子竞价视图
+             * SELECT     dbo.T_Bid.*, dbo.T_LiceTran.Name, dbo.T_LiceTran.JBYhm, dbo.T_LiceTran.JBmm, dbo.T_LiceTran.Id AS srfid
+FROM         dbo.T_Bid INNER JOIN
+                      dbo.T_BidTrans ON dbo.T_Bid.Id = dbo.T_BidTrans.FK_BidId INNER JOIN
+                      dbo.T_LiceTran ON dbo.T_BidTrans.FK_LiceTranId = dbo.T_LiceTran.Id
+             * 
+             * 
+             * 
+             * 
+             * 
              * 
              * * * * *  2017-8-4更新版本Ver:1.1119
              * 1.受让方和出让方分开进行管理，受让方添加竞标用户名和密码 
