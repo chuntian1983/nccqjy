@@ -26,7 +26,7 @@ function GridView() {
     height:350,
         nowrap: true,
         striped: true,
-        url: '../Ashx/BidH.ashx?' + $.param({ action: "paging", DepaStatus: 3, StandardMode: 1 ,bt:"OK"}),
+        url: '../Ashx/BidH.ashx?' + $.param({ action: "paging", DepaStatus: 3,bt:"OK"}),
         remoteSort: false,
         sortName: 'Id',
         singleSelect: true,

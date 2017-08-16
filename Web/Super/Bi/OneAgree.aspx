@@ -13,7 +13,8 @@
     <script src="../Scripts/easyUI/locale/easyui-lang-zh_CN.js" type="text/javascript"
         language="javascript"></script>
 
-    <script  type="text/javascript" language="javascript">
+    <%--<script src="../Scripts/OneAgree1.js"  type="text/javascript" language="javascript">--%>
+    <script type="text/javascript">
         jQuery(function ($) {
             GridView();
             $('#newAdd').window('close');
@@ -24,6 +25,7 @@
             $('#BidAuct').window('close');
             $('#BidClinch').window('close');
             $('#dzjb').window('close');
+            $('#jingbiaojieshu').window('close');
         });
 
         function msgShow(title, msgString, msgType) {
@@ -163,44 +165,82 @@
                             // $('#BidAuct').window('open');
                             $('#dzjb').window('open');
                             //clearInterval(iCount);
-//                            $.get("../Ashx/BidAucti.ashx?action=is", { BidId: rows[0].Id, SeveralBid: "1" }, function (data) {
-//                                if (data == "0") {
-//                                    $("#btnAuct").show();
-//                                } else {
-//                                    $("#btnAuct").hide();
-//                                }
-//                            }, "text");
+                            //                            $.get("../Ashx/BidAucti.ashx?action=is", { BidId: rows[0].Id, SeveralBid: "1" }, function (data) {
+                            //                                if (data == "0") {
+                            //                                    $("#btnAuct").show();
+                            //                                } else {
+                            //                                    $("#btnAuct").hide();
+                            //                                }
+                            //                            }, "text");
                         } else {
                             msgShow("提示", "您还没有选中一列信息？", "question");
                         }
                     }
-                }, '-', {
-                    id: 'btnsave',
-                    text: '标成交附件',
-                    iconCls: 'icon-save',
+                },
+                '-', {
+                    id: 'btnover',
+                    text: '竞价结束',
+                    iconCls: 'icon-edit',
                     handler: function () {
                         var rows = $('#tdg').datagrid('getSelections');
                         if (rows.length > 0) {
-                            $('#BidScan').window('open');
-                            $("#BidScanPage").attr("src", "BidClinchScan.aspx?FK_BidId=" + rows[0].Id);
+                            // $('#BidAuct').window('open');
+                            location.href = "jzsview.aspx"; return;
+                            $('#jingbiaojieshu').window('open');
+                            $('#tdjbjs').datagrid({
+                                height: 300,
+                                nowrap: true,
+                                striped: true,
+                                url: '../Ashx/dzjj.ashx?' + $.param({ action: "paging", BidId: rows[0].Id }),
+                                remoteSort: false,
+                                sortName: 'Id',
+                                singleSelect: true,
+                                sortOrder: 'desc',
+                                fit: false,
+                                fitColumns: true,
+                                rownumbers: true,
+                                columns: [[
+            { field: 'sid', title: '编号', width: 30, align: 'left', sortable: true },
+            { field: 'jbyhm', title: '竞标用户', width: 80, align: 'left', sortable: true },
+            { field: 'jbjg', title: '竞标价格', width: 80, align: 'left', sortable: true },
+            { field: 'jbdj', title: '竞标底价', width: 80, align: 'left', sortable: true }
+
+        ]]
+                            });
+
+
                         } else {
                             msgShow("提示", "您还没有选中一列信息？", "question");
                         }
                     }
-                }, '-', {
-                    id: 'btnsave',
-                    text: '意向受让方信息',
-                    iconCls: 'icon-man',
-                    handler: function () {
-                        var rows = $('#tdg').datagrid('getSelections');
-                        if (rows.length > 0) {
-                            $('#BidTrans').window('open');
-                            OnBidTraGridView('../Ashx/BidTran.ashx?' + $.param({ action: "list", Id: rows[0].Id }));
-                        } else {
-                            msgShow("提示", "您还没有选中一列信息？", "question");
-                        }
-                    }
-                }, '-'
+                },
+                 '-', {
+                     id: 'btnsave',
+                     text: '标成交附件',
+                     iconCls: 'icon-save',
+                     handler: function () {
+                         var rows = $('#tdg').datagrid('getSelections');
+                         if (rows.length > 0) {
+                             $('#BidScan').window('open');
+                             $("#BidScanPage").attr("src", "BidClinchScan.aspx?FK_BidId=" + rows[0].Id);
+                         } else {
+                             msgShow("提示", "您还没有选中一列信息？", "question");
+                         }
+                     }
+                 }, '-', {
+                     id: 'btnsave',
+                     text: '意向受让方信息',
+                     iconCls: 'icon-man',
+                     handler: function () {
+                         var rows = $('#tdg').datagrid('getSelections');
+                         if (rows.length > 0) {
+                             $('#BidTrans').window('open');
+                             OnBidTraGridView('../Ashx/BidTran.ashx?' + $.param({ action: "list", Id: rows[0].Id }));
+                         } else {
+                             msgShow("提示", "您还没有选中一列信息？", "question");
+                         }
+                     }
+                 }, '-'
 ],
                 pagination: true,
                 pageSize: 10
@@ -269,6 +309,19 @@
                     msgShow("提示", "你还没有填写公告信息！", "info");
                     return;
                 }
+                $.get("../Ashx/BidPlac.ashx?action=add", { FK_BidId: $('#tdg').datagrid('getSelections')[0].Id, BidPlacardTitle: $("#txtBidPlacardTitle").val(), BidPlacardContent: $("#txtBidPlacardContent").val(), Id: $("#txtId").val() }, function (data) {
+                    msgShow("提示", data, "info");
+                    $('#BidPla').window('close');
+                }, "text");
+            });
+        });
+        jQuery(function ($) {
+            $("#jbjsadd").click(function () {
+                var rows = $('#tdjbjs').datagrid('getSelections');
+                
+                    msgShow("提示", rows[0].sid, "info");
+                    return;
+                
                 $.get("../Ashx/BidPlac.ashx?action=add", { FK_BidId: $('#tdg').datagrid('getSelections')[0].Id, BidPlacardTitle: $("#txtBidPlacardTitle").val(), BidPlacardContent: $("#txtBidPlacardContent").val(), Id: $("#txtId").val() }, function (data) {
                     msgShow("提示", data, "info");
                     $('#BidPla').window('close');
@@ -821,6 +874,15 @@
                 </td>
             </tr>
         </table>
+    </div>
+     <div id="jingbiaojieshu" title="竞标结束" class="easyui-window" collapsible="false" minimizable="false"
+        maximizable="false" icon="icon-save" modal="true" closable="true" style="width: 520px;
+        height: 420px; padding: 5px; background: #fafafa;">
+        请选项下面的竞标信息
+        <table id="tdjbjs">
+        </table>
+       <a href="javascript:void(0)" id="jbjsadd" class="easyui-linkbutton" icon="icon-ok">
+                        确定</a>
     </div>
 </body>
 </html>

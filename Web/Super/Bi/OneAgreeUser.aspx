@@ -70,7 +70,7 @@
                 onclick="btndel_Click" />
 		
 		
-        <asp:Button ID="btnview" runat="server" Text="查  看" CssClass="btn btn-primary" 
+        <asp:Button ID="btnview" runat="server" Text="查看已竞价项目价格" CssClass="btn btn-primary" 
                 onclick="btnview_Click" />
                 <asp:Button ID="btnnotice" runat="server" Text="设置首页显示" Visible="false"  CssClass="btn btn-primary"  onclick="btnnotice_Click" 
                  />

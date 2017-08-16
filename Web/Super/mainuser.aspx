@@ -5,9 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title>
-        南昌市农村产权电子竞价系统</title>
-    <meta name="description" content="南昌市农村产权电子竞价系统" />
-    <meta name="keywords" content="南昌市农村产权电子竞价系统" />
+        南昌市农村产权交易电子竞价系统</title>
+    <meta name="description" content="南昌市农村产权交易电子竞价系统" />
+    <meta name="keywords" content="南昌市农村产权交易电子竞价系统" />
     <link href="Scripts/easyUI/themes/default/easyui.css" rel="stylesheet" type="text/css" />
     <link href="Styles/default.css" rel="stylesheet" type="text/css" />
     <link href="Scripts/easyUI/themes/icon.css" rel="stylesheet" type="text/css" />
@@ -157,7 +157,7 @@
         background-image: url(images/bg.jpg); line-height: 20px; color: #fff;">
         <div class="topbg1">
             <div class="topleft1" style="height:91px; padding-top:0px; line-height:91px; vertical-align:middle;">
-                南昌市农村产权电子竞价系统</div>
+                南昌市农村产权交易电子竞价系统</div>
             <div class="topright1">
                 <span id="v" runat="server"></span>&nbsp;&nbsp;
                 欢迎您 <span id="lblUserName" runat="server" style="color: Yellow;"></span>&nbsp;&nbsp;&nbsp;&nbsp;<a
@@ -167,7 +167,7 @@
     </div>
     <div region="south" split="true" style="height: 27px; background: #D2E0F2;">
         <div class="footer">
-            南昌市农村产权电子竞价系统 © 电话:<%= NCPEP.Bll.Component.ReadXml("GovTel").InnerText%>
+            南昌市农村产权交易电子竞价系统 © 电话:<%= NCPEP.Bll.Component.ReadXml("GovTel").InnerText%>
         </div>
     </div>
     <div region="west" split="true" title="菜单列表" style="width: 180px;" id="west">
@@ -184,8 +184,11 @@
     <div id="mainPanle" region="center" style="background: #eee; overflow-y: hidden">
         <div id="tabs" class="easyui-tabs" fit="true" border="false">
             <div title="首页" style="padding: 0px; overflow: hidden; background-image: url(images/adminstart.jpg)">
-                <iframe id="home" scrolling="auto" frameborder="0" style="width: 100%; height: 100%;">
-                </iframe>
+            <h1 style=" font-size:larger; font-weight:bolder; padding-left:50px; padding-top:50px; line-height:50px;">
+                   欢迎您使用南昌农村产权交易电子竞价系统！
+                      <br />
+                      请点击左面功能菜单进行操作！
+                </h1>
             </div>
         </div>
     </div>

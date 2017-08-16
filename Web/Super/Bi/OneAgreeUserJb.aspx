@@ -28,27 +28,33 @@
 	
 	<tbody>
 		<tr>
-			<td>Tanmay</td>
-			<td>Bangalore</td>
-			<td>560001</td>
-			<td>560001</td>
+			<td>项目名称</td>
+			<td>
+                <asp:Label ID="lbxmmc" runat="server" Text=""></asp:Label></td>
+			<td>竞价底价(元)</td>
+			<td>
+                <asp:Label ID="lbdijia" runat="server" Text=""></asp:Label></td>
 		</tr>
 		<tr>
-			<td>Sachin</td>
-			<td>Mumbai</td>
-			<td>400003</td>
-			<td>560001</td>
+			<td>竞价价格(元)</td>
+			<td>
+                <asp:TextBox ID="txtjingjiajg" runat="server"></asp:TextBox></td>
+			<td>竞价截止时间</td>
+			<td>
+                <asp:Label ID="lbjzsj" runat="server" Text=""></asp:Label></td>
 		</tr>
 		<tr>
-			<td>Uma</td>
-			<td>Pune</td>
-			<td>411027</td>
-			<td>560001</td>
+			<td colspan=4>
+                <asp:Label ID="lbscjg" runat="server" Text=""></asp:Label>
+                <br />注意：您如果进行多次竞价提交，系统将以您最后一次竞价价格为准，请考虑清楚之后进行竞价！
+            </td>
+			
 		</tr>
         <tr>
 			<td colspan=4>
-            
-                <asp:Button ID="Button1" runat="server" Text="返回列表" CssClass="btn btn-primary" 
+                <asp:Button ID="btnsave" runat="server" CssClass="btn btn-primary"  
+                    Text="保    存" onclick="btnsave_Click" />
+                &nbsp;<asp:Button ID="Button1" runat="server" Text="返回列表" CssClass="btn btn-primary" 
                     onclick="Button1_Click" />
             </td>
 			

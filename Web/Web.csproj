@@ -536,9 +536,12 @@
     <Content Include="Super\Bi\jzsdysq.aspx" />
     <Content Include="Super\Bi\OneAgreeUser.aspx" />
     <Content Include="Super\Bi\OneAgreeUserJb.aspx" />
+    <Content Include="Super\Bi\OneAgreeUserJbView.aspx" />
     <Content Include="Super\Bi\Supersqs.aspx" />
     <Content Include="Super\Bi\TwoAgreeUser.aspx" />
-    <Content Include="Super\Bi\WebForm1.aspx" />
+    <Content Include="Super\DZJJ\jbone-over.aspx" />
+    <Content Include="Super\DZJJ\jbone-view.aspx" />
+    <Content Include="Super\DZJJ\WebForm1.aspx" />
     <Content Include="Super\Bi\Xmbeian.aspx" />
     <Content Include="Super\Bi\Xmbeiansh.aspx" />
     <Content Include="Super\Bi\Zbgg.aspx" />
@@ -553,6 +556,8 @@
     <Content Include="Super\Bi\jzsedit.aspx" />
     <Content Include="Super\Bi\jzsview.aspx" />
     <Content Include="Super\Data\Summary.aspx" />
+    <Content Include="Super\DZJJ\jbone-add.aspx" />
+    <Content Include="Super\DZJJ\JbOne.aspx" />
     <Content Include="Super\Files\Demands.aspx" />
     <Content Include="Super\Images\col.png" />
     <Content Include="Super\Images\cut.png" />
@@ -582,6 +587,7 @@
     <Content Include="Super\Scripts\Headsps.js" />
     <Content Include="Super\Scripts\link.js" />
     <Content Include="Super\Scripts\OneAgree.js" />
+    <Content Include="Super\Scripts\OneAgree1.js" />
     <Content Include="Super\Scripts\print.js" />
     <Content Include="Super\Scripts\print\CheckActivX.js" />
     <Content Include="Super\Scripts\print\install_lodop.exe" />
@@ -1611,6 +1617,9 @@
     <Compile Include="Super\Ashx\Contacts.ashx.cs">
       <DependentUpon>Contacts.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Super\Ashx\Dzjj.ashx.cs">
+      <DependentUpon>Dzjj.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Super\Ashx\IndRel.ashx.cs">
       <DependentUpon>IndRel.ashx</DependentUpon>
     </Compile>
@@ -1892,6 +1901,13 @@
     <Compile Include="Super\Bi\OneAgreeUserJb.aspx.designer.cs">
       <DependentUpon>OneAgreeUserJb.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Super\Bi\OneAgreeUserJbView.aspx.cs">
+      <DependentUpon>OneAgreeUserJbView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Bi\OneAgreeUserJbView.aspx.designer.cs">
+      <DependentUpon>OneAgreeUserJbView.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Super\Bi\Super.aspx.cs">
       <DependentUpon>Super.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1927,11 +1943,25 @@
     <Compile Include="Super\Bi\TwoAgreeUser.aspx.designer.cs">
       <DependentUpon>TwoAgreeUser.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Super\Bi\WebForm1.aspx.cs">
+    <Compile Include="Super\DZJJ\jbone-over.aspx.cs">
+      <DependentUpon>jbone-over.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\DZJJ\jbone-over.aspx.designer.cs">
+      <DependentUpon>jbone-over.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\DZJJ\jbone-view.aspx.cs">
+      <DependentUpon>jbone-view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\DZJJ\jbone-view.aspx.designer.cs">
+      <DependentUpon>jbone-view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\DZJJ\WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Super\Bi\WebForm1.aspx.designer.cs">
+    <Compile Include="Super\DZJJ\WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Super\Bi\Xmbeian.aspx.cs">
@@ -2031,6 +2061,20 @@
     </Compile>
     <Compile Include="Super\Dic\UploadTypeIndicator.aspx.designer.cs">
       <DependentUpon>UploadTypeIndicator.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\DZJJ\jbone-add.aspx.cs">
+      <DependentUpon>jbone-add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\DZJJ\jbone-add.aspx.designer.cs">
+      <DependentUpon>jbone-add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\DZJJ\JbOne.aspx.cs">
+      <DependentUpon>JbOne.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\DZJJ\JbOne.aspx.designer.cs">
+      <DependentUpon>JbOne.aspx</DependentUpon>
     </Compile>
     <Compile Include="Super\Files\Demands.aspx.cs">
       <DependentUpon>Demands.aspx</DependentUpon>
@@ -2592,6 +2636,7 @@
     <None Include="Properties\PublishProfiles\2.pubxml" />
     <None Include="Properties\PublishProfiles\配置文件1.pubxml" />
     <Content Include="Super\Ashx\Ycjb.ashx" />
+    <Content Include="Super\Ashx\Dzjj.ashx" />
     <None Include="Super\Lt\Acrobat.pdf" />
     <None Include="Super\Lt\pdf.rar" />
     <None Include="Super\Scan\caution.log" />

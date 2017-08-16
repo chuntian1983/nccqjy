@@ -203,7 +203,7 @@ namespace Web.Super.Bi
             else
             {
 
-                Response.Redirect("oneagreeuserjb.aspx?id=" + sysID + "");
+                Response.Redirect("oneagreeuserjb.aspx?st=" + sysID + "");
             }
         }
 
@@ -275,7 +275,7 @@ namespace Web.Super.Bi
             else
             {
 
-                Response.Redirect("xmggview.aspx?id=" + sysID + "");
+                Response.Redirect("OneAgreeUserjbView.aspx?st=" + sysID + "");
             }
         }
 
