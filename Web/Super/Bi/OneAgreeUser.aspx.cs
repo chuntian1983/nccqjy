@@ -382,5 +382,40 @@ namespace Web.Super.Bi
 
             }
         }
+
+        protected void btnjieguo_Click(object sender, EventArgs e)
+        {
+            int i = 0;
+            string sysID = string.Empty;
+            foreach (RepeaterItem row in this.rep.Items)
+            {
+                if (row.ItemType == ListItemType.Item || row.ItemType == ListItemType.AlternatingItem)
+                {
+                    CheckBox chk = (CheckBox)row.FindControl("cbx");
+                    Label lbid = (Label)row.FindControl("lbid");
+                    if (chk.Checked)
+                    {
+                        i++;
+                        sysID = lbid.Text;
+                    }
+
+                }
+
+
+            }
+            if (i == 0)
+            {
+                MessageBox.Show(this, "请选择需要查看的项!");
+            }
+            else if (i > 1)
+            {
+                MessageBox.Show(this, "只能选择一项进行操作");
+            }
+            else
+            {
+                Response.Redirect("OneAgreeUserjieguo.aspx?st="+sysID);
+
+            }
+        }
     }
 }

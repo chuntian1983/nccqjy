@@ -118,6 +118,8 @@
     <Content Include="Images\an_bg1.jpg" />
     <Content Include="Images\ban.jpg" />
     <Content Include="Images\bg.jpg" />
+    <Content Include="Super\Images\bgjj.jpg" />
+    <Content Include="Super\Images\bgnewjj.jpg" />
     <Content Include="Images\but.png" />
     <Content Include="Images\cq.png" />
     <Content Include="Images\erweima.png" />
@@ -537,6 +539,7 @@
     <Content Include="Super\Bi\OneAgreeUser.aspx" />
     <Content Include="Super\Bi\OneAgreeUserJb.aspx" />
     <Content Include="Super\Bi\OneAgreeUserJbView.aspx" />
+    <Content Include="Super\Bi\OneAgreeUserjieguo.aspx" />
     <Content Include="Super\Bi\Supersqs.aspx" />
     <Content Include="Super\Bi\TwoAgreeUser.aspx" />
     <Content Include="Super\DZJJ\jbone-over.aspx" />
@@ -558,6 +561,7 @@
     <Content Include="Super\Data\Summary.aspx" />
     <Content Include="Super\DZJJ\jbone-add.aspx" />
     <Content Include="Super\DZJJ\JbOne.aspx" />
+    <Content Include="Super\DZJJ\WebForm2.aspx" />
     <Content Include="Super\Files\Demands.aspx" />
     <Content Include="Super\Images\col.png" />
     <Content Include="Super\Images\cut.png" />
@@ -1324,6 +1328,7 @@
     <Content Include="Styles\images\edit.png" />
     <Content Include="Styles\images\news.png" />
     <Content Include="Super\Styles\login.css" />
+    <Content Include="Super\Styles\loginjj.css" />
     <Content Include="Super\Styles\tbcss.css" />
     <Content Include="Super\Sys\Contacts.aspx" />
     <Content Include="Super\Sys\Links.aspx" />
@@ -1908,6 +1913,13 @@
     <Compile Include="Super\Bi\OneAgreeUserJbView.aspx.designer.cs">
       <DependentUpon>OneAgreeUserJbView.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Super\Bi\OneAgreeUserjieguo.aspx.cs">
+      <DependentUpon>OneAgreeUserjieguo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Bi\OneAgreeUserjieguo.aspx.designer.cs">
+      <DependentUpon>OneAgreeUserjieguo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Super\Bi\Super.aspx.cs">
       <DependentUpon>Super.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2075,6 +2087,13 @@
     </Compile>
     <Compile Include="Super\DZJJ\JbOne.aspx.designer.cs">
       <DependentUpon>JbOne.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\DZJJ\WebForm2.aspx.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\DZJJ\WebForm2.aspx.designer.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Super\Files\Demands.aspx.cs">
       <DependentUpon>Demands.aspx</DependentUpon>

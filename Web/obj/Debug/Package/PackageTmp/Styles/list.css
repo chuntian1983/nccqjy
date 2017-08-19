@@ -1,0 +1,29 @@
+@charset "utf-8";
+.list_wz{line-height: 28px;height: 28px;background: none;}
+/*�б�*/
+.list_ul{width: 940px;border-bottom: 1px dotted #B2B2B2;padding:25px 0;}
+.list_ul li{line-height: 28px; height: 28px; position: relative; width: 100% }
+.list_ul li span{position: absolute;top:0; right:0; color: #ababab;}
+.list_fy a{display:block;border: 1px solid #ababab; float:left;width: 20px; height: 20px; line-height: 20px;margin: 5px; text-align: center;}
+.list_fy a.this{background-color: #0068B7;color:#fff;  }
+.list{ padding: 0 25px 25px; margin-bottom: 20px;}
+/*����*/
+.list_content{line-height: 30px; font-size: 14px!important; width:950px;}
+.list_content p{ margin: 15px 0 0;  font-size: 14px!important;width:950px;}
+.list_c_h1{ text-align: center;padding:25px 0; width: 550px; overflow: hidden; margin: 0 auto; line-height:30px; font-size:22px;}
+.list_c_fz{text-align: center;padding-bottom: 15px; border-bottom:1px dotted #B2B2B2;color:#ababab;}
+.zhuce1{margin-bottom: 25px;}
+.zhuce{width: 750px;margin: 50px auto;padding-bottom: 50px;}
+.zhuce ul{width:100%; clear: both;}
+.zhuce li{float: left; line-height: 45px;}
+.zhuce li.zc1{width: 100px; text-align: right;}
+.zhuce li.zc2{width: 250px;}
+.zhuce li.zc2 input{width:200px; height: 22px;line-height: 22px;}
+.zhuce li.zc2 input.fuxuan{width:15px; height: 15px;}
+.zhuce li.zc2 input.tijiao{width:200px; height: 35px; background:#2080ca; text-align: center;line-height: 35px;border: none;color:#fff; font-size: 14px; font-weight: bold;-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;}
+.zhuce li.zc3{width: 400px;}
+.zhuce h2{color:#3174b8; margin: 20px 0;}
+.zhuce .telyz{ width:200px; height:32px;line-height: 32px; text-align: center; background:#b2dee7; -moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px; color:#3174b8;}
+.zhuce3{width: 450px;float:left; margin-left:150px;}
+.zhuceright{float: left;margin-top: 120px; line-height: 32px; }
+.ljzc{width:200px;height:32px;line-height: 32px; text-align: center; background:#b2dee7; -moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px; color:#3174b8;display: inline-block; font-weight: bold;}

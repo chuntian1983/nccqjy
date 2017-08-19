@@ -27,6 +27,8 @@ namespace Web.Super.Bi
                     {
                         this.lbdijia.Text = model.Jbqbj;
                         this.lbjzsj.Text = model.Jbjzsj;
+                        this.lbjzsj2.Text = model.Jbjzsj;
+                        this.lbjzsj2.Style.Add("color", "red");
                         this.lbxmmc.Text = model.BidName;
                     }
                 }
@@ -57,6 +59,12 @@ namespace Web.Super.Bi
                 if (jbdj>jbjg)
                 {
                     MessageBox.Show(this,"竞拍价格必须大于起价"); return;
+                }
+                DateTime dtjzsj = DateTime.Parse(this.lbjzsj.Text);
+                if (DateTime.Now>dtjzsj)
+                {
+                    MessageBox.Show(this, "竞价截止时间已到，不能继续竞价！");
+                    return;
                 }
                 NCPEP.Model.T_JBONE jbmodel = new NCPEP.Model.T_JBONE();
                 jbmodel.bid = Request.QueryString["st"];

@@ -15,11 +15,11 @@ namespace Web.Super
         /// <returns></returns>
         public static string Ver()
         {
-            return "Ver:1.1120";
+            return "Ver:1.1121";
         }
         public static string strVersion()
         {
-            return "1.1120";
+            return "1.1121";
         }
         /// <summary>
         /// 版本升级说明
@@ -31,14 +31,40 @@ namespace Web.Super
 
             /*
              * 
+             * 
+             *  * * 2017-8-19更新版本Ver:1.1121
+             * 1.添加竞价倒计时
+             * 
+             * 
+             * 
+             * 
              * * * * * *  2017-8-15更新版本Ver:1.1120
              * 1.t_Bid表添加Jbzt，jbjzsj,jbqbj状态字段,竞标截止时间，竞标起拍价
-             * 2.添加电子竞价视图
+             * 2.添加电子竞价视图 View_dzjb
              * SELECT     dbo.T_Bid.*, dbo.T_LiceTran.Name, dbo.T_LiceTran.JBYhm, dbo.T_LiceTran.JBmm, dbo.T_LiceTran.Id AS srfid
 FROM         dbo.T_Bid INNER JOIN
                       dbo.T_BidTrans ON dbo.T_Bid.Id = dbo.T_BidTrans.FK_BidId INNER JOIN
                       dbo.T_LiceTran ON dbo.T_BidTrans.FK_LiceTranId = dbo.T_LiceTran.Id
-             * 
+             * 3.添加表一次竞价表
+             * GO
+
+CREATE TABLE [dbo].[T_JBONE](
+	[sid] [int] IDENTITY(1,1) NOT NULL,
+	[bid] [varchar](50) NULL,
+	[tid] [varchar](50) NULL,
+	[jbyhm] [nvarchar](50) NULL,
+	[jbjg] [nvarchar](50) NULL,
+	[jbdj] [nvarchar](50) NULL,
+	[zbzt] [nvarchar](50) NULL,
+	[beizhu] [nvarchar](50) NULL,
+	[jbbs] [nvarchar](50) NULL,
+ CONSTRAINT [PK_T_JBONE] PRIMARY KEY CLUSTERED 
+(
+	[sid] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
              * 
              * 
              * 

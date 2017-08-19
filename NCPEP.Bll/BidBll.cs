@@ -202,7 +202,7 @@ namespace NCPEP.Bll
                 //string standardMode = context.Request.QueryString["StandardMode"];
                 //sqlWhere += string.Format(" and a.StandardMode = {0}", standardMode);
                 //交易方式
-                sqlWhere += " and a.StandardMode in (1,6) ";
+               // sqlWhere += " and a.StandardMode in (1,6) ";
                 return dal.GetAllList(sqlWhere, startIndex, pageSize, order);
             }
             catch (Exception ex)
