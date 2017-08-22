@@ -13,12 +13,12 @@ jQuery(function ($) {
             $("#lblAddr").text(data.T[0].Addr);
             $("#lblMemberTypeId").text(data.T[0].TypeCertificationName);
             $("#lblCorporate").text(data.T[0].Corporate);
-            $("#lblTel").text(data.T[0].Tel);
+//            $("#lblTel").text(data.T[0].Tel);
             $("#lblContact").text(data.T[0].Contact);
             $("#lblOwner").text(data.T[0].Owner);
             $("#lblCapital").text(data.T[0].Capital);
             $("#lblOrganizationCode").text(data.T[0].OrganizationCode);
-            $("#lblIDCard").text(data.T[0].IDCard);
+//            $("#lblIDCard").text(data.T[0].IDCard);
             $("#txtFK_LiceTranId").text(data.T[0].Name);
             $("#txtOrgCode").text(data.T[0].OrgCode);
             $("#txtBidName").text(data.T[0].BidName);

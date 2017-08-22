@@ -191,7 +191,8 @@ function GridView() {
                     msgShow("提示", "您还没有选中一列信息？", "question");
                 }
             }
-        }, '-', {
+        },
+         '-', {
             id: 'btnsave',
             text: '意向受让方信息',
             iconCls: 'icon-man',

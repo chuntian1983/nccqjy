@@ -43,7 +43,7 @@
                     <li class=""><a href="Default.aspx" class="menus1_1">首页</a></li>                                         
                     <li id="strli3" runat="server"  ><a id="stra3" runat="server" href="NewsList.aspx?ntid=1&t=3" class="menus3_1">新闻中心</a></li>
                     <li id="strli4" runat="server" ><a id="stra4" runat="server" href="BidList.aspx?t=4" class="menus4_1">交易项目</a></li>
-                    <li id="strli5" runat="server" ><a id="stra5" runat="server" href="PlacardList.aspx?t=5" class="menus5_1">项目公告</a></li>
+                    <li id="strli5" runat="server" ><a id="stra5" runat="server" href="xmlist.aspx?t=5" class="menus5_1">项目公告</a></li>
                     <li id="strli6" runat="server" ><a id="stra6" runat="server" href="NewsList.aspx?ntid=2&t=6"  class="menus6_1">政策法规</a></li>
                     <li id="strli7" runat="server" ><a id="stra7" runat="server" href="NewsList.aspx?ntid=4&t=7" class="menus7_1">办事指南</a></li>
                     <li id="strli2" runat="server" ><a id="stra2" runat="server" href="NewsList.aspx?ntid=9&t=9" class="menus2_1">通知公告</a></li>

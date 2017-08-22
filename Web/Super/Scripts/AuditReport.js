@@ -177,7 +177,22 @@ function GridView() {
                     msgShow("提示", "您还没有选中一列信息？", "question");
                 }
             }
-        }, '-', {
+        },
+        '-', {
+            id: 'btnsave2',
+            text: '合同附件查看',
+            iconCls: 'icon-save',
+            handler: function () {
+                var rows = $('#tdg').datagrid('getSelections');
+                if (rows.length > 0) {
+                    $('#BidScan').window('open');
+                    $("#BidScanPage").attr("src", "BidClinchScan.aspx?FK_BidId=" + rows[0].Id);
+                } else {
+                    msgShow("提示", "您还没有选中一列信息？", "question");
+                }
+            }
+        },
+         '-', {
             id: 'btnsave',
             text: '意向受让方信息',
             iconCls: 'icon-man',

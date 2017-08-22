@@ -46,7 +46,7 @@
                     <td >
                         HJNS<%#Eval("Admissibility") %></td>
                     <td  style="width:490px;">
-                        <a href='BidDetails.aspx?id=<%#Eval("id") %>' target="_blank">
+                        <a href='jyview.aspx?p=<%#Eval("id") %>' target="_blank">
                         <%#Eval("BidName").ToString().Length>15?Eval("bidname").ToString().Substring(0,15):Eval("bidname").ToString() %>
                             </a>
                     </td>

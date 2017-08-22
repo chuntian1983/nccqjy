@@ -92,6 +92,7 @@
     <Reference Include="System.Web.ApplicationServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\script.sql" />
     <Content Include="BidDetails.aspx" />
     <Content Include="BidList2.aspx" />
     <Content Include="bin\Common.dll" />
@@ -118,6 +119,9 @@
     <Content Include="Images\an_bg1.jpg" />
     <Content Include="Images\ban.jpg" />
     <Content Include="Images\bg.jpg" />
+    <Content Include="jyview.aspx" />
+    <Content Include="Super\DZJJ\yxsrf.aspx" />
+    <Content Include="Super\DZJJ\yxsrfview.aspx" />
     <Content Include="Super\Images\bgjj.jpg" />
     <Content Include="Super\Images\bgnewjj.jpg" />
     <Content Include="Images\but.png" />
@@ -1366,6 +1370,7 @@
     <Content Include="Super\WebMana\xmggview.aspx" />
     <Content Include="Super\WebMana\yqadd.aspx" />
     <Content Include="Super\WebMana\yqlist.aspx" />
+    <Content Include="Super\WH\hetongfj.aspx" />
     <Content Include="Super\Zc\Arbi.aspx" />
     <Content Include="Test.aspx" />
     <Content Include="User\Intention.aspx" />
@@ -1476,6 +1481,13 @@
     </Compile>
     <Compile Include="IntenDetails.aspx.designer.cs">
       <DependentUpon>IntenDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="jyview.aspx.cs">
+      <DependentUpon>jyview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="jyview.aspx.designer.cs">
+      <DependentUpon>jyview.aspx</DependentUpon>
     </Compile>
     <Compile Include="LED\default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
@@ -2095,6 +2107,20 @@
     <Compile Include="Super\DZJJ\WebForm2.aspx.designer.cs">
       <DependentUpon>WebForm2.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Super\DZJJ\yxsrf.aspx.cs">
+      <DependentUpon>yxsrf.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\DZJJ\yxsrf.aspx.designer.cs">
+      <DependentUpon>yxsrf.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\DZJJ\yxsrfview.aspx.cs">
+      <DependentUpon>yxsrfview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\DZJJ\yxsrfview.aspx.designer.cs">
+      <DependentUpon>yxsrfview.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Super\Files\Demands.aspx.cs">
       <DependentUpon>Demands.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2420,6 +2446,13 @@
     <Compile Include="Super\WebMana\yqlist.aspx.designer.cs">
       <DependentUpon>yqlist.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Super\WH\hetongfj.aspx.cs">
+      <DependentUpon>hetongfj.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\WH\hetongfj.aspx.designer.cs">
+      <DependentUpon>hetongfj.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Super\Zc\Arbi.aspx.cs">
       <DependentUpon>Arbi.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2555,7 +2588,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="kindeditor\attached\" />
     <Folder Include="linkImg\" />
     <Folder Include="Super\Scan\biscan\" />

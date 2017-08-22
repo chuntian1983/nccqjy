@@ -13,7 +13,7 @@
         </div>
     </div>
     <div class="list_wz top">
-        位置：<a href="../Default.aspx">首页</a> >> 挂牌项目
+        位置：<a href="../Default.aspx">首页</a> >> 项目公告
     </div>
     <div class="list top">
         <div class="gplist">

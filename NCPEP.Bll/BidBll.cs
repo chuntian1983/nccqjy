@@ -72,6 +72,14 @@ namespace NCPEP.Bll
                      str = "\"total\":" + SumCount(context) + ",";
                     returnDate = JsonHelper<Bid>.JsonDataTable(GetAllList(context), "rows").Insert(1, (str));
                     break;
+                case "pagingld":
+                    str = "\"total\":" + SumCount(context) + ",";
+                    returnDate = JsonHelper<Bid>.JsonDataTable(GetAllListld(context), "rows").Insert(1, (str));
+                    break;
+                case "super":
+                    str = "\"total\":" + SumCount(context) + ",";
+                    returnDate = JsonHelper<Bid>.JsonDataTable(GetAllListsuper(context), "rows").Insert(1, (str));
+                    break;
                 case "ycjbuser":
                     //str = "\"total\":" + SumCount(context) + ",";
                     returnDate = JsonHelper<Bid>.JsonDataTable(GetAllListByYCJBuser(context), "rows");
@@ -540,6 +548,108 @@ namespace NCPEP.Bll
                 {
                     sqlWhere += string.Format(" and a.DepaStatus = {0}", DepaStatus);
                 }
+
+                if (!string.IsNullOrEmpty(context.Request.QueryString["bt"]))
+                {
+                    sqlWhere += " and a.Id in(select FK_BidId from T_BidTrans where TradingStatus=1)";
+                }
+                return dal.GetAllList(sqlWhere, startIndex, pageSize, order);
+
+            }
+            catch (Exception ex)
+            {
+                SystemErrorPlug.ErrorRecord("时间:[" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "]类名:[" + this.GetType().Name + "],行号:[" + Component.GetLineNum().ToString() + "行],错误信息:[" + ex.Message + "]");
+                return null;
+            }
+        }
+        private DataTable GetAllListld(HttpContext context)
+        {
+            try
+            {
+                string sqlWhere = string.Empty;
+                if (1 == adminUser.IsCheck)
+                {
+                    sqlWhere = string.Format(" a.OrgCode like '{0}%' ", adminUser.OrgCode);
+                }
+                else
+                {
+                    sqlWhere = string.Format(" a.OrgCode = '{0}'  ", adminUser.OrgCode);
+                    //sqlWhere = string.Format(" a.OrgCode like '{0}%'  ", adminUser.OrgCode);
+                }
+                int startIndex = 0;
+                try { startIndex = int.Parse(context.Request.Form["page"]) - 1; }
+                catch { }
+                int pageSize = 10;
+                try { pageSize = int.Parse(context.Request.Form["rows"].ToString()); }
+                catch { }
+                SysLogBll.Create("出让标", "获取所有的出让标操作", adminUser.AdminName);
+                string order = string.Format(" order by a.{0} {1}", context.Request.Form["sort"].ToString(), context.Request.Form["order"].ToString());
+                if (context.Request.QueryString["BidName"] != null)
+                {
+                    sqlWhere += string.Format(" and a.BidName like '%{0}%'", context.Request.QueryString["BidName"]);
+                }
+                if (context.Request.QueryString["StandardMode"] != null)
+                {
+                    sqlWhere += string.Format(" and a.StandardMode = '{0}'", context.Request.QueryString["StandardMode"]);
+                }
+                string DepaStatus = context.Request.QueryString["DepaStatus"];
+                if (DepaStatus == "5" )
+                {
+                    sqlWhere += string.Format(" and a.DepaStatus>{0}", DepaStatus);
+                }
+                
+                
+
+                if (!string.IsNullOrEmpty(context.Request.QueryString["bt"]))
+                {
+                    sqlWhere += " and a.Id in(select FK_BidId from T_BidTrans where TradingStatus=1)";
+                }
+                return dal.GetAllList(sqlWhere, startIndex, pageSize, order);
+
+            }
+            catch (Exception ex)
+            {
+                SystemErrorPlug.ErrorRecord("时间:[" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "]类名:[" + this.GetType().Name + "],行号:[" + Component.GetLineNum().ToString() + "行],错误信息:[" + ex.Message + "]");
+                return null;
+            }
+        }
+        private DataTable GetAllListsuper(HttpContext context)
+        {
+            try
+            {
+                string sqlWhere = string.Empty;
+                if (1 == adminUser.IsCheck)
+                {
+                    sqlWhere = string.Format(" a.OrgCode like '{0}%' ", adminUser.OrgCode);
+                }
+                else
+                {
+                    sqlWhere = string.Format(" a.OrgCode = '{0}'  ", adminUser.OrgCode);
+                    //sqlWhere = string.Format(" a.OrgCode like '{0}%'  ", adminUser.OrgCode);
+                }
+                int startIndex = 0;
+                try { startIndex = int.Parse(context.Request.Form["page"]) - 1; }
+                catch { }
+                int pageSize = 10;
+                try { pageSize = int.Parse(context.Request.Form["rows"].ToString()); }
+                catch { }
+                SysLogBll.Create("出让标", "获取所有的出让标操作", adminUser.AdminName);
+                string order = string.Format(" order by a.{0} {1}", context.Request.Form["sort"].ToString(), context.Request.Form["order"].ToString());
+                if (context.Request.QueryString["BidName"] != null)
+                {
+                    sqlWhere += string.Format(" and a.BidName like '%{0}%'", context.Request.QueryString["BidName"]);
+                }
+                if (context.Request.QueryString["StandardMode"] != null)
+                {
+                    sqlWhere += string.Format(" and a.StandardMode = '{0}'", context.Request.QueryString["StandardMode"]);
+                }
+                string DepaStatus = context.Request.QueryString["DepaStatus"];
+                if (DepaStatus == "6")
+                {
+                    sqlWhere += string.Format(" and a.DepaStatus>{0}", DepaStatus);
+                }
+
+
 
                 if (!string.IsNullOrEmpty(context.Request.QueryString["bt"]))
                 {

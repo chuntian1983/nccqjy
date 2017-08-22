@@ -50,16 +50,18 @@
                tt = tt + 1;
                for (var i = 0; i < $('tr').length; i++) {
                    //var starttime = new Date($('tr').eq(i).find('td').eq(0).text()).getTime();
+                   var str = '0分0秒';
                    var starttime = new Date();
-                   var endtime = new Date($('tr').eq(i).find('td').eq(7).text()).getTime()
+                   var endtime = new Date($('tr').eq(i).find('td').eq(7).text()).getTime();
+                   
                    var overtime = endtime - starttime - tt * 1000;
                    // var overtime = endtime - starttime;  
                    var fz = parseInt(overtime / 60000);
-                   var mz =parseInt( (overtime - (fz * 60000)) / 1000);
-                   var str = '0分0秒';
+                   var mz = parseInt((overtime - (fz * 60000)) / 1000);
+
                    var str1 = fz + '分' + mz + '秒';
                    if (overtime <= 0) {
-                       $('tr').eq(i).find('td').eq(8).html("<span style='color:red'>"+str+"</span>");
+                       $('tr').eq(i).find('td').eq(8).html("<span style='color:red'>" + str + "</span>");
                    }
                    else {
                        $('tr').eq(i).find('td').eq(8).html("<span style='color:red'>" + str1 + "</span>");
@@ -75,7 +77,7 @@
 
 
        });  
-</script>  
+   </script>  
 </head>
 <body class="easyui-layout" style="overflow-y: hidden" scroll="no">
 <form runat="server" id="form1">

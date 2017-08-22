@@ -27,7 +27,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td height="132" rowspan="6" width="35" align="center">
+                    <td height="132" rowspan="5" width="35" align="center">
                         出<br />
                         让<br />
                         方<br />
@@ -79,7 +79,7 @@
                         <span id="lblOwner"></span>
                     </td>
                 </tr>
-                <tr>
+                <tr style=" display:none;">
                     <td height="35" align="center">
                         联系电话
                     </td>
