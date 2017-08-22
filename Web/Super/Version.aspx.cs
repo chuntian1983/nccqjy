@@ -19,7 +19,7 @@ namespace Web.Super
         }
         public static string strVersion()
         {
-            return "1.1121";
+            return "1.1122";
         }
         /// <summary>
         /// 版本升级说明
