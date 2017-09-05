@@ -120,6 +120,19 @@
     <Content Include="Images\ban.jpg" />
     <Content Include="Images\bg.jpg" />
     <Content Include="jyview.aspx" />
+    <Content Include="Super\DZJJ\jbtwo-add.aspx" />
+    <Content Include="Super\DZJJ\jbtwo-addtwo.aspx" />
+    <Content Include="Super\DZJJ\jbtwo-over.aspx" />
+    <Content Include="Super\DZJJ\jbtwo-overtwo.aspx" />
+    <Content Include="Super\DZJJ\jbtwo-user.aspx" />
+    <Content Include="Super\DZJJ\jbtwo-userjgtwo.aspx" />
+    <Content Include="Super\DZJJ\jbtwo-usertwo.aspx" />
+    <Content Include="Super\DZJJ\jbtwo-userviewtwo.aspx" />
+    <Content Include="Super\DZJJ\jbtwo-useryici.aspx" />
+    <Content Include="Super\DZJJ\jbtwo-useryicijg.aspx" />
+    <Content Include="Super\DZJJ\jbtwo-useryiciview.aspx" />
+    <Content Include="Super\DZJJ\jbtwo-view.aspx" />
+    <Content Include="Super\DZJJ\jbtwo.aspx" />
     <Content Include="Super\DZJJ\yxsrf.aspx" />
     <Content Include="Super\DZJJ\yxsrfview.aspx" />
     <Content Include="Super\Images\bgjj.jpg" />
@@ -1981,6 +1994,97 @@
     <Compile Include="Super\DZJJ\jbone-view.aspx.designer.cs">
       <DependentUpon>jbone-view.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Super\DZJJ\jbtwo-add.aspx.cs">
+      <DependentUpon>jbtwo-add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\DZJJ\jbtwo-add.aspx.designer.cs">
+      <DependentUpon>jbtwo-add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\DZJJ\jbtwo-addtwo.aspx.cs">
+      <DependentUpon>jbtwo-addtwo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\DZJJ\jbtwo-addtwo.aspx.designer.cs">
+      <DependentUpon>jbtwo-addtwo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\DZJJ\jbtwo-over.aspx.cs">
+      <DependentUpon>jbtwo-over.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\DZJJ\jbtwo-over.aspx.designer.cs">
+      <DependentUpon>jbtwo-over.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\DZJJ\jbtwo-overtwo.aspx.cs">
+      <DependentUpon>jbtwo-overtwo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\DZJJ\jbtwo-overtwo.aspx.designer.cs">
+      <DependentUpon>jbtwo-overtwo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\DZJJ\jbtwo-user.aspx.cs">
+      <DependentUpon>jbtwo-user.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\DZJJ\jbtwo-user.aspx.designer.cs">
+      <DependentUpon>jbtwo-user.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\DZJJ\jbtwo-userjgtwo.aspx.cs">
+      <DependentUpon>jbtwo-userjgtwo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\DZJJ\jbtwo-userjgtwo.aspx.designer.cs">
+      <DependentUpon>jbtwo-userjgtwo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\DZJJ\jbtwo-usertwo.aspx.cs">
+      <DependentUpon>jbtwo-usertwo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\DZJJ\jbtwo-usertwo.aspx.designer.cs">
+      <DependentUpon>jbtwo-usertwo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\DZJJ\jbtwo-userviewtwo.aspx.cs">
+      <DependentUpon>jbtwo-userviewtwo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\DZJJ\jbtwo-userviewtwo.aspx.designer.cs">
+      <DependentUpon>jbtwo-userviewtwo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\DZJJ\jbtwo-useryici.aspx.cs">
+      <DependentUpon>jbtwo-useryici.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\DZJJ\jbtwo-useryici.aspx.designer.cs">
+      <DependentUpon>jbtwo-useryici.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\DZJJ\jbtwo-useryicijg.aspx.cs">
+      <DependentUpon>jbtwo-useryicijg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\DZJJ\jbtwo-useryicijg.aspx.designer.cs">
+      <DependentUpon>jbtwo-useryicijg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\DZJJ\jbtwo-useryiciview.aspx.cs">
+      <DependentUpon>jbtwo-useryiciview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\DZJJ\jbtwo-useryiciview.aspx.designer.cs">
+      <DependentUpon>jbtwo-useryiciview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\DZJJ\jbtwo-view.aspx.cs">
+      <DependentUpon>jbtwo-view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\DZJJ\jbtwo-view.aspx.designer.cs">
+      <DependentUpon>jbtwo-view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\DZJJ\jbtwo.aspx.cs">
+      <DependentUpon>jbtwo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\DZJJ\jbtwo.aspx.designer.cs">
+      <DependentUpon>jbtwo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Super\DZJJ\WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2723,7 +2827,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>17787</DevelopmentServerPort>
+          <DevelopmentServerPort>13989</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

@@ -21,3 +21,8 @@ F:\mywork\newland\农村产权网站\南昌产权交易\NCPEP-1.1111\NCPEP-1.111
 F:\mywork\newland\农村产权网站\南昌产权交易\NCPEP-1.1111\NCPEP-1.1110\NCPEP\NCPEP.Model\obj\Release\NCPEP.Model.csprojResolveAssemblyReference.cache
 F:\mywork\newland\农村产权网站\南昌产权交易\NCPEP-1.1111\NCPEP-1.1110\NCPEP\NCPEP.Model\obj\Release\NCPEP.Model.dll
 F:\mywork\newland\农村产权网站\南昌产权交易\NCPEP-1.1111\NCPEP-1.1110\NCPEP\NCPEP.Model\obj\Release\NCPEP.Model.pdb
+F:\mywork\newland\农村产权网站\南昌产权交易\NCPEP-1.1111\NCPEP-1.1110\2010版本\NCPEP.Model\bin\Release\NCPEP.Model.dll
+F:\mywork\newland\农村产权网站\南昌产权交易\NCPEP-1.1111\NCPEP-1.1110\2010版本\NCPEP.Model\bin\Release\NCPEP.Model.pdb
+F:\mywork\newland\农村产权网站\南昌产权交易\NCPEP-1.1111\NCPEP-1.1110\2010版本\NCPEP.Model\obj\Release\NCPEP.Model.csprojResolveAssemblyReference.cache
+F:\mywork\newland\农村产权网站\南昌产权交易\NCPEP-1.1111\NCPEP-1.1110\2010版本\NCPEP.Model\obj\Release\NCPEP.Model.dll
+F:\mywork\newland\农村产权网站\南昌产权交易\NCPEP-1.1111\NCPEP-1.1110\2010版本\NCPEP.Model\obj\Release\NCPEP.Model.pdb

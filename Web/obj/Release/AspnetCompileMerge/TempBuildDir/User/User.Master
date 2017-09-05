@@ -1,0 +1,86 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="User.master.cs" Inherits="Web.User.User" %>
+<%@ Register Src="~/Controls/WebFoot.ascx" TagName="WebFoot" TagPrefix="uc1" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head id="Head1" runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>
+        <% =Application["OrgShortName"] %><%= Application["AllTitle"]%></title>
+    <meta name="keywords" content="<% =Application["OrgShortName"] %>农村综合产权交易网,土地流转" />
+    <meta name="description" content="<% =Application["OrgShortName"] %>产权交易、土地流转、交易流转" />
+    <link rel="stylesheet" type="text/css" href="../Styles/main.css" />
+    <link rel="stylesheet" type="text/css" href="../Styles/base.css" />
+    <link rel="stylesheet" type="text/css" href="../Styles/list.css" />
+    <script src="../Scripts/jquery-1.4.1.min.js" type="text/javascript" language="javascript"></script>
+    <script src="../Scripts/Site.js" type="text/javascript" language="javascript"></script>
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+
+    <div class="top_nav">
+            <div class="main1">
+            <div class="fl">
+			     <a href="http://www.nc.gov.cn/" target="_blank"><img src="../images/nc.jpg"> </a>                
+            </div>
+			 <div class="fl">
+               &nbsp; &nbsp; &nbsp; &nbsp; <span id="lblclock"></span>
+            </div>
+            <div class="fr">
+                <a href="UsLogin.aspx">登陆</a> | <a href="UsReg.aspx">注册</a> | <a href="#" onclick="this.style.behavior='url(#default#homepage)';this.setHomePage(document.location.href);">设为首页</a> <span>|</span>
+                <a href="#" onclick="window.external.AddFavorite(document.location.href,document.title)">加入收藏</a> <a href=""
+                    class="kindcss cssgr"></a><a href="" class="kindcss"></a><a href="" class="kindcss cssr">
+                    </a>
+            </div>
+        </div>
+        <div class="main1">
+            <img src="../images/top.png">
+        </div>
+        <div class="main1">
+            <div class="fl">
+                <ul class="menu_nav">
+                    <li class="menu_nav_ligb"><a href="../Default.aspx" class="menu_nav_white menus1">首页</a></li>                                         <li><a href="../NewsList.aspx?ntid=1&t=3" class="menus3_1">新闻中心</a></li>
+                    <li><a href="../BidList.aspx?t=4" class="menus4_1">交易项目</a></li>
+                    <li><a href="../PlacardList.aspx?t=5" class="menus5_1">项目公告</a></li>
+                    <li><a href="../NewsList.aspx?ntid=2&t=6"  class="menus6_1">政策法规</a></li>
+                    <li><a href="../NewsList.aspx?ntid=4&t=7" class="menus7_1">办事指南</a></li>
+                    <li><a href="../NewsList.aspx?ntid=7&t=2" class="menus2_1">关于我们</a></li>
+                </ul>
+            </div>
+            <div class="fr" style=" display:none;">
+                <ul class="menu_nav1">
+                    <li class="menul1_1"></li>
+                    <li class="menul2_1"></li>
+                    <li class="menul3_1"></li>
+                </ul>
+            </div>
+        </div>
+        <!--
+   <a href="../NewsList.aspx?ntid=4">办事指南</a>
+            <a href="../NewsList.aspx?ntid=5">专题活动</a>
+            -->
+        <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+        </div>
+       <!-- <div class="top">
+            <div class="mtitle ">
+                <b>县区直通车</b>
+            </div>
+            <div class="quhua">
+                <ul>
+                    <div id="orgList">
+                    </div>
+                </ul>
+            </div>
+        </div>-->
+        <div class="jj1">
+        </div>
+        <div class="fri">
+            <div class="main1">
+                <span id="lblLinks"></span>
+            </div>
+        </div>
+        <uc1:WebFoot ID="WebFootControl" runat="server" />
+</body>
+</html>

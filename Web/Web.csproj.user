@@ -3,7 +3,7 @@
   <PropertyGroup>
     <ProjectView>ShowAllFiles</ProjectView>
     <UseIISExpress>false</UseIISExpress>
-    <NameOfLastUsedPublishProfile>2</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>配置文件1</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

@@ -137,10 +137,6 @@ namespace Web.Super.DZJJ
             Response.Redirect("jbone.aspx");
         }
 
-    
-
-       
-
         protected void Button5_Click(object sender, EventArgs e)
         {
             BindDate();
