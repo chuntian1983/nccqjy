@@ -132,6 +132,7 @@
     <Content Include="Super\DZJJ\jbtwo-useryicijg.aspx" />
     <Content Include="Super\DZJJ\jbtwo-useryiciview.aspx" />
     <Content Include="Super\DZJJ\jbtwo-view.aspx" />
+    <Content Include="Super\DZJJ\jbtwo-viewtwo.aspx" />
     <Content Include="Super\DZJJ\jbtwo.aspx" />
     <Content Include="Super\DZJJ\yxsrf.aspx" />
     <Content Include="Super\DZJJ\yxsrfview.aspx" />
@@ -2077,6 +2078,13 @@
     </Compile>
     <Compile Include="Super\DZJJ\jbtwo-view.aspx.designer.cs">
       <DependentUpon>jbtwo-view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\DZJJ\jbtwo-viewtwo.aspx.cs">
+      <DependentUpon>jbtwo-viewtwo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\DZJJ\jbtwo-viewtwo.aspx.designer.cs">
+      <DependentUpon>jbtwo-viewtwo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Super\DZJJ\jbtwo.aspx.cs">
       <DependentUpon>jbtwo.aspx</DependentUpon>

@@ -15,11 +15,11 @@ namespace Web.Super
         /// <returns></returns>
         public static string Ver()
         {
-            return "Ver:1.1122";
+            return "Ver:1.1123";
         }
         public static string strVersion()
         {
-            return "1.1122";
+            return "1.1123";
         }
         /// <summary>
         /// 版本升级说明
@@ -30,6 +30,12 @@ namespace Web.Super
 
 
             /*
+             * 
+             *   2017-9-6更新版本Ver:1.1123
+             * 1.网站项目公告显示的挂牌项目文字就行修改
+             * 2.成交项目显示详细页面格式为鉴证书格式
+             * 3.显示详细页面去掉身份证和联系电话
+             * 
              * 
              *  *  * * 2017-8-21更新版本Ver:1.1122
              * 1.网站项目公告显示的挂牌项目文字就行修改

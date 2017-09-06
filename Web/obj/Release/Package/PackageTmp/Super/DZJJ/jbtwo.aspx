@@ -104,12 +104,15 @@
                 CausesValidation="False" onclick="Button1_Click" />
 		 <asp:Button ID="btndel" Visible="false" runat="server" Text="删除"  OnClientClick="return confirm('你确认要删除所选项，删除后不可恢复！')"
                 onclick="btndel_Click" />
-		<asp:Button ID="btnedit" runat="server" Text="一次竞价开始"  
+		<asp:Button ID="btnedit" runat="server" Text="一次竞价开始设置"  
                 onclick="btnedit_Click" />
-		&nbsp;<asp:Button ID="btnshenhe" runat="server" Text="竞标结果选择" 
+		&nbsp;<asp:Button ID="btnshenhe" runat="server" Text="一次竞标结果选择" 
                 onclick="btnshenhe_Click" />
-       &nbsp;<asp:Button ID="btnview" runat="server" Text="查看竞价结果" 
+       &nbsp;<asp:Button ID="btnview" runat="server" Text="查看一次竞价结果" 
                 onclick="btnview_Click" />
+        <asp:Button ID="btnerci" runat="server" Text="二次竞标开始设置" OnClick="btnerci_Click" />
+        <asp:Button ID="btntwoview" runat="server" Text="二次竞标结果选择" OnClick="btntwoview_Click" />
+        <asp:Button ID="btntwojg" runat="server" Text="查看二次竞价结果" OnClick="btntwojg_Click" />
 
 <div class="t_title">
 	<table  border="0" cellpadding="0" cellspacing="0" id="dataTab">
@@ -124,7 +127,7 @@
 			
 			<th>竞价状态</th>
 			<th>竞价起拍价格</th>
-			<th>竞标截止时间</th>
+			<th style=" width:100px;">竞标截止时间</th>
             <th>竞价倒计时</th>
 			<th>交易方式</th>
 			<th>权属</th>
@@ -158,7 +161,7 @@
                                 <%# Eval("Jbqbj")%>
                             </td>
                             <td>
-                                <asp:Label ID="lbshzt" runat="server" Text='<%# Eval("Jbjzsj")%>'></asp:Label> 
+                                <asp:Label ID="lbshzt" runat="server" Text='<%#DateTime.Parse( Eval("Jbjzsj").ToString()).ToString("yyyy-MM-dd HH:mm:ss")%>'></asp:Label> 
                             </td>
                             <td>
                             </td>

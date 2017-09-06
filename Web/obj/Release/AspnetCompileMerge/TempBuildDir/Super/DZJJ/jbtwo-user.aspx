@@ -108,7 +108,9 @@
                 <asp:Button ID="btnjieguo" runat="server" Text="查看一次竞价结果" 
               CssClass="btn btn-primary" onclick="btnjieguo_Click" 
                />
-		
+		<asp:Button ID="btnaddtwo" runat="server" Text="二次竞价" CssClass="btn btn-primary" OnClick="btnaddtwo_Click" />
+       <asp:Button ID="btnviewtwo" runat="server" Text="查看二次竞价价格" CssClass="btn btn-primary" OnClick="btnviewtwo_Click" />
+       <asp:Button ID="btnjgtwo" runat="server" Text="查看二次竞价结果" CssClass="btn btn-primary" OnClick="btnjgtwo_Click" />
 </div>
 <div class="t_title">
 	<table class="table table-bordered"  border="0" cellpadding="0" cellspacing="0" id="dataTab">

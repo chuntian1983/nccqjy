@@ -147,7 +147,7 @@ namespace Web.Super.DZJJ
                 NCPEP.Bll.T_Bid bllb = new NCPEP.Bll.T_Bid();
                 NCPEP.Model.T_Bid modelb = new NCPEP.Model.T_Bid();
                 modelb = bllb.GetModel(int.Parse(Request.QueryString["id"]));
-                modelb.Jbzt = "2";
+                modelb.Jbzt = "4";
                 bllb.Update(modelb);
                 MessageBox.ShowAndRedirect(this, "二次竞标完成", "jbtwo.aspx");
             }
