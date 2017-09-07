@@ -29,10 +29,10 @@ namespace NCPEP.Dal
 {
     public class LiceTranDal
     {
-        private MsSqlHelper db = null;
+        
         public LiceTranDal()
         {
-            db = new MsSqlHelper();
+           
         }
         //
         public bool UpdateState(string row, string values, int Id)
@@ -40,7 +40,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format("update T_LiceTran set {0} = {1} where Id = {2}", row, values, Id);
-                if (db.ExecuteNonQuery(strSql) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql) > 0)
                 {
                     return true;
                 }
@@ -59,7 +59,7 @@ namespace NCPEP.Dal
                 //排比上传
                // string strSql = string.Format(" select a.Id,a.TypeIndicatorName from T_UploadTypeIndicator as a left join T_IndicatorsRelations as b on a.Id=b.FK_TypeIndicatorNameId left join T_LiceTran as c on b.FK_MemberTypeCertificationId =c.MemberTypeId and b.ApplicationType=c.LiceTranType where  c.Id={0} and a.Id not in(select FK_UploadTypeIndicatorId from T_LiceTranScan where FK_LiceTranId={0}) ", LiceTranId);
                 string strSql = string.Format(" select a.Id,a.TypeIndicatorName from T_UploadTypeIndicator as a left join T_IndicatorsRelations as b on a.Id=b.FK_TypeIndicatorNameId left join T_LiceTran as c on b.FK_MemberTypeCertificationId =c.MemberTypeId and b.ApplicationType=c.LiceTranType where c.Id={0} ", LiceTranId);
-                return db.ExecuteDataTable(strSql);
+                return DbHelperSQL.QueryTable(strSql);
             }
             catch
             {
@@ -73,7 +73,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format(" select Id,Name from T_LiceTran where OrgCode = '{0}' and AuditType = 1 and LiceTranType={1} ", OrgCode, LiceTranType);
-                return db.ExecuteDataTable(strSql);
+                return DbHelperSQL.QueryTable(strSql);
             }
             catch { throw; }
         }
@@ -83,7 +83,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format(" select Id,Name from T_LiceTran where FK_WebUserVeriId = {0} and AuditType = 1 and LiceTranType={1} ", FK_WebUserVeriId, LiceTranType);
-                return db.ExecuteDataTable(strSql);
+                return DbHelperSQL.QueryTable(strSql);
             }
             catch { throw; }
         }
@@ -97,7 +97,7 @@ namespace NCPEP.Dal
                 strSql.Append("OrgCode,MemberTypeId,Name,Addr,Contact,Corporate,IDCard,OrganizationCode,Tel,Owner,Capital,ApplyDate,AuditType,LiceTranType,FK_WebUserVeriId,jbyhm,jbmm)");
                 strSql.Append(" values (");
                 strSql.Append("@OrgCode,@MemberTypeId,@Name,@Addr,@Contact,@Corporate,@IDCard,@OrganizationCode,@Tel,@Owner,@Capital,@ApplyDate,@AuditType,@LiceTranType,@FK_WebUserVeriId,@JBYhm,@JBmm)");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -118,7 +118,7 @@ namespace NCPEP.Dal
                 {
                     strSql += string.Format(" where {0}", where);
                 }
-                return db.ExecuteScalar(strSql);
+                return Convert.ToInt32( DbHelperSQL.GetSingle(strSql));
             }
             catch { throw; }
         }
@@ -128,7 +128,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format("delete from T_LiceTran where Id={0}", Id);
-                if (db.ExecuteNonQuery(strSql) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql) > 0)
                 {
                     return true;
                 }
@@ -199,7 +199,7 @@ namespace NCPEP.Dal
                 strSql.Append("JBYhm=@jbyhm,");
                 strSql.Append("JBmm=@jbmm");
                 strSql.Append(" where Id=@Id");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -216,7 +216,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format(" select a.Id,c.TypeCertificationName as MemberTypeId,a.Name,a.Addr,a.Contact,a.Corporate,a.IDCard,a.OrganizationCode,a.Tel,a.[Owner],a.Capital,a.ApplyDate,a.AuditType,a.LiceTranType from T_LiceTran as a left join T_MemberTypeCertification as c on a.MemberTypeId = c.Id where a.Id={0} ", Id);
-                return db.ExecuteDataTable(strSql);
+                return DbHelperSQL.QueryTable(strSql);
             }
             catch { throw; }
         }
@@ -234,7 +234,7 @@ namespace NCPEP.Dal
                 {
                     strSql += order;
                 }
-                return db.ExecuteDataTable(strSql, startIndex * pageSize, pageSize, "T_LiceTran");
+                return DbHelperSQL.ExecuteDataTable(strSql, startIndex * pageSize, pageSize, "T_LiceTran");
             }
             catch { throw; }
         }
@@ -251,7 +251,7 @@ namespace NCPEP.Dal
 					new SqlParameter("@Id", SqlDbType.Int,4)
 			};
                 parameters[0].Value = Id;
-                using (dynamic read = db.ExecuteReader(strSql.ToString(), parameters))
+                using (dynamic read = DbHelperSQL.ExecuteReader(strSql.ToString(), parameters))
                 {
                     if (read.Read())
                     {
@@ -295,7 +295,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format(" select a.Id,c.TypeCertificationName as MemberTypeId,a.Name,a.Addr,a.Contact,a.Corporate,a.IDCard,a.OrganizationCode,a.Tel,a.[Owner],a.Capital,a.ApplyDate,a.AuditType,a.LiceTranType from T_LiceTran as a left join T_MemberTypeCertification as c on a.MemberTypeId = c.Id where a.Id={0} ", Id);
-                return db.ExecuteDataTable(strSql);
+                return DbHelperSQL.QueryTable(strSql);
             }
             catch { throw; }
         }

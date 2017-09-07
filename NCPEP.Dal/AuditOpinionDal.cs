@@ -18,15 +18,16 @@ using NCPEP.Com.Util;
 using NCPEP.Model;
 using System.Data.SqlClient;
 using System.Data;
+using Maticsoft.DBUtility;
 
 namespace NCPEP.Dal
 {
     public class AuditOpinionDal
     {
-        private dynamic db = null;
+        //private dynamic db = null;
         public AuditOpinionDal()
         {
-            db = new MsSqlHelper();
+            //db = new MsSqlHelper();
         }
         //
         public bool Create(AuditOpinion model)
@@ -38,7 +39,7 @@ namespace NCPEP.Dal
                 strSql.Append("FK_WebUserVeriId,CheckName,CheckOpinion,OpinionDate)");
                 strSql.Append(" values (");
                 strSql.Append("@FK_WebUserVeriId,@CheckName,@CheckOpinion,@OpinionDate)");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -55,7 +56,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format("delete from T_AuditOpinion where FK_WebUserVeriId={0}", FK_WebUserVeriId);
-                if (db.ExecuteNonQuery(strSql) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql) > 0)
                 {
                     return true;
                 }
@@ -76,7 +77,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format(" select Id,FK_WebUserVeriId,CheckName,CheckOpinion,OpinionDate from T_AuditOpinion  where FK_WebUserVeriId={0} order by OpinionDate desc ", FK_WebUserVeriId);
-                return db.ExecuteDataTable(strSql);
+                return DbHelperSQL.QueryTable(strSql);
             }
             catch { throw; }
         }
@@ -93,7 +94,7 @@ namespace NCPEP.Dal
 					new SqlParameter("@Id", SqlDbType.Int,4)
 			};
                 parameters[0].Value = Id;
-                using (dynamic read = db.ExecuteReader(strSql.ToString(), parameters))
+                using (dynamic read =DbHelperSQL.ExecuteReader(strSql.ToString(), parameters))
                 {
                     if (read.Read())
                     {

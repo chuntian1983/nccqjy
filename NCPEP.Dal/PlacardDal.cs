@@ -18,15 +18,16 @@ using NCPEP.Com.Util;
 using NCPEP.Model;
 using System.Data;
 using System.Data.SqlClient;
+using Maticsoft.DBUtility;
 
 namespace NCPEP.Dal
 {
     public class PlacardDal
     {
-        private dynamic db = null;
+       
         public PlacardDal()
         {
-            db = new MsSqlHelper();
+           
         }
         public bool Create(Placard model)
         {
@@ -37,7 +38,7 @@ namespace NCPEP.Dal
                 strSql.Append("PlacardTitle,PlacardContent,Publisher,ReleaseTime,NumClicks,DepName)");
                 strSql.Append(" values (");
                 strSql.Append("@PlacardTitle,@PlacardContent,@Publisher,@ReleaseTime,@NumClicks,@DepName)");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -55,7 +56,7 @@ namespace NCPEP.Dal
         public void UpdateNumClicks(int id)
         {
             string strSql = string.Format("update T_Placard set NumClicks = NumClicks + 1 where id= {0}", id);
-            db.ExecuteNonQuery(strSql);
+            DbHelperSQL.ExecuteSql(strSql);
         }
         /// <summary>
         /// 数据总和
@@ -71,7 +72,7 @@ namespace NCPEP.Dal
                 {
                     strSql += string.Format(" where {0} ", sqlWhere);
                 }
-                return db.ExecuteScalar(strSql);
+                return DbHelperSQL.GetSingle(strSql);
             }
             catch { throw; }
         }
@@ -89,7 +90,7 @@ namespace NCPEP.Dal
                 strSql.Append("NumClicks=@NumClicks,");
                 strSql.Append("DepName=@DepName");
                 strSql.Append(" where Id=@Id");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -111,7 +112,7 @@ namespace NCPEP.Dal
 			};
             parameters[0].Value = Id;
 
-            int rows = db.ExecuteNonQuery(strSql.ToString(), parameters);
+            int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
             if (rows > 0)
             {
                 return true;
@@ -127,7 +128,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format("select Id,PlacardTitle,PlacardContent,Publisher,ReleaseTime,NumClicks,DepName from T_Placard  where {0} {1}", sqlWhere, order);
-                return db.ExecuteDataTable(strSql, startIndex * pageSize, pageSize, "T_Placard");
+                return DbHelperSQL.ExecuteDataTable(strSql, startIndex * pageSize, pageSize, "T_Placard");
             }
             catch { throw; }
         }
@@ -144,7 +145,7 @@ namespace NCPEP.Dal
 					new SqlParameter("@Id", SqlDbType.Int,4)
 			};
                 parameters[0].Value = Id;
-                using (dynamic read = db.ExecuteReader(strSql.ToString(), parameters))
+                using (dynamic read = DbHelperSQL.ExecuteReader(strSql.ToString(), parameters))
                 {
                     if (read.Read())
                     {

@@ -18,6 +18,7 @@ using NCPEP.Com.Util;
 using NCPEP.Model;
 using System.Data;
 using System.Data.SqlClient;
+using Maticsoft.DBUtility;
 
 namespace NCPEP.Dal
 {
@@ -38,7 +39,9 @@ namespace NCPEP.Dal
                 strSql.Append("AdminTypeName,Editor,CreateDate)");
                 strSql.Append(" values (");
                 strSql.Append("@AdminTypeName,@Editor,@CreateDate)");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                //if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
+
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -66,7 +69,7 @@ namespace NCPEP.Dal
                 strSql.Append("Editor=@Editor,");
                 strSql.Append("CreateDate=@CreateDate");
                 strSql.Append(" where Id=@Id");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -93,7 +96,8 @@ namespace NCPEP.Dal
                     strSql += string.Format(" where id={0}", id);
                 }
                 strSql += " order by Id asc ";
-                return db.ExecuteDataTable(strSql);
+                //return db.ExecuteDataTable(strSql);
+                return DbHelperSQL.Query(strSql).Tables[0];
             }
             catch { throw; }
         }
@@ -103,7 +107,8 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format("select Id,AdminTypeName,Editor,CreateDate from T_AdminType order by {0} {1}", sort, order);
-                return db.ExecuteDataTable(strSql);
+                //return db.ExecuteDataTable(strSql);
+                return DbHelperSQL.Query(strSql).Tables[0];
             }
             catch { throw; }
         }

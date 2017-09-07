@@ -22,16 +22,17 @@ using NCPEP.Com.Util;
 using NCPEP.Model;
 using System.Data.SqlClient;
 using System.Data;
+using Maticsoft.DBUtility;
 
 namespace NCPEP.Dal
 {
     public class BidTransDal
     {
-        private MsSqlHelper db = null;
+        //private MsSqlHelper db = null;
 
         public BidTransDal()
         {
-            db = new MsSqlHelper();
+            //db = new MsSqlHelper();
         }
         //
         public bool UpdateState(string row, string where)
@@ -39,7 +40,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format("update T_BidTrans set {0} where {1}", row, where);
-                if (db.ExecuteNonQuery(strSql) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql) > 0)
                 {
                     return true;
                 }
@@ -56,7 +57,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format(" select count(*) from T_BidTrans where FK_BidId ={0} and TradingStatus =1", FK_BidId);
-                return (int)db.ExecuteScalar(strSql);
+                return (int)DbHelperSQL.GetSingle(strSql);
             }
             catch
             {
@@ -73,7 +74,7 @@ namespace NCPEP.Dal
                 strSql.Append("FK_BidId,FK_LiceTranId,TradingStatus,Editor,CreateDate,ApplyDate)");
                 strSql.Append(" values (");
                 strSql.Append("@FK_BidId,@FK_LiceTranId,@TradingStatus,@Editor,@CreateDate,@ApplyDate)");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -98,7 +99,7 @@ namespace NCPEP.Dal
                 strSql.Append("CreateDate=@CreateDate,");
                 strSql.Append("ApplyDate=@ApplyDate");
                 strSql.Append(" where Id=@Id");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -119,7 +120,7 @@ namespace NCPEP.Dal
                 {
                     strSql += string.Format(" where {0}", where);
                 }
-                return db.ExecuteScalar(strSql);
+                return DbHelperSQL.GetSingle(strSql);
             }
             catch { throw; }
         }
@@ -136,7 +137,7 @@ namespace NCPEP.Dal
 			};
                 parameters[0].Value = Id;
 
-                int rows = db.ExecuteNonQuery(strSql.ToString(), parameters);
+                int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
                 if (rows > 0)
                 {
                     return true;
@@ -162,7 +163,7 @@ namespace NCPEP.Dal
                 {
                     strSql += order;
                 }
-                return db.ExecuteDataTable(strSql, startIndex * pageSize, pageSize, "T_BidTrans");
+                return DbHelperSQL.ExecuteDataTable(strSql, startIndex * pageSize, pageSize, "T_BidTrans");
             }
             catch { throw; }
         }
@@ -172,7 +173,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format(" select a.Id,b.Id as FK_LiceTranId,b.[LiceTranType],b.[OrgCode],c.TypeCertificationName,b.[Name],b.[Addr],b.[Contact],b.[Corporate],b.[IDCard],b.[OrganizationCode],b.[Tel],b.[Owner],b.[Capital],b.[ApplyDate],b.[AuditType] from T_BidTrans as a left join T_LiceTran as b on a.FK_LiceTranId= b.Id  left join T_MemberTypeCertification as c on b.[MemberTypeId] =c.Id where a.FK_BidId ={0} ", Id);
-                return db.ExecuteDataTable(strSql);
+                return DbHelperSQL.QueryTable(strSql);
             }
             catch { throw; }
         }
@@ -182,7 +183,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format(" select m.Id,m.FK_BidId,m.FK_LiceTranId,m.TradingStatus,m.Editor,m.CreateDate,m.ApplyDate,a.OrgCode from T_BidTrans as m left join T_Bid as a on m.FK_BidId = a.Id where m.Id={0} ", Id);
-                return db.ExecuteDataTable(strSql);
+                return DbHelperSQL.QueryTable(strSql);
             }
             catch { throw; }
         }
@@ -199,7 +200,7 @@ namespace NCPEP.Dal
 					new SqlParameter("@Id", SqlDbType.Int,4)
 			};
                 parameters[0].Value = Id;
-                using (dynamic read = db.ExecuteReader(strSql.ToString(), parameters))
+                using (dynamic read = DbHelperSQL.ExecuteReader(strSql.ToString(), parameters))
                 {
                     if (read.Read())
                     {
@@ -246,8 +247,8 @@ namespace NCPEP.Dal
         {
             try
             {
-                string strSql = string.Format(" select count(a.Id) from T_BidTrans as b left join T_Bid as a on b.FK_BidId = a.Id  where a.FK_LiceTranId in (select Id from T_LiceTran where FK_WebUserVeriId ={0}) ",FK_LiceTranId);               
-                return db.ExecuteScalar(strSql);
+                string strSql = string.Format(" select count(a.Id) from T_BidTrans as b left join T_Bid as a on b.FK_BidId = a.Id  where a.FK_LiceTranId in (select Id from T_LiceTran where FK_WebUserVeriId ={0}) ",FK_LiceTranId);
+                return DbHelperSQL.GetSingle(strSql);
             }
             catch { throw; }
         }
@@ -261,7 +262,7 @@ namespace NCPEP.Dal
                 {
                     strSql += order;
                 }
-                return db.ExecuteDataTable(strSql, startIndex * pageSize, pageSize, "T_BidTrans");
+                return DbHelperSQL.ExecuteDataTable(strSql, startIndex * pageSize, pageSize, "T_BidTrans");
             }
             catch { throw; }
         }

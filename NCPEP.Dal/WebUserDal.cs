@@ -18,15 +18,16 @@ using NCPEP.Com.Util;
 using NCPEP.Model;
 using System.Data.SqlClient;
 using System.Data;
+using Maticsoft.DBUtility;
 
 namespace NCPEP.Dal
 {
     public class WebUserDal
     {
-        private dynamic db = null;
+       
         public WebUserDal()
         {
-            db = new MsSqlHelper();
+           
         }
 
         public bool Create(WebUserVeri model)
@@ -38,7 +39,7 @@ namespace NCPEP.Dal
                 strSql.Append("LoginName,LoginPass,UserName,UserTel,UserEmail,UserStatus,LoginDate,LoginnNum,OutDate,Veri)");
                 strSql.Append(" values (");
                 strSql.Append("@LoginName,@LoginPass,@UserName,@UserTel,@UserEmail,@UserStatus,@LoginDate,@LoginnNum,@OutDate,@Veri)");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -64,7 +65,7 @@ namespace NCPEP.Dal
                 {
                     strSql += string.Format(" where {0} ", sqlWhere);
                 }
-                return db.ExecuteScalar(strSql);
+                return DbHelperSQL.GetSingle(strSql);
             }
             catch { throw; }
         }
@@ -86,7 +87,7 @@ namespace NCPEP.Dal
                 strSql.Append("OutDate=@OutDate,");
                 strSql.Append("Veri=@Veri");              
                 strSql.Append(" where Id=@Id");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -109,7 +110,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format("update T_WebUserVeri set {0} = {1} where Id = {2}", row, values, where);
-                if (db.ExecuteNonQuery(strSql) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql) > 0)
                 {
                     return true;
                 }
@@ -130,7 +131,7 @@ namespace NCPEP.Dal
 					new SqlParameter("@Id", SqlDbType.Int,4)
 			};
             parameters[0].Value = Id;
-            int rows = db.ExecuteNonQuery(strSql.ToString(), parameters);
+            int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
             if (rows > 0)
             {
                 return true;
@@ -151,7 +152,7 @@ namespace NCPEP.Dal
                     strSql += string.Format(" WHERE {0} ", sqlWhere);
                 }
                 strSql += order;
-                return db.ExecuteDataTable(strSql, startIndex * pageSize, pageSize, "T_WebUserVeri");
+                return DbHelperSQL.ExecuteDataTable(strSql, startIndex * pageSize, pageSize, "T_WebUserVeri");
             }
             catch { throw; }
         }
@@ -168,7 +169,7 @@ namespace NCPEP.Dal
 					new SqlParameter("@Id", SqlDbType.Int,4)
 			};
                 parameters[0].Value = Id;
-                using (dynamic read = db.ExecuteReader(strSql.ToString(), parameters))
+                using (dynamic read = DbHelperSQL.ExecuteReader(strSql.ToString(), parameters))
                 {
                     if (read.Read())
                     {
@@ -238,7 +239,7 @@ namespace NCPEP.Dal
             {
                 string strSql = string.Format(" select  top 1 Id,LoginName,LoginPass,UserName,UserTel,UserEmail,UserStatus,LoginDate,LoginnNum,OutDate,Veri,MemberTypeId,VeriName,VeriSex,VeriIDCard,VeriIDCardScan,OrgCode,VeriAddress,VeriTel,VeriCorporate,VeriCorporateIDCard,VeriCorporateIDCardScan,VeriCreditCode,VeriCreditCodeScan,VeriStatus,AuditType,VeriCheckName,VeriApplyDate,VeriCheckDate from T_WebUserVeri where LoginName='{0}' and LoginPass='{1}'", LoginName, LoginPass);
                 dynamic model = null;
-                using (dynamic read = db.ExecuteReader(strSql))
+                using (dynamic read = DbHelperSQL.ExecuteReader(strSql))
                 {
                     if (read.Read())
                     {
@@ -301,7 +302,7 @@ namespace NCPEP.Dal
             {
                 bool existence;
                 string strSql = string.Format(" select Id,LoginName from T_WebUserVeri where LoginName = '{0}' ", LoginName);
-                using (dynamic read = db.ExecuteReader(strSql))
+                using (dynamic read = DbHelperSQL.ExecuteReader(strSql))
                 {
                     if (read.Read())
                     {
@@ -328,7 +329,7 @@ namespace NCPEP.Dal
         {
             try
             {
-                db.ExecuteNonQuery(string.Format("update T_WebUserVeri set LoginnNum=(LoginnNum+1),OutDate=GETDATE() where Id={0}", id));
+                DbHelperSQL.ExecuteSql(string.Format("update T_WebUserVeri set LoginnNum=(LoginnNum+1),OutDate=GETDATE() where Id={0}", id));
             }
             catch { throw; }
         }

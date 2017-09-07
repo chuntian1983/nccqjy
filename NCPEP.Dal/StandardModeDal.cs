@@ -18,16 +18,17 @@ using NCPEP.Com.Util;
 using NCPEP.Model;
 using System.Data.SqlClient;
 using System.Data;
+using Maticsoft.DBUtility;
 
 namespace NCPEP.Dal
 {
     public class StandardModeDal
     {
 
- private dynamic db = null;
+
  public StandardModeDal()
         {
-            db = new MsSqlHelper();
+            
         }
         //
  public bool Create(StandardMode model)
@@ -39,7 +40,7 @@ namespace NCPEP.Dal
                 strSql.Append("StandardModeName,Editor,CreateDate)");
                 strSql.Append(" values (");
                 strSql.Append("@StandardModeName,@Editor,@CreateDate)");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -67,7 +68,7 @@ namespace NCPEP.Dal
                 strSql.Append("Editor=@Editor,");
                 strSql.Append("CreateDate=@CreateDate");
                 strSql.Append(" where Id=@Id");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -94,7 +95,7 @@ namespace NCPEP.Dal
                     strSql += string.Format(" where id={0}", id);
                 }
                 strSql += " order by Id asc ";
-                return db.ExecuteDataTable(strSql);
+                return DbHelperSQL.QueryTable(strSql);
             }
             catch { throw; }
         }
@@ -104,7 +105,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format(" select Id,StandardModeName,Editor,CreateDate from T_StandardMode order by {0} {1}", sort, order);
-                return db.ExecuteDataTable(strSql);
+                return DbHelperSQL.QueryTable(strSql);
             }
             catch { throw; }
         }
@@ -121,7 +122,7 @@ namespace NCPEP.Dal
 					new SqlParameter("@Id", SqlDbType.Int,4)
 			};
                 parameters[0].Value = Id;
-                using (dynamic read = db.ExecuteReader(strSql.ToString(), parameters))
+                using (dynamic read = DbHelperSQL.ExecuteReader(strSql.ToString(), parameters))
                 {
                     model = new StandardMode();
                     if (read.Read())

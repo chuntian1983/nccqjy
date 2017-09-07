@@ -18,16 +18,17 @@ using NCPEP.Com.Util;
 using NCPEP.Model;
 using System.Data.SqlClient;
 using System.Data;
+using Maticsoft.DBUtility;
 
 namespace NCPEP.Dal
 {
     public class RolePermissionsDal : IDisposable
     {
-        private dynamic db = null;
+    
         //
         public RolePermissionsDal()
         {
-            db = new MsSqlHelper();
+        
         }
         //
         public bool Create(RolePermissions model)
@@ -39,7 +40,7 @@ namespace NCPEP.Dal
                 strSql.Append("AdminUserId,SysFunId,Editor,CreateDate)");
                 strSql.Append(" values (");
                 strSql.Append("@AdminUserId,@SysFunId,@Editor,@CreateDate)");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -61,7 +62,7 @@ namespace NCPEP.Dal
                 SqlParameter[] parameters = {
 					new SqlParameter("@AdminUserId", AdminUserId)
 			};
-                if (db.ExecuteNonQuery(strSql.ToString(), parameters) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), parameters) > 0)
                 {
                     return true;
                 }
@@ -78,7 +79,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format(" select c.NodeId,c.NodeURL,c.DisplayName,c.FunImgNum from T_RolePermissions as a left join T_AdminUser as b on a.AdminUserId = b.Id left join T_SysFun as c on a.SysFunId = c.NodeId where a.AdminUserId = {0}  order by c.DisplayOrder asc ", adminUserId );
-                return db.ExecuteDataTable(strSql);
+                return DbHelperSQL.QueryTable(strSql);
             }
             catch { throw; }
         }
@@ -89,7 +90,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format(" select c.NodeId,c.NodeURL,c.DisplayName,c.FunImgNum from T_RolePermissions as a left join T_AdminUser as b on a.AdminUserId = b.Id left join T_SysFun as c on a.SysFunId = c.NodeId where a.AdminUserId = {0} and c.ParentNodeId={1} order by c.DisplayOrder asc ", adminUserId, parentNodeId);
-                return db.ExecuteDataTable(strSql);
+                return DbHelperSQL.QueryTable(strSql);
             }
             catch { throw; }
         }
@@ -98,7 +99,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format(" select c.NodeId,c.NodeURL,c.DisplayName,c.FunImgNum from  T_SysFun as c where c.ParentNodeId={0}   order by c.DisplayOrder asc ",parentNodeId);
-                return db.ExecuteDataTable(strSql);
+                return DbHelperSQL.QueryTable(strSql);
             }
             catch { throw; }
         }

@@ -18,15 +18,16 @@ using NCPEP.Com.Util;
 using System.Data.SqlClient;
 using NCPEP.Model;
 using System.Data;
+using Maticsoft.DBUtility;
 
 namespace NCPEP.Dal
 {
     public class IndicatorsRelationsDal
     {
-        private dynamic db = null;
+        //private dynamic db = null;
         public IndicatorsRelationsDal()
         {
-            db = new MsSqlHelper();
+            //db = new MsSqlHelper();
         }
         /// <summary>
         /// 
@@ -42,7 +43,7 @@ namespace NCPEP.Dal
                 strSql.Append("ApplicationType,FK_MemberTypeCertificationId,FK_TypeIndicatorNameId,Editor,CreateDate)");
                 strSql.Append(" values (");
                 strSql.Append("@ApplicationType,@FK_MemberTypeCertificationId,@FK_TypeIndicatorNameId,@Editor,@CreateDate)");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -72,7 +73,7 @@ namespace NCPEP.Dal
 					new SqlParameter("@ApplicationType", ApplicationType),
                     new SqlParameter("@FK_MemberTypeCertificationId", FK_MemberTypeCertificationId)
 			};
-                if (db.ExecuteNonQuery(strSql.ToString(), parameters) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), parameters) > 0)
                 {
                     return true;
                 }
@@ -89,7 +90,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format("SELECT A.Id,A.ApplicationType,B.TypeCertificationName as MemberTypeCertificationName,C.TypeIndicatorName AS TypeIndicatorName,A.Editor,A.CreateDate FROM T_IndicatorsRelations AS A left join T_MemberTypeCertification AS B on A.FK_MemberTypeCertificationId=B.Id LEFT JOIN T_UploadTypeIndicator AS C on A.FK_TypeIndicatorNameId=C.Id WHERE A.ApplicationType={0} AND A.FK_MemberTypeCertificationId={1} ORDER BY A.Id ASC ", ApplicationType, FK_MemberTypeCertificationId);
-                return db.ExecuteDataTable(strSql);
+                return DbHelperSQL.QueryTable(strSql);
             }
             catch { throw; }
         }
@@ -99,7 +100,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format(" SELECT Id,ApplicationType,FK_MemberTypeCertificationId,FK_TypeIndicatorNameId,Editor,CreateDate FROM T_IndicatorsRelations where  ApplicationType ={0} and FK_MemberTypeCertificationId={1} ", ApplicationType, FK_MemberTypeCertificationId);
-                return db.ExecuteDataTable(strSql);
+                return DbHelperSQL.QueryTable(strSql);
             }
             catch { throw; }
         }

@@ -22,15 +22,16 @@ using NCPEP.Com.Util;
 using NCPEP.Model;
 using System.Data.SqlClient;
 using System.Data;
+using Maticsoft.DBUtility;
 
 namespace NCPEP.Dal
 {
     public class BidAuctionDal
     {
-        private dynamic db = null;
+        //private dynamic db = null;
         public BidAuctionDal()
         {
-            db = new MsSqlHelper();
+            //db = new MsSqlHelper();
         }           
         //
         public int Existence(int FK_BidId, int SeveralBid)
@@ -39,7 +40,7 @@ namespace NCPEP.Dal
             {
                 string strSql = string.Format(" select count(Id) from T_BidAuction where FK_BidId={0} ", FK_BidId);
                 if (0 != SeveralBid) { strSql += string.Format("and SeveralBid={0}", SeveralBid); }
-                return (int)db.ExecuteScalar(strSql);
+                return (int)DbHelperSQL.GetSingle(strSql);
             }
             catch
             {
@@ -56,7 +57,7 @@ namespace NCPEP.Dal
                 strSql.Append("FK_BidId,LiceTranId,SeveralBid,Price,AuctionDate,Editor,CreateDate)");
                 strSql.Append(" values (");
                 strSql.Append("@FK_BidId,@LiceTranId,@SeveralBid,@Price,@AuctionDate,@Editor,@CreateDate)");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -87,7 +88,7 @@ namespace NCPEP.Dal
                 strSql.Append("Editor=@Editor,");
                 strSql.Append("CreateDate=@CreateDate");
                 strSql.Append(" where Id=@Id");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -104,7 +105,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format(" select  a.Id,b.BidName,c.Name,a.SeveralBid,a.Price,a.AuctionDate,a.Editor,a.CreateDate from T_BidAuction as a left join T_Bid as b on a.FK_BidId  =b.Id left join T_LiceTran as c on a.LiceTranId = c.Id where a.FK_BidId={0} ", id);
-                return db.ExecuteDataTable(strSql);
+                return DbHelperSQL.QueryTable(strSql);
             }
             catch { throw; }
         }
@@ -121,7 +122,7 @@ namespace NCPEP.Dal
 					new SqlParameter("@Id", SqlDbType.Int,4)
 			};
                 parameters[0].Value = Id;
-                using (dynamic read = db.ExecuteReader(strSql.ToString(), parameters))
+                using (dynamic read =DbHelperSQL.ExecuteReader(strSql.ToString(), parameters))
                 {
                     if (read.Read())
                     {

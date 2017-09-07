@@ -595,7 +595,7 @@ namespace NCPEP.Bll
                 string DepaStatus = context.Request.QueryString["DepaStatus"];
                 if (DepaStatus == "5" )
                 {
-                    sqlWhere += string.Format(" and a.DepaStatus>{0}", DepaStatus);
+                    sqlWhere += string.Format(" and a.DepaStatus>={0}", DepaStatus);
                 }
                 
                 
@@ -646,7 +646,7 @@ namespace NCPEP.Bll
                 string DepaStatus = context.Request.QueryString["DepaStatus"];
                 if (DepaStatus == "6")
                 {
-                    sqlWhere += string.Format(" and a.DepaStatus>{0}", DepaStatus);
+                    sqlWhere += string.Format(" and a.DepaStatus>={0}", DepaStatus);
                 }
 
 

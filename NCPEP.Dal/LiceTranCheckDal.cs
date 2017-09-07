@@ -18,15 +18,16 @@ using NCPEP.Com.Util;
 using NCPEP.Model;
 using System.Data;
 using System.Data.SqlClient;
+using Maticsoft.DBUtility;
 
 namespace NCPEP.Dal
 {
     public class LiceTranCheckDal
     {
-        private dynamic db = null;
+        //private dynamic db = null;
         public LiceTranCheckDal()
         {
-            db = new MsSqlHelper();
+            //db = new MsSqlHelper();
         }
         /// <summary>
         /// 添加操作
@@ -42,7 +43,7 @@ namespace NCPEP.Dal
                 strSql.Append("FK_LiceTranId,Reviewer,AuditSay,AuditDate)");
                 strSql.Append(" values (");
                 strSql.Append("@FK_LiceTranId,@Reviewer,@AuditSay,@AuditDate)");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -69,7 +70,7 @@ namespace NCPEP.Dal
                 strSql.Append("AuditSay=@AuditSay,");
                 strSql.Append("AuditDate=@AuditDate");
                 strSql.Append(" where Id=@Id");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -90,7 +91,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format("delete from T_LiceTranCheck where Id={0}", id);
-                if (db.ExecuteNonQuery(strSql) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql) > 0)
                 {
                     return true;
                 }
@@ -115,7 +116,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format("delete from T_LiceTranCheck where FK_LiceTranId={0}", LiceTranId);
-                if (db.ExecuteNonQuery(strSql) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql) > 0)
                 {
                     return true;
                 }
@@ -143,7 +144,7 @@ namespace NCPEP.Dal
             {
                 string strSql = "select Id,FK_LiceTranId,Reviewer,AuditSay,AuditDate from T_LiceTranCheck ";
                 strSql += string.Format(" where FK_LiceTranId={0} order by Id desc ", LiceTranId);
-                return db.ExecuteDataTable(strSql);
+                return DbHelperSQL.QueryTable(strSql);
             }
             catch { throw; }
         }
@@ -158,7 +159,7 @@ namespace NCPEP.Dal
             {
                 dynamic model = null;
                 string strSql = string.Format("select Id,FK_LiceTranId,Reviewer,AuditSay,AuditDate from T_LiceTranCheck where Id = {0}", id);
-                using (dynamic read = db.ExecuteReader(strSql))
+                using (dynamic read = DbHelperSQL.ExecuteReader(strSql))
                 {
                     if (read.Read())
                     {

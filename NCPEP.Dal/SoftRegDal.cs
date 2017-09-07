@@ -17,16 +17,17 @@ using System.Text;
 using System.Data.SqlClient;
 using System.Data;
 using NCPEP.Com.Util;
+using Maticsoft.DBUtility;
 
 namespace NCPEP.Dal
 {
     public class SoftRegDal : IDisposable
     {
-        private dynamic db = null;
+       
         //
         public SoftRegDal()
         {
-            db = new MsSqlHelper();
+            
         }
         //
         public bool Create(string model)
@@ -41,7 +42,7 @@ namespace NCPEP.Dal
                 SqlParameter[] parameters = {
 					new SqlParameter("@SequenceNumber", SqlDbType.NChar,500)};
                 parameters[0].Value = model;
-                if (db.ExecuteNonQuery(strSql.ToString(), parameters) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), parameters) > 0)
                 {
                     return true;
                 }
@@ -58,7 +59,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = " delete from T_SoftReg ";
-                if (db.ExecuteNonQuery(strSql) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql) > 0)
                 {
                     return true;
                 }
@@ -76,7 +77,7 @@ namespace NCPEP.Dal
             {
                 string strSql = "select top 1 SequenceNumber from T_SoftReg ";
                 string sequenceNumber = string.Empty;
-                using (dynamic read = db.ExecuteReader(strSql))
+                using (dynamic read = DbHelperSQL.ExecuteReader(strSql))
                 {
                     if (read.Read())
                     {

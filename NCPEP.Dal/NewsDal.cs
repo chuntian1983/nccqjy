@@ -22,17 +22,18 @@ using System.Data.SqlClient;
 using NCPEP.Model;
 using NCPEP.Com.Util;
 using System.Data;
+using Maticsoft.DBUtility;
 
 namespace NCPEP.Dal
 {
     public class NewsDal
     {
         //
-        private dynamic db = null;
+        
         //
         public NewsDal()
         {
-            db = new MsSqlHelper();
+           
         }
         //
         public bool UpdateState(string row, string values, string where)
@@ -40,7 +41,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format("update T_News set {0}={1} where Id = {2}", row, values, where);
-                if (db.ExecuteNonQuery(strSql) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql) > 0)
                 {
                     return true;
                 }
@@ -55,7 +56,7 @@ namespace NCPEP.Dal
         public void UpdateNumClicks(int id)
         {
             string strSql = string.Format("update T_News set NumClicks = NumClicks + 1 where id= {0}", id);
-            db.ExecuteNonQuery(strSql);
+            DbHelperSQL.ExecuteSql(strSql);
         }
         //
         public bool Create(News model)
@@ -67,7 +68,7 @@ namespace NCPEP.Dal
                 strSql.Append("NewsTypeId,Keyword,Content,OrgCode,NewsTitle,NewsSubheading,NewsSource,NewsContent,NewsImg,NewsFile,NumClicks,IsCheck,Editor,CreateDate)");
                 strSql.Append(" values (");
                 strSql.Append("@NewsTypeId,@Keyword,@Content,@OrgCode,@NewsTitle,@NewsSubheading,@NewsSource,@NewsContent,@NewsImg,@NewsFile,@NumClicks,@IsCheck,@Editor,@CreateDate)");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -84,7 +85,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format("delete from T_News where Id in ({0})", idList);
-                if (db.ExecuteNonQuery(strSql) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql) > 0)
                 {
                     return true;
                 }
@@ -107,7 +108,7 @@ namespace NCPEP.Dal
 					new SqlParameter("@Id", SqlDbType.Int,4)
 			};
                 parameters[0].Value = Id;
-                if (db.ExecuteNonQuery(strSql.ToString(), parameters) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), parameters) > 0)
                 {
                     return true;
                 }
@@ -140,7 +141,7 @@ namespace NCPEP.Dal
                 strSql.Append("Editor=@Editor,");
                 strSql.Append("CreateDate=@CreateDate");
                 strSql.Append(" where Id=@Id");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -164,7 +165,7 @@ namespace NCPEP.Dal
 					new SqlParameter("@Id", SqlDbType.Int,4)
 			};
                 parameters[0].Value = Id;
-                using (dynamic read = db.ExecuteReader(strSql.ToString(), parameters))
+                using (dynamic read = DbHelperSQL.ExecuteReader(strSql.ToString(), parameters))
                 {
                     if (read.Read())
                     {
@@ -204,7 +205,7 @@ namespace NCPEP.Dal
                     strSql.Append(string.Format(" where {0}", sqlWhere));
                 }
                 strSql.Append(" order by CreateDate desc ");
-                using (dynamic read = db.ExecuteReader(strSql.ToString()))
+                using (dynamic read = DbHelperSQL.ExecuteReader(strSql.ToString()))
                 {
                     if (read.Read())
                     {
@@ -246,7 +247,7 @@ namespace NCPEP.Dal
                 {
                     strSql += order;
                 }
-                return db.ExecuteDataTable(strSql, startIndex * pageSize, pageSize, "T_News");
+                return DbHelperSQL.ExecuteDataTable(strSql, startIndex * pageSize, pageSize, "T_News");
             }
             catch { throw; }
         }
@@ -265,7 +266,7 @@ namespace NCPEP.Dal
                 {
                     strSql += order;
                 }
-                return db.ExecuteDataTable(strSql);
+                return DbHelperSQL.QueryTable(strSql);
             }
             catch { throw; }
         }
@@ -284,7 +285,7 @@ namespace NCPEP.Dal
                 {
                     strSql += order;
                 }
-                return db.ExecuteDataTable(strSql, startIndex * pageSize, pageSize, "T_News");
+                return DbHelperSQL.ExecuteDataTable(strSql, startIndex * pageSize, pageSize, "T_News");
             }
             catch { throw; }
         }
@@ -303,7 +304,7 @@ namespace NCPEP.Dal
                 {
                     strSql += order;
                 }
-                return db.ExecuteDataTable(strSql);
+                return DbHelperSQL.QueryTable(strSql);
             }
             catch { throw; }
         }
@@ -318,7 +319,7 @@ namespace NCPEP.Dal
                     strSql += " where ";
                     strSql += sqlWhere;
                 }
-                return (int)db.ExecuteScalar(strSql);
+                return (int)DbHelperSQL.GetSingle(strSql);
             }
             catch { throw; }
         }
@@ -333,7 +334,7 @@ namespace NCPEP.Dal
                     strSql += " where ";
                     strSql += sqlWhere;
                 }
-                return (int)db.ExecuteScalar(strSql);
+                return (int)DbHelperSQL.GetSingle(strSql);
             }
             catch { throw; }
         }

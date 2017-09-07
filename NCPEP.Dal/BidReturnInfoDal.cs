@@ -22,15 +22,16 @@ using System.Data.SqlClient;
 using System.Data;
 using NCPEP.Com.Util;
 using NCPEP.Model;
+using Maticsoft.DBUtility;
 
 namespace NCPEP.Dal
 {
     public class BidReturnInfoDal
     {
-        private dynamic db = null;
+        //private dynamic db = null;
         public BidReturnInfoDal()
         {
-            db = new MsSqlHelper();
+            //db = new MsSqlHelper();
         }
         //
         public bool Create(BidReturnInfo model)
@@ -42,7 +43,7 @@ namespace NCPEP.Dal
                 strSql.Append("FK_BidId,FK_JobId,ReturnDepaName,ReturnDepaSay,ReturnDate)");
                 strSql.Append(" values (");
                 strSql.Append("@FK_BidId,@FK_JobId,@ReturnDepaName,@ReturnDepaSay,@ReturnDate)");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -66,7 +67,7 @@ namespace NCPEP.Dal
 			};
                 parameters[0].Value = BidId;
 
-                int rows = db.ExecuteNonQuery(strSql.ToString(), parameters);
+                int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
                 if (rows > 0)
                 {
                     return true;
@@ -85,7 +86,7 @@ namespace NCPEP.Dal
                 string strSql = " select a.Id,a.FK_BidId,b.JobTypeName as FK_JobId,a.ReturnDepaName,a.ReturnDepaSay,a.ReturnDate from T_BidReturnInfo as a left join T_Job as b on a.FK_JobId = b.Id ";
                 strSql += string.Format(" where a.FK_BidId={0}", BidId);
                 strSql += " order by a.Id desc ";
-                return db.ExecuteDataTable(strSql);
+                return DbHelperSQL.QueryTable(strSql);
             }
             catch { throw; }
         }

@@ -22,15 +22,16 @@ using NCPEP.Com.Util;
 using NCPEP.Model;
 using System.Data.SqlClient;
 using System.Data;
+using Maticsoft.DBUtility;
 
 namespace NCPEP.Dal
 {
     public class ArbitrationDal
     {
-        private dynamic db = null;
+        //private dynamic db = null;
         public ArbitrationDal()
         {
-            db = new MsSqlHelper();
+            //db = new MsSqlHelper();
         }
         //
         public bool Create(Arbitration model)
@@ -42,7 +43,7 @@ namespace NCPEP.Dal
                 strSql.Append("FK_BidId,FK_LiceId,FK_TranId,Fact,Grounds,Results,AcceptName,AcceptDate,OrgCode)");
                 strSql.Append(" values (");
                 strSql.Append("@FK_BidId,@FK_LiceId,@FK_TranId,@Fact,@Grounds,@Results,@AcceptName,@AcceptDate,@OrgCode)");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -59,7 +60,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format("delete from T_Arbitration where Id={0}", Id);
-                if (db.ExecuteNonQuery(strSql) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql) > 0)
                 {
                     return true;
                 }
@@ -89,7 +90,7 @@ namespace NCPEP.Dal
                 strSql.Append("AcceptName=@AcceptName,");
                 strSql.Append("AcceptDate=@AcceptDate");
                 strSql.Append(" where Id=@Id");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -115,7 +116,7 @@ namespace NCPEP.Dal
                 {
                     strSql += order;
                 }
-                return db.ExecuteDataTable(strSql, startIndex * pageSize, pageSize, "T_Arbitration");
+                return DbHelperSQL.ExecuteDataTable(strSql, startIndex * pageSize, pageSize, "T_Arbitration");
             }
             catch { throw; }
         }
@@ -123,7 +124,7 @@ namespace NCPEP.Dal
         public DataTable GetLiceTran(int Id)
         {
             string sql = string.Format(" select isnull(a.FK_LiceTranId,0) as A1,isnull(b.FK_LiceTranId,0) AS A2 from T_Bid as a left join T_BidTrans as b on a.Id =b.FK_BidId where a.Id ={0} ", Id);
-            return db.ExecuteDataTable(sql);
+            return DbHelperSQL.QueryTable(sql);
         }
         //
         public int Count(string sqlWhere)
@@ -136,7 +137,7 @@ namespace NCPEP.Dal
                     strSql += " where ";
                     strSql += sqlWhere;
                 }
-                return (int)db.ExecuteScalar(strSql);
+                return (int)DbHelperSQL.GetSingle(strSql);
             }
             catch { throw; }
         }
@@ -153,7 +154,7 @@ namespace NCPEP.Dal
 					new SqlParameter("@Id", SqlDbType.Int,4)
 			};
                 parameters[0].Value = Id;
-                using (dynamic read = db.ExecuteReader(strSql.ToString(), parameters))
+                using (dynamic read =DbHelperSQL.ExecuteReader(strSql.ToString(), parameters))
                 {
                     if (read.Read())
                     {

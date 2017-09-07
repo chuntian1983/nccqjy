@@ -18,15 +18,16 @@ using NCPEP.Com.Util;
 using NCPEP.Model;
 using System.Data.SqlClient;
 using System.Data;
+using Maticsoft.DBUtility;
 
 namespace NCPEP.Dal
 {
     public class PermissionsDal
     {
-        private dynamic db = null;
+        
         public PermissionsDal()
         {
-            db = new MsSqlHelper();
+        
         }
         /// <summary>
         /// 增加一条数据
@@ -50,7 +51,7 @@ namespace NCPEP.Dal
                 parameters[1].Value = model.SysFunId;
                 parameters[2].Value = model.Editor;
                 parameters[3].Value = model.CreateDate;
-                if (db.ExecuteNonQuery(strSql.ToString(), parameters) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), parameters) > 0)
                 {
                     return true;
                 }
@@ -76,7 +77,7 @@ namespace NCPEP.Dal
 					new SqlParameter("@AdminTypeId", SqlDbType.Int,4)
 			};
                 parameters[0].Value = AdminTypeId;
-                if (db.ExecuteNonQuery(strSql.ToString(), parameters) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), parameters) > 0)
                 {
                     return true;
                 }
@@ -97,7 +98,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format("select Id,AdminTypeId,SysFunId,Editor,CreateDate from T_Permissions where AdminTypeId = {0}", AdminTypeId);
-                return db.ExecuteDataTable(strSql);
+                return DbHelperSQL.QueryTable(strSql);
             }
             catch { throw; }
         }

@@ -18,15 +18,16 @@ using NCPEP.Com.Util;
 using NCPEP.Model;
 using System.Data.SqlClient;
 using System.Data;
+using Maticsoft.DBUtility;
 
 namespace NCPEP.Dal
 {
     public class LinksDal
     {
-        private dynamic db = null;
+        
         public LinksDal()
         {
-            db = new MsSqlHelper();
+        
         }
         //
         public bool Create(Links model)
@@ -38,7 +39,7 @@ namespace NCPEP.Dal
                 strSql.Append("LinkName,LinkUrl,LinkImgUrl,Editor,CreateDate)");
                 strSql.Append(" values (");
                 strSql.Append("@LinkName,@LinkUrl,@LinkImgUrl,@Editor,@CreateDate)");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -55,7 +56,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format("delete from T_Links where Id={0}", Id);
-                if (db.ExecuteNonQuery(strSql) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql) > 0)
                 {
                     return true;
                 }
@@ -82,7 +83,7 @@ namespace NCPEP.Dal
                 strSql.Append("Editor=@Editor,");
                 strSql.Append("CreateDate=@CreateDate");
                 strSql.Append(" where Id=@Id");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -105,7 +106,7 @@ namespace NCPEP.Dal
                 SqlParameter[] parameters = {
 					new SqlParameter("@Id", Id)
 			};
-                using (dynamic read = db.ExecuteReader(strSql.ToString(), parameters))
+                using (dynamic read = DbHelperSQL.ExecuteReader(strSql.ToString(), parameters))
                 {
                     if (read.Read())
                     {
@@ -132,7 +133,7 @@ namespace NCPEP.Dal
             {
                 string strSql = " select Id,LinkName,LinkUrl,LinkImgUrl,Editor,CreateDate from T_Links ";        
                 strSql += " order by Id asc ";
-                return db.ExecuteDataTable(strSql);
+                return DbHelperSQL.QueryTable(strSql);
             }
             catch { throw; }
         }

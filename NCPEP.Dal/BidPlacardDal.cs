@@ -22,15 +22,16 @@ using NCPEP.Com.Util;
 using NCPEP.Model;
 using System.Data.SqlClient;
 using System.Data;
+using Maticsoft.DBUtility;
 
 namespace NCPEP.Dal
 {
     public class BidPlacardDal
     {
-        private dynamic db = null;
+        //private dynamic db = null;
         public BidPlacardDal()
         {
-            db = new MsSqlHelper();
+            //db = new MsSqlHelper();
         }
         //
         public bool Exists(int FK_BidId)
@@ -38,7 +39,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format("select count(*) from T_BidPlacard where FK_BidId={0}", FK_BidId);
-                if (db.ExecuteScalar(strSql) > 0)
+                if (Convert.ToInt32( DbHelperSQL.GetSingle(strSql)) > 0)
                 {
                     return true;
                 }
@@ -62,7 +63,7 @@ namespace NCPEP.Dal
                 strSql.Append("FK_BidId,BidPlacardTitle,BidPlacardContent,Publisher,ReleaseTime,fujian)");
                 strSql.Append(" values (");
                 strSql.Append("@FK_BidId,@BidPlacardTitle,@BidPlacardContent,@Publisher,@ReleaseTime,@fujian)");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -86,7 +87,7 @@ namespace NCPEP.Dal
                 strSql.Append("fujian=@fujian,"); 
                 strSql.Append("ReleaseTime=@ReleaseTime");
                 strSql.Append(" where FK_BidId=@FK_BidId");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -110,7 +111,7 @@ namespace NCPEP.Dal
 					new SqlParameter("@FK_BidId", SqlDbType.Int,4)
 			};
                 parameters[0].Value = Id;
-                using (dynamic read = db.ExecuteReader(strSql.ToString(), parameters))
+                using (dynamic read = DbHelperSQL.ExecuteReader(strSql.ToString(), parameters))
                 {
                     if (read.Read())
                     {
@@ -139,7 +140,7 @@ namespace NCPEP.Dal
                     strSql += " where ";
                     strSql += sqlWhere;
                 }
-                return (int)db.ExecuteScalar(strSql);
+                return (int)DbHelperSQL.GetSingle(strSql);
             }
             catch { throw; }
         }
@@ -158,7 +159,7 @@ namespace NCPEP.Dal
                 {
                     strSql += order;
                 }
-                return db.ExecuteDataTable(strSql, startIndex * pageSize, pageSize, "T_BidPlacard");
+                return DbHelperSQL.ExecuteDataTable(strSql, startIndex * pageSize, pageSize, "T_BidPlacard");
             }
             catch { throw; }
         }
@@ -167,8 +168,8 @@ namespace NCPEP.Dal
         {
             try
             {
-                string strSql = string.Format(" select a.Id,a.FK_BidId,b.BidName,a.BidPlacardTitle,a.BidPlacardContent,a.Publisher,a.ReleaseTime from T_BidPlacard as a left join T_Bid as b on a.FK_BidId=b.Id where a.Id={0}",Id);              
-                return db.ExecuteDataTable(strSql);
+                string strSql = string.Format(" select a.Id,a.FK_BidId,b.BidName,a.BidPlacardTitle,a.BidPlacardContent,a.Publisher,a.ReleaseTime from T_BidPlacard as a left join T_Bid as b on a.FK_BidId=b.Id where a.Id={0}",Id);
+                return DbHelperSQL.QueryTable(strSql);
             }
             catch { throw; }
         }
@@ -177,7 +178,7 @@ namespace NCPEP.Dal
             DataTable dt = new DataTable();
 
             string strSql = string.Format("   select a.*,b.* from T_BidTrans a left join t_licetran b on a.fk_licetranid=b.id where a.FK_BidId={0}", binid);
-                dt= db.ExecuteDataTable(strSql);
+            dt = DbHelperSQL.QueryTable(strSql);
             
             return dt;
         }

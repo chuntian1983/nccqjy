@@ -18,15 +18,16 @@ using NCPEP.Com.Util;
 using NCPEP.Model;
 using System.Data;
 using System.Data.SqlClient;
+using Maticsoft.DBUtility;
 
 namespace NCPEP.Dal
 {
     public class SysFunDal : IDisposable
     {
-        private dynamic db = null;
+        //private dynamic db = null;
         public SysFunDal()
         {
-            db = new MsSqlHelper();
+            //db = new MsSqlHelper();
         }
         //
         public bool Create(SysFun model)
@@ -38,7 +39,7 @@ namespace NCPEP.Dal
                 strSql.Append("DisplayName,NodeURL,DisplayOrder,ParentNodeId,Editor,CreateDate,FunImgNum)");
                 strSql.Append(" values (");
                 strSql.Append("@DisplayName,@NodeURL,@DisplayOrder,@ParentNodeId,@Editor,@CreateDate,@FunImgNum)");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -64,7 +65,7 @@ namespace NCPEP.Dal
                 strSql.Append("FunImgNum=@FunImgNum,");
                 strSql.Append("CreateDate=@CreateDate");
                 strSql.Append(" where NodeId=@NodeId");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -88,7 +89,7 @@ namespace NCPEP.Dal
 					new SqlParameter("@NodeId", SqlDbType.Int,4)
 			};
                 parameters[0].Value = NodeId;
-                using (dynamic read = db.ExecuteReader(strSql.ToString(), parameters))
+                using (dynamic read = DbHelperSQL.ExecuteReader(strSql.ToString(), parameters))
                 {
                     if (read.Read())
                     {
@@ -124,7 +125,7 @@ namespace NCPEP.Dal
                     strSql += string.Format(" ParentNodeId ={0}", ParentNodeId);
                 }
                 strSql += " order by DisplayOrder asc ";
-                return db.ExecuteDataTable(strSql);
+                return DbHelperSQL.QueryTable(strSql);
             }
             catch { throw; }
         }

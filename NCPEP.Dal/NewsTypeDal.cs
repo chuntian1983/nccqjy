@@ -18,16 +18,17 @@ using NCPEP.Com.Util;
 using NCPEP.Model;
 using System.Data;
 using System.Data.SqlClient;
+using Maticsoft.DBUtility;
 
 namespace NCPEP.Dal
 {
     public class NewsTypeDal
     {
-        private dynamic db = null;
+       
 
         public NewsTypeDal()
         {
-            db = new MsSqlHelper();
+            
         }
         //
         public bool Create(NewsType model)
@@ -39,7 +40,7 @@ namespace NCPEP.Dal
                 strSql.Append("NewsTypeName,Editor,CreateDate)");
                 strSql.Append(" values (");
                 strSql.Append("@NewsTypeName,@Editor,@CreateDate)");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -61,7 +62,7 @@ namespace NCPEP.Dal
                 strSql.Append("Editor=@Editor,");
                 strSql.Append("CreateDate=@CreateDate");
                 strSql.Append(" where Id=@Id");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -84,7 +85,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = "select Id,Editor,NewsTypeName,CreateDate from T_NewsType  order by Id ";
-                return db.ExecuteDataTable(strSql);
+                return DbHelperSQL.QueryTable(strSql);
             }
             catch { throw; }
         }      
@@ -101,7 +102,7 @@ namespace NCPEP.Dal
 					new SqlParameter("@Id", SqlDbType.Int,4)
 			};
                 parameters[0].Value = Id;
-                using (dynamic read = db.ExecuteReader(strSql.ToString(), parameters))
+                using (dynamic read = DbHelperSQL.ExecuteReader(strSql.ToString(), parameters))
                 {
                     if (read.Read())
                     {

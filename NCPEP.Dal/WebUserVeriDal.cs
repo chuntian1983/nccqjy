@@ -18,15 +18,16 @@ using NCPEP.Com.Util;
 using System.Data.SqlClient;
 using System.Data;
 using NCPEP.Model;
+using Maticsoft.DBUtility;
 
 namespace NCPEP.Dal
 {
     public class WebUserVeriDal
     {
-        private dynamic db = null;
+        
         public WebUserVeriDal()
         {
-            db = new MsSqlHelper();
+            
         }
 
         public bool Create(WebUserVeri model)
@@ -38,7 +39,7 @@ namespace NCPEP.Dal
                 strSql.Append("LoginName,LoginPass,UserName,UserTel,UserEmail,UserStatus,LoginDate,LoginnNum,OutDate,Veri,MemberTypeId,VeriName,VeriSex,VeriIDCard,VeriIDCardScan,OrgCode,VeriAddress,VeriTel,VeriCorporate,VeriCorporateIDCard,VeriCorporateIDCardScan,VeriCreditCode,VeriCreditCodeScan,VeriStatus,AuditType,VeriCheckName,VeriApplyDate,VeriCheckDate)");
                 strSql.Append(" values (");
                 strSql.Append("@LoginName,@LoginPass,@UserName,@UserTel,@UserEmail,@UserStatus,@LoginDate,@LoginnNum,@OutDate,@Veri,@MemberTypeId,@VeriName,@VeriSex,@VeriIDCard,@VeriIDCardScan,@OrgCode,@VeriAddress,@VeriTel,@VeriCorporate,@VeriCorporateIDCard,@VeriCorporateIDCardScan,@VeriCreditCode,@VeriCreditCodeScan,@VeriStatus,@AuditType,@VeriCheckName,@VeriApplyDate,@VeriCheckDate)");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -64,7 +65,7 @@ namespace NCPEP.Dal
                 {
                     strSql += string.Format(" where {0} ", sqlWhere);
                 }
-                return db.ExecuteScalar(strSql);
+                return DbHelperSQL.GetSingle(strSql);
             }
             catch { throw; }
         }
@@ -104,7 +105,7 @@ namespace NCPEP.Dal
                 strSql.Append("VeriApplyDate=@VeriApplyDate,");
                 strSql.Append("VeriCheckDate=@VeriCheckDate");
                 strSql.Append(" where Id=@Id");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -127,7 +128,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format("update T_WebUserVeri set {0} = {1} where Id = {2}", row, values, where);
-                if (db.ExecuteNonQuery(strSql) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql) > 0)
                 {
                     return true;
                 }
@@ -148,7 +149,7 @@ namespace NCPEP.Dal
 					new SqlParameter("@Id", SqlDbType.Int,4)
 			};
             parameters[0].Value = Id;
-            int rows = db.ExecuteNonQuery(strSql.ToString(), parameters);
+            int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
             if (rows > 0)
             {
                 return true;
@@ -169,7 +170,7 @@ namespace NCPEP.Dal
                     strSql += string.Format(" where {0} ", sqlWhere);
                 }
                 strSql += order;
-                return db.ExecuteDataTable(strSql, startIndex * pageSize, pageSize, "T_WebUserVeri");
+                return DbHelperSQL.ExecuteDataTable(strSql, startIndex * pageSize, pageSize, "T_WebUserVeri");
             }
             catch { throw; }
         }
@@ -186,7 +187,7 @@ namespace NCPEP.Dal
 					new SqlParameter("@Id", SqlDbType.Int,4)
 			};
                 parameters[0].Value = Id;
-                using (dynamic read = db.ExecuteReader(strSql.ToString(), parameters))
+                using (dynamic read = DbHelperSQL.ExecuteReader(strSql.ToString(), parameters))
                 {
                     if (read.Read())
                     {

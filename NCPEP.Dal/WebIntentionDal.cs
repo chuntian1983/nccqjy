@@ -22,17 +22,18 @@ using NCPEP.Com.Util;
 using NCPEP.Model;
 using System.Data.SqlClient;
 using System.Data;
+using Maticsoft.DBUtility;
 
 namespace NCPEP.Dal
 {
     public class WebIntentionDal
     {
         //
-        private dynamic db = null;
+      
         //
         public WebIntentionDal()
         {
-            db = new MsSqlHelper();
+         
         }
         //
         public bool UpdateState(string row, string values, string where)
@@ -40,7 +41,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format("update T_WebIntention set {0}={1} where Id = {2}", row, values, where);
-                if (db.ExecuteNonQuery(strSql) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql) > 0)
                 {
                     return true;
                 }
@@ -55,7 +56,7 @@ namespace NCPEP.Dal
         public void UpdateNumClicks(int id)
         {
             string strSql = string.Format("update T_WebIntention set ClickNum = ClickNum + 1 where id= {0}", id);
-            db.ExecuteNonQuery(strSql);
+            DbHelperSQL.ExecuteSql(strSql);
         }
         //
         public bool Create(WebIntention model)
@@ -67,7 +68,7 @@ namespace NCPEP.Dal
                 strSql.Append("FK_WebUserVeriId,IntentionType,Title,Content,RegDate,EndDte,CheckStatus,ClickNum,CheckName,CheckDate)");
                 strSql.Append(" values (");
                 strSql.Append("@FK_WebUserVeriId,@IntentionType,@Title,@Content,@RegDate,@EndDte,@CheckStatus,@ClickNum,@CheckName,@CheckDate)");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -84,7 +85,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format("delete from T_WebIntention where Id in ({0})", idList);
-                if (db.ExecuteNonQuery(strSql) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql) > 0)
                 {
                     return true;
                 }
@@ -107,7 +108,7 @@ namespace NCPEP.Dal
 					new SqlParameter("@Id", SqlDbType.Int,4)
 			};
                 parameters[0].Value = Id;
-                if (db.ExecuteNonQuery(strSql.ToString(), parameters) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), parameters) > 0)
                 {
                     return true;
                 }
@@ -136,7 +137,7 @@ namespace NCPEP.Dal
                 strSql.Append("CheckName=@CheckName,");
                 strSql.Append("CheckDate=@CheckDate");
                 strSql.Append(" where Id=@Id");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -160,7 +161,7 @@ namespace NCPEP.Dal
 					new SqlParameter("@Id", SqlDbType.Int,4)
 			};
                 parameters[0].Value = Id;
-                using (dynamic read = db.ExecuteReader(strSql.ToString(), parameters))
+                using (dynamic read = DbHelperSQL.ExecuteReader(strSql.ToString(), parameters))
                 {
                     if (read.Read())
                     {
@@ -191,7 +192,7 @@ namespace NCPEP.Dal
                 dynamic model = null;
                 string strSql = " select  top 1 Id,FK_WebUserVeriId,IntentionType,Title,Content,RegDate,EndDte,CheckStatus,ClickNum,CheckName,CheckDate from T_WebIntention  ";
                 strSql += string.Format(" where {0}", sqlWhere);
-                using (dynamic read = db.ExecuteReader(strSql))
+                using (dynamic read = DbHelperSQL.ExecuteReader(strSql))
                 {
                     if (read.Read())
                     {
@@ -229,7 +230,7 @@ namespace NCPEP.Dal
                 {
                     strSql += order;
                 }
-                return db.ExecuteDataTable(strSql, startIndex * pageSize, pageSize, "T_News");
+                return DbHelperSQL.ExecuteDataTable(strSql, startIndex * pageSize, pageSize, "T_News");
             }
             catch { throw; }
         }
@@ -248,7 +249,7 @@ namespace NCPEP.Dal
                 {
                     strSql += order;
                 }
-                return db.ExecuteDataTable(strSql, startIndex * pageSize, pageSize, "T_News");
+                return DbHelperSQL.ExecuteDataTable(strSql, startIndex * pageSize, pageSize, "T_News");
             }
             catch { throw; }
         }
@@ -267,7 +268,7 @@ namespace NCPEP.Dal
                 {
                     strSql += order;
                 }
-                return db.ExecuteDataTable(strSql);
+                return DbHelperSQL.QueryTable(strSql);
             }
             catch { throw; }
         }
@@ -282,7 +283,7 @@ namespace NCPEP.Dal
                     strSql += " where ";
                     strSql += sqlWhere;
                 }
-                return (int)db.ExecuteScalar(strSql);
+                return (int)DbHelperSQL.GetSingle(strSql);
             }
             catch { throw; }
         }
@@ -297,7 +298,7 @@ namespace NCPEP.Dal
                     strSql += " where ";
                     strSql += sqlWhere;
                 }
-                return (int)db.ExecuteScalar(strSql);
+                return (int)DbHelperSQL.GetSingle(strSql);
             }
             catch { throw; }
         }

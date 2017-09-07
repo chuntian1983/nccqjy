@@ -22,15 +22,16 @@ using NCPEP.Com.Util;
 using NCPEP.Model;
 using System.Data.SqlClient;
 using System.Data;
+using Maticsoft.DBUtility;
 
 namespace NCPEP.Dal
 {
     public class TranProcessDal
     {
-        private MsSqlHelper db = null;
+       
         public TranProcessDal()
         {
-            db = new MsSqlHelper();
+      
         }
         /// <summary>
         /// 是否存在
@@ -38,7 +39,7 @@ namespace NCPEP.Dal
         public bool Exists(int BidId)
         {
             string strSql = string.Format("select count(1) from T_TranProcess where FK_BidId={0}", BidId);
-            if (db.ExecuteScalar(strSql) > 0)
+            if (Convert.ToInt32( DbHelperSQL.GetSingle(strSql)) > 0)
             {
                 return true;
             }
@@ -53,7 +54,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format("insert into T_TranProcess({0}) values ({1})", column, values);
-                if (db.ExecuteNonQuery(strSql) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql) > 0)
                 {
                     return true;
                 }
@@ -70,7 +71,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format("update T_TranProcess set {0} where FK_BidId={1}", column, BidId);
-                if (db.ExecuteNonQuery(strSql.ToString()) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString()) > 0)
                 {
                     return true;
                 }
@@ -88,7 +89,7 @@ namespace NCPEP.Dal
             {
                 TranProcess model = null;
                 string strSql = string.Format(" select Id,FK_BidId,AcceptDate,AcceptName,AcceptSay,AcceptSayDate,AuditDate,AuditName,AuditSay,AuditSayDate,TradingDate,TradingName,TradingSay,TradingSayDate,AttestationDate,AttestationName,AttestationSay,AttestationSayDate,HeadDate,HeadName,HeadSay,HeadSayDate,SuperDate,SuperName,SuperSay,SuperSayDate FROM T_TranProcess  where FK_BidId ={0}", id);
-                using (dynamic read = db.ExecuteReader(strSql))
+                using (dynamic read = DbHelperSQL.ExecuteReader(strSql))
                 {
                     model = new TranProcess();
                     if (read.Read())
@@ -148,7 +149,7 @@ namespace NCPEP.Dal
                 string strSql = " select Id,FK_BidId,AcceptDate,AcceptName,AcceptSay,AcceptSayDate,AuditDate,AuditName,AuditSay,AuditSayDate,TradingDate,TradingName,TradingSay,TradingSayDate,AttestationDate,AttestationName,AttestationSay,AttestationSayDate,HeadDate,HeadName,HeadSay,HeadSayDate,SuperDate,SuperName,SuperSay,SuperSayDate  FROM T_TranProcess  ";
                 strSql += string.Format(" where a.FK_BidId={0}", BidId);
                 strSql += " order by Id desc ";
-                return db.ExecuteDataTable(strSql);
+                return DbHelperSQL.QueryTable(strSql);
             }
             catch { throw; }
         }

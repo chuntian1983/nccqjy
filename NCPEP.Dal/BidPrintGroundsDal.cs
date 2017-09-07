@@ -22,15 +22,16 @@ using NCPEP.Com.Util;
 using NCPEP.Model;
 using System.Data.SqlClient;
 using System.Data;
+using Maticsoft.DBUtility;
 
 namespace NCPEP.Dal
 {
     public class BidPrintGroundsDal
     {
-        private dynamic db = null;
+        //private dynamic db = null;
         public BidPrintGroundsDal()
         {
-            db = new MsSqlHelper();
+            //db = new MsSqlHelper();
         }
         //
         public dynamic SumCount(int Id)
@@ -38,7 +39,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format(" select count(Id) from T_BidPrintGrounds  where FK_BidId={0}", Id);
-                return db.ExecuteScalar(strSql);
+                return DbHelperSQL.GetSingle(strSql);
             }
             catch { throw; }
         }
@@ -52,7 +53,7 @@ namespace NCPEP.Dal
                 strSql.Append("FK_BidId,PrintNum,PrintName,Reason,PrintDate)");
                 strSql.Append(" values (");
                 strSql.Append("@FK_BidId,@PrintNum,@PrintName,@Reason,@PrintDate)");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -82,7 +83,7 @@ namespace NCPEP.Dal
                 strSql.Append("Reason=@Reason,");
                 strSql.Append("PrintDate=@PrintDate");
                 strSql.Append(" where Id=@Id");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -104,7 +105,7 @@ namespace NCPEP.Dal
                     strSql += string.Format(" where FK_BidId={0}", id);
                 }
                 strSql += " order by Id asc ";
-                return db.ExecuteDataTable(strSql);
+                return DbHelperSQL.QueryTable(strSql);
             }
             catch { throw; }
         }
@@ -121,7 +122,7 @@ namespace NCPEP.Dal
 					new SqlParameter("@Id", SqlDbType.Int,4)
 			};
                 parameters[0].Value = Id;
-                using (dynamic read = db.ExecuteReader(strSql.ToString(), parameters))
+                using (dynamic read = DbHelperSQL.ExecuteReader(strSql.ToString(), parameters))
                 {
                     if (read.Read())
                     {

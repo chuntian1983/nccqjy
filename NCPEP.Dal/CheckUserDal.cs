@@ -17,17 +17,18 @@ using System.Text;
 using NCPEP.Model;
 using System.Data;
 using NCPEP.Com.Util;
+using Maticsoft.DBUtility;
 
 namespace NCPEP.Dal
 {
     public class CheckUserDal
     {
-        private dynamic db = null;
+        //private dynamic db = null;
         private AdminUserDal userDal = null;
         private RolePermissionsDal role = null;
         public CheckUserDal()
         {
-            db = new MsSqlHelper();
+            //db = new MsSqlHelper();
             userDal = new AdminUserDal();
             role = new RolePermissionsDal();
         }

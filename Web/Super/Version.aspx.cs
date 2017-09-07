@@ -15,11 +15,11 @@ namespace Web.Super
         /// <returns></returns>
         public static string Ver()
         {
-            return "Ver:1.1123";
+            return "Ver:1.1125";
         }
         public static string strVersion()
         {
-            return "1.1123";
+            return "1.1125";
         }
         /// <summary>
         /// 版本升级说明
@@ -30,6 +30,10 @@ namespace Web.Super
 
 
             /*
+             * 
+             *   2017-9-7更新版本Ver:1.1125
+             * 1.调整修改统一数据库访问底层
+             * 
              * 
              *   2017-9-6更新版本Ver:1.1123
              * 1.网站项目公告显示的挂牌项目文字就行修改

@@ -21,16 +21,17 @@ using NCPEP.Com.Util;
 using System.Net;
 using System.IO;
 using System.Security.Cryptography;
+using Maticsoft.DBUtility;
 
 namespace NCPEP.Dal
 {
     public class ShortMessageSendingDal
     {
-        private dynamic db = null;
+        
 
         public ShortMessageSendingDal()
         {
-            db = new MsSqlHelper();
+            
         }
         //
         public bool Create(ShortMessageSending model)
@@ -42,7 +43,7 @@ namespace NCPEP.Dal
                 strSql.Append("[Uid],[Key])");
                 strSql.Append(" values (");
                 strSql.Append("@Uid,@Key)");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -62,7 +63,7 @@ namespace NCPEP.Dal
                 strSql.Append("update T_ShortMessageSending set ");
                 strSql.Append("[Uid]=@Uid,");
                 strSql.Append("[Key]=@Key");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -236,7 +237,7 @@ namespace NCPEP.Dal
                 dynamic model = null;
                 StringBuilder strSql = new StringBuilder();
                 strSql.Append(" select [Uid],[Key] FROM T_ShortMessageSending ");
-                using (dynamic read = db.ExecuteReader(strSql.ToString()))
+                using (dynamic read = DbHelperSQL.ExecuteReader(strSql.ToString()))
                 {
                     if (read.Read())
                     {

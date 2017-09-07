@@ -18,16 +18,17 @@ using System.Data.SqlClient;
 using NCPEP.Model;
 using System.Data;
 using NCPEP.Com.Util;
+using Maticsoft.DBUtility;
 
 namespace NCPEP.Dal
 {
     public class OrganizationDal
     {
-        private dynamic db = null;
+       
         //
         public OrganizationDal()
         {
-            db = new MsSqlHelper();
+            
         }
         //
         public DataSet GetList(string strwhere)
@@ -37,7 +38,7 @@ namespace NCPEP.Dal
             {
                 strsql += " where "+strwhere;
             }
-            DataSet dt = db.DataSet(strsql);
+            DataSet dt = DbHelperSQL.Query(strsql);
             return dt;
         }
         public string CreateLower(string OrgCode)
@@ -45,7 +46,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format("select isnull(max(OrgCode),0) from T_Organization where UpOrgCode = '{0}'", OrgCode);
-                string dy = db.ExecuteScalar(strSql);
+                string dy =Convert.ToString( DbHelperSQL.GetSingle(strSql));
                 string strLength = string.Empty;
                 switch (OrgCode.Length)
                 {
@@ -89,7 +90,7 @@ namespace NCPEP.Dal
                 strSql.Append("OrgCode,OrgName,OrgShortName,UpOrgCode,Seq,Level,ShengCode,ShiCode,XianCode,XiangCode,CunCode,ZuCode)");
                 strSql.Append(" values (");
                 strSql.Append("@OrgCode,@OrgName,@OrgShortName,@UpOrgCode,@Seq,@Level,@ShengCode,@ShiCode,@XianCode,@XiangCode,@CunCode,@ZuCode)");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -111,7 +112,7 @@ namespace NCPEP.Dal
                 SqlParameter[] parameters = {
 					new SqlParameter("@OrgCode", SqlDbType.VarChar,300)			};
                 parameters[0].Value = OrgCode;
-                if (db.ExecuteNonQuery(strSql.ToString(), parameters) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), parameters) > 0)
                 {
                     return true;
                 }
@@ -141,7 +142,7 @@ namespace NCPEP.Dal
                 strSql.Append("CunCode=@CunCode,");
                 strSql.Append("ZuCode=@ZuCode");
                 strSql.Append(" where OrgCode=@OrgCode ");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -163,7 +164,7 @@ namespace NCPEP.Dal
                 int level = 0;
                 string strSql = string.Format("select top 1 OrgCode,OrgName,OrgShortName,UpOrgCode,Seq,Level,ShengCode,ShiCode,XianCode,XiangCode,CunCode,ZuCode from T_Organization where OrgCode = '{0}'", orgCode);
                 dynamic model = null;
-                using (dynamic read = db.ExecuteReader(strSql))
+                using (dynamic read = DbHelperSQL.ExecuteReader(strSql))
                 {
                     model = new Organization();
                     if (read.Read())
@@ -183,7 +184,7 @@ namespace NCPEP.Dal
             {
                 string strSql = "select top 1 OrgCode,OrgName,OrgShortName,UpOrgCode,Seq,Level,ShengCode,ShiCode,XianCode,XiangCode,CunCode,ZuCode from T_Organization order by Level desc ";
                 string OrgCode = string.Empty;
-                using (dynamic read = db.ExecuteReader(strSql))
+                using (dynamic read = DbHelperSQL.ExecuteReader(strSql))
                 {
                     if (read.Read())
                     {
@@ -215,7 +216,7 @@ namespace NCPEP.Dal
                 }
                 strSql += " order by [Level] desc ";
                 string UpOrgCode = string.Empty;
-                using (dynamic read = db.ExecuteReader(strSql))
+                using (dynamic read = DbHelperSQL.ExecuteReader(strSql))
                 {
                     if (read.Read())
                     {
@@ -233,7 +234,7 @@ namespace NCPEP.Dal
             {
                 string strSql =string.Format( "select top 1 OrgCode,OrgName,OrgShortName,UpOrgCode,Seq,Level,ShengCode,ShiCode,XianCode,XiangCode,CunCode,ZuCode from T_Organization where OrgCode='{0}' order by Level desc ",OrgCode);
                 string orgShortName = string.Empty;
-                using (dynamic read = db.ExecuteReader(strSql))
+                using (dynamic read = DbHelperSQL.ExecuteReader(strSql))
                 {
                     if (read.Read())
                     {
@@ -252,7 +253,7 @@ namespace NCPEP.Dal
             {
                 string strSql = "select top 1 OrgCode,OrgName,OrgShortName,UpOrgCode,Seq,Level,ShengCode,ShiCode,XianCode,XiangCode,CunCode,ZuCode from T_Organization order by Level desc ";
                 string orgShortName = string.Empty;
-                using (dynamic read = db.ExecuteReader(strSql))
+                using (dynamic read = DbHelperSQL.ExecuteReader(strSql))
                 {
                     if (read.Read())
                     {
@@ -274,7 +275,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format("select OrgCode,OrgName,OrgShortName,UpOrgCode,Seq,Level,ShengCode,ShiCode,XianCode,XiangCode,CunCode,ZuCode from T_Organization where UpOrgCode='{0}'", UpOrgCode);
-                return db.ExecuteDataTable(strSql);
+                return DbHelperSQL.QueryTable(strSql);
             }
             catch { throw; }
         }
@@ -284,7 +285,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format("select OrgCode,OrgName,OrgShortName,UpOrgCode,Seq,Level,ShengCode,ShiCode,XianCode,XiangCode,CunCode,ZuCode from T_Organization where level={0}", level);
-                return db.ExecuteDataTable(strSql);
+                return DbHelperSQL.QueryTable(strSql);
             }
             catch { throw; }
         }
@@ -293,7 +294,7 @@ namespace NCPEP.Dal
         {
             string strSql = string.Format(" WITH Org(OrgCode,UpOrgCode,level,OrgShortName) as (select OrgCode,UpOrgCode,level,OrgShortName from T_Organization where OrgCode='{0}' union all select a.OrgCode,a.UpOrgCode,a.level,a.OrgShortName from T_Organization a inner join Org b ON a.OrgCode=b.UpOrgCode) select top 1 * from Org where level ={1} ", OrgCode, Level);
             string orgCode = string.Empty;
-            using (dynamic read = db.ExecuteReader(strSql))
+            using (dynamic read = DbHelperSQL.ExecuteReader(strSql))
             {
                 if (read.Read())
                 {
@@ -308,7 +309,7 @@ namespace NCPEP.Dal
         {
             string strSql = string.Format(" WITH Org(OrgCode,UpOrgCode,level,OrgShortName) as (select OrgCode,UpOrgCode,level,OrgShortName from T_Organization where OrgCode='{0}' union all select a.OrgCode,a.UpOrgCode,a.level,a.OrgShortName from T_Organization a inner join Org b ON a.OrgCode=b.UpOrgCode) select top 1 * from Org where level ={1} ", OrgCode, Level);
             string orgShortName = string.Empty;
-            using (dynamic read = db.ExecuteReader(strSql))
+            using (dynamic read = DbHelperSQL.ExecuteReader(strSql))
             {
                 if (read.Read())
                 {
@@ -325,7 +326,7 @@ namespace NCPEP.Dal
             {
                 string strSql = string.Format("select top 1 OrgCode,OrgName,OrgShortName,UpOrgCode,Seq,Level,ShengCode,ShiCode,XianCode,XiangCode,CunCode,ZuCode from T_Organization where OrgCode='{0}'", OrgCode);
                 dynamic model = null;
-                using (dynamic read = db.ExecuteReader(strSql))
+                using (dynamic read = DbHelperSQL.ExecuteReader(strSql))
                 {
                     model = new Organization();
                     if (read.Read())
@@ -356,7 +357,7 @@ namespace NCPEP.Dal
             {
                 string strSql = string.Format("select top 1 OrgCode,OrgName,OrgShortName,UpOrgCode,Seq,Level,ShengCode,ShiCode,XianCode,XiangCode,CunCode,ZuCode from T_Organization order by level desc");
                 dynamic model = null;
-                using (dynamic read = db.ExecuteReader(strSql))
+                using (dynamic read = DbHelperSQL.ExecuteReader(strSql))
                 {
                     model = new Organization();
                     if (read.Read())

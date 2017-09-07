@@ -22,15 +22,16 @@ using NCPEP.Com.Util;
 using NCPEP.Model;
 using System.Data.SqlClient;
 using System.Data;
+using Maticsoft.DBUtility;
 
 namespace NCPEP.Dal
 {
     public class BidContractScanDal
     {
-        private dynamic db = null;
+        //private dynamic db = null;
         public BidContractScanDal()
         {
-            db = new MsSqlHelper();
+            //db = new MsSqlHelper();
         }
         //
         public bool Create(BidContractScan model)
@@ -42,7 +43,7 @@ namespace NCPEP.Dal
                 strSql.Append("FK_BidId,ScanName,ScanUrl,UploadName,UploadDate)");
                 strSql.Append(" values (");
                 strSql.Append("@FK_BidId,@ScanName,@ScanUrl,@UploadName,@UploadDate)");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -59,7 +60,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format("delete from T_BidContractScan where Id={0}", id);
-                if (db.ExecuteNonQuery(strSql) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql) > 0)
                 {
                     return true;
                 }
@@ -86,7 +87,7 @@ namespace NCPEP.Dal
                 strSql.Append("UploadName=@UploadName,");
                 strSql.Append("UploadDate=@UploadDate");
                 strSql.Append(" where Id=@Id");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -103,7 +104,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format(" select Id,FK_BidId,ScanName,ScanUrl,UploadName,UploadDate from T_BidContractScan where FK_BidId={0}", id);
-                return db.ExecuteDataTable(strSql);
+                return DbHelperSQL.QueryTable(strSql);
             }
             catch { throw; }
         }
@@ -120,7 +121,7 @@ namespace NCPEP.Dal
 					new SqlParameter("@Id", SqlDbType.Int,4)
 			};
                 parameters[0].Value = Id;
-                using (dynamic read = db.ExecuteReader(strSql.ToString(), parameters))
+                using (dynamic read =DbHelperSQL.ExecuteReader(strSql.ToString(), parameters))
                 {
                     if (read.Read())
                     {

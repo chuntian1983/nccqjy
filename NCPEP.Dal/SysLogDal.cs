@@ -18,15 +18,16 @@ using NCPEP.Model;
 using NCPEP.Com.Util;
 using System.Data;
 using System.Data.SqlClient;
+using Maticsoft.DBUtility;
 
 namespace NCPEP.Dal
 {
     public class SysLogDal : IDisposable
     {
-        private dynamic db = null;
+        //private dynamic db = null;
         public SysLogDal()
         {
-            db = new MsSqlHelper();
+            //db = new MsSqlHelper();
         }
         /// <summary>
         /// 
@@ -42,7 +43,7 @@ namespace NCPEP.Dal
                 strSql.Append("LogValue,Operates,IpAdd,MacAdd,Editor,CreateDate)");
                 strSql.Append(" values (");
                 strSql.Append("@LogValue,@Operates,@IpAdd,@MacAdd,@Editor,@CreateDate)");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -76,7 +77,7 @@ namespace NCPEP.Dal
                 {
                     strSql.Append(string.Format(" where {0}", sqlWhere));
                 }
-                int rows = db.ExecuteNonQuery(strSql.ToString());
+                int rows = DbHelperSQL.ExecuteSql(strSql.ToString());
                 if (rows > 0)
                 {
                     return true;
@@ -98,7 +99,7 @@ namespace NCPEP.Dal
             {
                 string strSql = "select Id,LogValue,Operates,IpAdd,MacAdd,Editor,CreateDate from T_SysLog ";
 
-                return db.ExecuteDataTable(strSql);
+                return DbHelperSQL.QueryTable(strSql);
             }
             catch { throw; }
         }
@@ -120,7 +121,7 @@ namespace NCPEP.Dal
                     strSql += string.Format(" where {0}", sqlWhere);
                 }
                 strSql += order;
-                return db.ExecuteDataTable(strSql, startIndex * pageSize, pageSize, "T_SysLog");
+                return DbHelperSQL.ExecuteDataTable(strSql, startIndex * pageSize, pageSize, "T_SysLog");
             }
             catch { throw; }
         }
@@ -138,7 +139,7 @@ namespace NCPEP.Dal
                 {
                     strSql += string.Format(" where {0}", where);
                 }
-                return db.ExecuteScalar(strSql);
+                return DbHelperSQL.GetSingle(strSql);
             }
             catch { throw; }
         }

@@ -18,15 +18,16 @@ using NCPEP.Com.Util;
 using NCPEP.Model;
 using System.Data.SqlClient;
 using System.Data;
+using Maticsoft.DBUtility;
 
 namespace NCPEP.Dal
 {
     public class ContactsDal
     {
-        private dynamic db = null;
+        //private dynamic db = null;
         public ContactsDal()
         {
-            db = new MsSqlHelper();
+            //db = new MsSqlHelper();
         }
         public bool Create(Contacts model)
         {
@@ -37,7 +38,7 @@ namespace NCPEP.Dal
                 strSql.Append("FK_OrganizationId,UserName,UserTel,ConsContent,Editor,CreateDate)");
                 strSql.Append(" values (");
                 strSql.Append("@FK_OrganizationId,@UserName,@UserTel,@ConsContent,@Editor,@CreateDate)");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -63,7 +64,7 @@ namespace NCPEP.Dal
                 {
                     strSql += string.Format(" where FK_OrganizationId = '{0}' ", OrgCode);
                 }
-                return db.ExecuteScalar(strSql);
+                return DbHelperSQL.GetSingle(strSql);
             }
             catch { throw; }
         }
@@ -81,7 +82,7 @@ namespace NCPEP.Dal
                 strSql.Append("Editor=@Editor,");
                 strSql.Append("CreateDate=@CreateDate");
                 strSql.Append(" where Id=@Id");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -103,7 +104,7 @@ namespace NCPEP.Dal
 			};
             parameters[0].Value = Id;
 
-            int rows = db.ExecuteNonQuery(strSql.ToString(), parameters);
+            int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
             if (rows > 0)
             {
                 return true;
@@ -119,7 +120,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format("select a.Id,b.OrgShortName as OrganizationId,a.UserName,a.UserTel,a.ConsContent,a.Editor,a.CreateDate  FROM T_Contacts as a left join T_Organization as b on a.FK_OrganizationId = b.OrgCode  where a.FK_OrganizationId='{0}' {1}", OrgCode, order);
-                return db.ExecuteDataTable(strSql, startIndex * pageSize, pageSize, "T_Contacts");
+                return DbHelperSQL.ExecuteDataTable(strSql, startIndex * pageSize, pageSize, "T_Contacts");
             }
             catch { throw; }
         }
@@ -136,7 +137,7 @@ namespace NCPEP.Dal
 					new SqlParameter("@Id", SqlDbType.Int,4)
 			};
                 parameters[0].Value = Id;
-                using (dynamic read = db.ExecuteReader(strSql.ToString(), parameters))
+                using (dynamic read = DbHelperSQL.ExecuteReader(strSql.ToString(), parameters))
                 {
                     if (read.Read())
                     {

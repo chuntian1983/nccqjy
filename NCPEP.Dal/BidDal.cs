@@ -13,17 +13,17 @@ namespace NCPEP.Dal
 {
     public class BidDal
     {
-        private MsSqlHelper db = null;
+        //private MsSqlHelper db = null;
         //
         public BidDal()
         {
-            db = new MsSqlHelper();
+            //db = new MsSqlHelper();
         }
         //
         public DataTable GetModelPrint(int Id) {
 
             string strSql = string.Format(" select a.Admissibility, jzs.cjje,jzs.beiyong,jzs.zcdate,jzs.zcdatez,jzs.beizhu, a.LowTransaction,a.Turnover, a.guimo,a.danwei,a.Ownership,o.OrgName,a.BidName,a.StartDate,l.Name as LName,p.PropertyTypeName,l.Tel as LTel,a.RelatesNum,t.Name,mt.TypeCertificationName,t.Tel,tt.TurnOutTypeName,sm.StandardModeName,a.ListingPrice,a.EndDate,a.AreContract,a.TradingCenterName,a.CreateDate from T_Bid as a  left join T_BidTrans as b on a.Id = b.FK_BidId left join T_LiceTran as l on a.FK_LiceTranId = l.Id left join T_LiceTran as t on t.Id= b.FK_LiceTranId  left join T_MemberTypeCertification as mt on l.MemberTypeId=mt.Id left join T_Organization as o on a.OrgCOde=o.OrgCOde left join T_PropertyType as p on a.Properties = p.Id left join T_TurnOutType as tt on tt.Id=a.TurnOut left join T_StandardMode as sm on sm.Id=a.StandardMode left join T_Jzs as jzs on jzs.binid=a.Id where b.TradingStatus =1   and a.Id = {0} ", Id);
-            return db.ExecuteDataTable(strSql);
+            return DbHelperSQL.QueryTable(strSql);
         }
         //
         public DataTable Summary(string orgcode)
@@ -31,7 +31,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format(" select a.guimo,a.danwei,a.Ownership,o.OrgName,a.BidName,a.StartDate,l.Name as LName,p.PropertyTypeName,l.Tel as LTel,a.RelatesNum,t.Name,mt.TypeCertificationName,t.Tel,tt.TurnOutTypeName,sm.StandardModeName,a.ListingPrice,a.EndDate,a.AreContract,a.TradingCenterName,a.CreateDate from T_Bid as a  left join T_BidTrans as b on a.Id = b.FK_BidId left join T_LiceTran as l on a.FK_LiceTranId = l.Id left join T_LiceTran as t on t.Id= b.FK_LiceTranId  left join T_MemberTypeCertification as mt on l.MemberTypeId=mt.Id left join T_Organization as o on a.OrgCOde=o.OrgCOde left join T_PropertyType as p on a.Properties = p.Id left join T_TurnOutType as tt on tt.Id=a.TurnOut left join T_StandardMode as sm on sm.Id=a.StandardMode where b.TradingStatus =1 and a.OrgCOde = '{0}' ", orgcode);
-                return db.ExecuteDataTable(strSql);
+                return DbHelperSQL.QueryTable(strSql);
             }
             catch { throw; }
         }
@@ -46,7 +46,7 @@ namespace NCPEP.Dal
                 strSql.Append(" values (");
                 strSql.Append("@OrgCode,@FK_LiceTranId,@BidName,@ListingPrice,@StartDate,@EndDate,@BidBasic,@Ownership,@Properties,@TurnOut,@RightsBodies,@FeedingMechanism,@WarrantNumber,@LowTransaction,@Turnover,@ContractDate,@ContractNo,@Admissibility,@NoAssurance,@TradingCenterName,@AreContract,@RelatesNum,@DepaStatus,@ReturnStatus,@UpManager,@Publicity,@Change,@Cancel,@Lost,@StandardMode,@StandardType)");
                 strSql.Append(";select @@IDENTITY");
-                return (int)db.ExecuteScalar(strSql.ToString(), GetSqlParameter(model));
+                return (int)DbHelperSQL.GetSingle(strSql.ToString(), GetSqlParameter(model));
             }
             catch { throw; }
         }
@@ -89,7 +89,7 @@ namespace NCPEP.Dal
                 strSql.Append("StandardMode=@StandardMode,");
                 strSql.Append("StandardType=@StandardType");
                 strSql.Append(" where Id=@Id");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -110,7 +110,7 @@ namespace NCPEP.Dal
                 {
                     strSql += string.Format(" where {0}", where);
                 }
-                return db.ExecuteScalar(strSql);
+                return DbHelperSQL.GetSingle(strSql);
             }
             catch { throw; }
         }
@@ -123,7 +123,7 @@ namespace NCPEP.Dal
                 {
                     strSql += string.Format(" where {0}", where);
                 }
-                return db.ExecuteScalar(strSql);
+                return DbHelperSQL.GetSingle(strSql);
             }
             catch { throw; }
         }
@@ -133,7 +133,7 @@ namespace NCPEP.Dal
             try
             {
                 string sql = " select max(isnull(convert(int,Admissibility) ,0)) from T_BID ";
-                int Admissibility = Convert.ToInt32(db.ExecuteScalar(sql));
+                int Admissibility = Convert.ToInt32(DbHelperSQL.GetSingle(sql));
                 int newAdmissibility = 0;
                 if (Admissibility.ToString().Length > 3)
                 {
@@ -149,7 +149,7 @@ namespace NCPEP.Dal
             try
             {
                 string sql = " select max(isnull(convert(int,NoAssurance),0)) from T_Bid ";
-                int NoAssurance = Convert.ToInt32(db.ExecuteScalar(sql));
+                int NoAssurance = Convert.ToInt32(DbHelperSQL.GetSingle(sql));
                 int newNoAssurance = 0;
                 if (NoAssurance.ToString().Length > 3)
                 {
@@ -165,7 +165,7 @@ namespace NCPEP.Dal
             try
             {
                 string sql = " select max(ContractNo) from T_BID ";
-                object ContractNo = db.ExecuteScalar(sql);
+                object ContractNo =DbHelperSQL.GetSingle(sql);
                 int newContractNo = 0;
                 if (ContractNo.ToString().Length > 5)
                 {
@@ -188,7 +188,7 @@ namespace NCPEP.Dal
 			};
                 parameters[0].Value = Id;
 
-                int rows = db.ExecuteNonQuery(strSql.ToString(), parameters);
+                int rows =DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
                 if (rows > 0)
                 {
                     return true;
@@ -206,7 +206,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format("update T_Bid set {0} = {1} where Id = {2}", rows, value, Id);
-                if (db.ExecuteNonQuery(strSql) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql) > 0)
                 {
                     return true;
                 }
@@ -223,7 +223,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format("update T_Bid set {0} where {1}", rows, where);
-                if (db.ExecuteNonQuery(strSql) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql) > 0)
                 {
                     return true;
                 }
@@ -244,7 +244,7 @@ namespace NCPEP.Dal
                 {
                     strSql += order;
                 }
-                return db.ExecuteDataTable(strSql, startIndex * pageSize, pageSize, "T_Bid");
+                return DbHelperSQL.ExecuteDataTable(strSql, startIndex * pageSize, pageSize, "T_Bid");
             }
             catch { throw; }
         }
@@ -254,7 +254,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format(" select Id,BidName from T_Bid  where OrgCOde ='{0}' and Id not in (select FK_BidId from T_BidTrans where TradingStatus =1) and DepaStatus=7 ", OrgCode);
-                return db.ExecuteDataTable(strSql);
+                return DbHelperSQL.QueryTable(strSql);
             }
             catch { throw; }
         }
@@ -264,7 +264,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format(" select Id,BidName from T_Bid  where OrgCOde ='{0}' and Id not in (select FK_BidId from T_BidTrans where TradingStatus =1)", OrgCode);
-                return db.ExecuteDataTable(strSql);
+                return DbHelperSQL.QueryTable(strSql);
             }
             catch { throw; }
         }
@@ -282,7 +282,7 @@ namespace NCPEP.Dal
                 {
                     strSql += order;
                 }
-                return db.ExecuteDataTable(strSql, startIndex * pageSize, pageSize, "T_Bid");
+                return DbHelperSQL.ExecuteDataTable(strSql, startIndex * pageSize, pageSize, "T_Bid");
             }
             catch { throw; }
         }
@@ -299,7 +299,7 @@ namespace NCPEP.Dal
                 {
                     strSql += order;
                 }
-                return db.ExecuteDataTable(strSql, startIndex * pageSize, pageSize, "T_Bid");
+                return DbHelperSQL.ExecuteDataTable(strSql, startIndex * pageSize, pageSize, "T_Bid");
             }
             catch { throw; }
         }
@@ -316,7 +316,7 @@ namespace NCPEP.Dal
                 {
                     strSql += order;
                 }
-                return db.ExecuteDataTable(strSql, startIndex * pageSize, pageSize, "T_Bid");
+                return DbHelperSQL.ExecuteDataTable(strSql, startIndex * pageSize, pageSize, "T_Bid");
             }
             catch { throw; }
         }
@@ -326,7 +326,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format(" select a.Id,b.OrgShortName as OrgCode,k.TypeCertificationName,c.Addr,c.Owner,c.Contact,c.Corporate,c.Tel,c.IDCard,c.Capital,c.OrganizationCode,c.Name,a.FK_LiceTranId,a.BidName,a.ListingPrice,a.StartDate,a.EndDate,a.BidBasic,a.Ownership,d.PropertyTypeName as Properties,e.TurnOutTypeName as TurnOut,a.RightsBodies,a.FeedingMechanism,a.WarrantNumber,f.StandardModeName as StandardMode,g.StandardTypeName as StandardType,a.LowTransaction,a.Turnover,a.ContractDate,a.ContractNo,a.Admissibility,a.NoAssurance,a.TradingCenterName,a.AreContract,a.RelatesNum,h.JobTypeName as DepaStatus,a.DepaStatus as DepaStatusId,a.ReturnStatus,a.UpManager,a.Publicity,a.Change,a.Cancel,a.Lost from T_Bid as a left join T_Organization as b on a.OrgCOde = b.OrgCode left join T_LiceTran as c on a.FK_LiceTranId  =c.Id left join T_PropertyType as d on a.Properties=d.Id left join T_TurnOutType as e on a.TurnOut = e.Id left join T_StandardMode as f on a.StandardMode=f.Id left join  T_StandardType as g on a.StandardType=g.Id left join T_Job as h on a.DepaStatus =h.Id left join T_MemberTypeCertification as k on c.MemberTypeId = k.Id  where {0}", sqlWhere);
-                return db.ExecuteDataTable(strSql);
+                return DbHelperSQL.QueryTable(strSql);
             }
             catch { throw; }
         }
@@ -336,7 +336,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format(" select a.srfjbtj,a.Id,b.OrgShortName as OrgCode,k.TypeCertificationName,c.Addr,c.Owner,c.Contact,c.Corporate,c.Tel,c.IDCard,c.Capital,c.OrganizationCode,c.Name,a.FK_LiceTranId,a.BidName,a.ListingPrice,a.StartDate,a.EndDate,a.BidBasic,a.Ownership,d.PropertyTypeName as Properties,e.TurnOutTypeName as TurnOut,a.RightsBodies,a.FeedingMechanism,a.WarrantNumber,f.StandardModeName as StandardMode,g.StandardTypeName as StandardType,a.LowTransaction,a.Turnover,a.ContractDate,a.ContractNo,a.Admissibility,a.NoAssurance,a.TradingCenterName,a.AreContract,a.RelatesNum,h.JobTypeName as DepaStatus,a.DepaStatus as DepaStatusId,a.ReturnStatus,a.UpManager,a.Publicity,a.Change,a.Cancel,a.Lost from T_Bid as a left join T_Organization as b on a.OrgCOde = b.OrgCode left join T_LiceTran as c on a.FK_LiceTranId  =c.Id left join T_PropertyType as d on a.Properties=d.Id left join T_TurnOutType as e on a.TurnOut = e.Id left join T_StandardMode as f on a.StandardMode=f.Id left join  T_StandardType as g on a.StandardType=g.Id left join T_Job as h on a.DepaStatus =h.Id left join T_MemberTypeCertification as k on c.MemberTypeId = k.Id  where a.Id={0}", Id);
-                return db.ExecuteDataTable(strSql);
+                return DbHelperSQL.QueryTable(strSql);
             }
             catch { throw; }
         }
@@ -353,7 +353,7 @@ namespace NCPEP.Dal
 					new SqlParameter("@Id", SqlDbType.Int,4)
 			};
                 parameters[0].Value = Id;
-                using (dynamic read = db.ExecuteReader(strSql.ToString(), parameters))
+                using (dynamic read = DbHelperSQL.ExecuteReader(strSql.ToString(), parameters))
                 {
                     if (read.Read())
                     {
@@ -428,7 +428,7 @@ namespace NCPEP.Dal
             {
                 dynamic model = null;
                 string strSql = string.Format(" select Id,OrgCode,FK_LiceTranId,BidName,ListingPrice,StartDate,EndDate,BidBasic,Ownership,Properties,TurnOut,RightsBodies,FeedingMechanism,WarrantNumber,LowTransaction,Turnover,ContractDate,ContractNo,Admissibility,NoAssurance,TradingCenterName,AreContract,RelatesNum,DepaStatus,ReturnStatus,UpManager,Publicity,Change,Cancel,Lost,StandardMode,StandardType from T_Bid   where Admissibility={0}", Admissibility);
-                using (dynamic read = db.ExecuteReader(strSql.ToString()))
+                using (dynamic read = DbHelperSQL.ExecuteReader(strSql.ToString()))
                 {
                     if (read.Read())
                     {
@@ -566,7 +566,7 @@ namespace NCPEP.Dal
                 {
                     strSql += order;
                 }
-                return db.ExecuteDataTable(strSql, startIndex * pageSize, pageSize, "T_Bid");
+                return DbHelperSQL.ExecuteDataTable(strSql, startIndex * pageSize, pageSize, "T_Bid");
             }
             catch { throw; }
         }
@@ -576,7 +576,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format("  select count(a.Id) from T_Bid as a left join T_Organization as b on a.OrgCOde = b.OrgCode left join T_LiceTran as c on a.FK_LiceTranId  =c.Id left join T_PropertyType as d on a.Properties=d.Id left join T_TurnOutType as e on a.TurnOut = e.Id left join T_StandardMode as f on a.StandardMode=f.Id left join  T_StandardType as g on a.StandardType=g.Id left join T_Job as h on a.DepaStatus =h.Id where a.FK_LiceTranId in (select Id from T_LiceTran where FK_WebUserVeriId ={0})", WebUserVeriId);
-                return db.ExecuteScalar(strSql);
+                return DbHelperSQL.GetSingle(strSql);
             }
             catch { throw; }
         }

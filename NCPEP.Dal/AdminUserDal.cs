@@ -18,15 +18,16 @@ using NCPEP.Model;
 using NCPEP.Com.Util;
 using System.Data;
 using System.Data.SqlClient;
+using Maticsoft.DBUtility;
 
 namespace NCPEP.Dal
 {
     public class AdminUserDal
     {
-        private dynamic db = null;
+        //private dynamic db = null;
         public AdminUserDal()
         {
-            db = new MsSqlHelper();
+            //db = new MsSqlHelper();
         }
         //
         public bool ShieldingUsers(string mac)
@@ -34,7 +35,8 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format("select count(Id) from T_ShieldingUsers where UserMac = '{0}'", mac);
-                if (db.ExecuteScalar(strSql) > 0)
+                if(int.Parse(DbHelperSQL.GetSingle(strSql).ToString())>0)
+                //if (db.ExecuteScalar(strSql) > 0)
                 {
                     return true;
                 }
@@ -54,7 +56,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = "select count(*) from T_AdminUser";
-                if (db.ExecuteScalar(strSql) > 0)
+                if (int.Parse(DbHelperSQL.GetSingle(strSql).ToString())>0)
                 {
                     return true;
                 }
@@ -74,7 +76,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format("select count(*) from T_AdminUser where orgcode ='{0}'", OrgCode);
-                return (int)db.ExecuteScalar(strSql);
+                return int.Parse(DbHelperSQL.GetSingle(strSql).ToString());// db.ExecuteScalar(strSql);
             }
             catch { throw; }
         }
@@ -88,7 +90,7 @@ namespace NCPEP.Dal
                 strSql.Append("AdminLogName,AdminLogPass,AdminName,AdminTel,OrgCode,AdminTypeId,JobId,AdminState,AdminLogNum,IsCheck,Editor,CreateDate,EndDate)");
                 strSql.Append(" values (");
                 strSql.Append("@AdminLogName,@AdminLogPass,@AdminName,@AdminTel,@OrgCode,@AdminTypeId,@JobId,@AdminState,@AdminLogNum,@IsCheck,@Editor,@CreateDate,@EndDate)");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -110,7 +112,7 @@ namespace NCPEP.Dal
                 strSql.Append(" values (");
                 strSql.Append("@AdminLogName,@AdminLogPass,@AdminName,@AdminTel,@OrgCode,@AdminTypeId,@JobId,@AdminState,@AdminLogNum,@IsCheck,@Editor,@CreateDate,@EndDate);");
                 strSql.Append(" select @@identity");
-                return db.ExecuteScalar(strSql.ToString(), GetSqlParameter(model));
+                return DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model));
             }
             catch { throw; }
         }
@@ -135,7 +137,7 @@ namespace NCPEP.Dal
                 strSql.Append("CreateDate=@CreateDate,");
                 strSql.Append("EndDate=@EndDate");
                 strSql.Append(" where Id=@Id");
-                if (db.ExecuteNonQuery(strSql.ToString(), GetSqlParameter(model)) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString(), GetSqlParameter(model)) > 0)
                 {
                     return true;
                 }
@@ -152,7 +154,7 @@ namespace NCPEP.Dal
             try
             {
                 String strSql = string.Format("update T_AdminUser set AdminLogPass={0} where Id={1}", AdminLogPass, Id);
-                if (db.ExecuteNonQuery(strSql) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql) > 0)
                 {
                     return true;
                 }
@@ -169,7 +171,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format("delete from T_AdminUser where Id={0}", id);
-                if (db.ExecuteNonQuery(strSql) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql) > 0)
                 {
                     return true;
                 }
@@ -191,7 +193,7 @@ namespace NCPEP.Dal
                 StringBuilder strSql = new StringBuilder();
                 strSql.Append("delete from T_AdminUser ");
                 strSql.Append(" where Id in (" + Idlist + ")  ");
-                int rows = db.ExecuteNonQuery(strSql.ToString());
+                int rows =DbHelperSQL.ExecuteSql(strSql.ToString());
                 if (rows > 0)
                 {
                     return true;
@@ -217,7 +219,7 @@ namespace NCPEP.Dal
                 {
                     strSql += order;
                 }
-                return db.ExecuteDataTable(strSql, startIndex * pageSize, pageSize, "T_AdminUser");
+                return DbHelperSQL.ExecuteDataTable(strSql, startIndex * pageSize, pageSize, "T_AdminUser");
             }
             catch { throw; }
         }
@@ -227,7 +229,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format("update T_AdminUser set {0} = {1} where Id = {2}", row, values, where);
-                if (db.ExecuteNonQuery(strSql) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql) > 0)
                 {
                     return true;
                 }
@@ -245,7 +247,7 @@ namespace NCPEP.Dal
             {
                 AdminUser model = null;
                 string strSql = string.Format("select Id,AdminLogName,AdminLogPass,AdminName,AdminTel,OrgCode,AdminTypeId,AdminState,AdminLogNum,IsCheck,Editor,CreateDate,EndDate,JobId from T_AdminUser where Id = {0}", id);
-                using (dynamic read = db.ExecuteReader(strSql))
+                using (dynamic read = DbHelperSQL.ExecuteReader(strSql))
                 {
                     if (read.Read())
                     {
@@ -281,7 +283,7 @@ namespace NCPEP.Dal
                 {
                     strSql += string.Format(" where {0}", where);
                 }
-                return db.ExecuteScalar(strSql);
+                return DbHelperSQL.GetSingle(strSql);
             }
             catch { throw; }
         }
@@ -292,7 +294,7 @@ namespace NCPEP.Dal
             {
                 string strSql = string.Format("select top 1 Id,AdminLogName,AdminLogPass,AdminName,AdminTel,OrgCode,AdminTypeId,AdminState,AdminLogNum,IsCheck,Editor,CreateDate,EndDate,JobId from T_AdminUser where AdminLogName='{0}' and AdminLogPass='{1}'", adminLogName, adminLogPass);
                 AdminUser model = new AdminUser();
-                using (dynamic read = db.ExecuteReader(strSql))
+                using (dynamic read =DbHelperSQL.ExecuteReader(strSql))
                 {
                     if (read.Read())
                     {
@@ -331,7 +333,7 @@ namespace NCPEP.Dal
             {
                 bool existence;
                 string strSql = string.Format(" select Id,AdminLogName from T_AdminUser where AdminLogName = '{0}' ", adminLogName);
-                using (dynamic read = db.ExecuteReader(strSql))
+                using (dynamic read =DbHelperSQL.ExecuteReader(strSql))
                 {
                     if (read.Read())
                     {
@@ -355,7 +357,7 @@ namespace NCPEP.Dal
         {
             try
             {
-                db.ExecuteNonQuery(string.Format("update T_AdminUser set AdminLogNum=(AdminLogNum+1),EndDate=GETDATE() where Id={0}", id));
+               DbHelperSQL.ExecuteSql(string.Format("update T_AdminUser set AdminLogNum=(AdminLogNum+1),EndDate=GETDATE() where Id={0}", id));
             }
             catch { throw; }
         }

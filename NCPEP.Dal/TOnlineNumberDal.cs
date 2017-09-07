@@ -17,17 +17,18 @@ using System.Text;
 using NCPEP.Com.Util;
 using NCPEP.Model;
 using System.Data;
+using Maticsoft.DBUtility;
 
 namespace NCPEP.Dal
 {
     public class TOnlineNumberDal : IDisposable
     {
 
-        private dynamic db = null;
+      
 
         public TOnlineNumberDal()
         {
-            db = new MsSqlHelper();
+          
         }
         /// <summary>
         /// 增加一条数据
@@ -37,7 +38,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = string.Format("update T_OnlineNumber set OnlineNumber={0}", model.OnlineNumber);
-                if (db.ExecuteNonQuery(strSql.ToString()) > 0)
+                if (DbHelperSQL.ExecuteSql(strSql.ToString()) > 0)
                 {
                     return true;
                 }
@@ -54,7 +55,7 @@ namespace NCPEP.Dal
             try
             {
                 string strSql = " select  top 1 OnlineNumber from T_OnlineNumber ";
-                DataTable dt = db.ExecuteDataTable(strSql);
+                DataTable dt = DbHelperSQL.QueryTable(strSql);
                 return dt.Rows[0]["OnlineNumber"];
             }
             catch { throw; }
