@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="Web">
+</Property><Property Name="解决方案文件" Value="F:\mywork\newland\农村产权网站\南昌产权交易\南昌产权交易\NCPEP\yujiangWeb\Web.sln">
+</Property><Property Name="Date" Value="2016年9月19日">
+</Property><Property Name="Time" Value="17:22:29">
+</Property></Properties><Event ErrorLevel="0" Project="Web" Source="Web.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="Web" Source="Web.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Web" Source="Web.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event></UpgradeLog>

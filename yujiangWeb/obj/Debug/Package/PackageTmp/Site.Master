@@ -1,0 +1,70 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Web.SiteMaster" %>
+
+<%@ Register Src="Controls/WebFoot.ascx" TagName="WebFoot" TagPrefix="uc1" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>
+        <% =Application["OrgShortName"] %><%= Application["AllTitle"]%></title>
+    <meta name="keywords" content="<% =Application["OrgShortName"] %>农村综合产权交易网,土地流转" />
+    <meta name="description" content="<% =Application["OrgShortName"] %>产权交易、土地流转、交易流转" />
+    <link rel="stylesheet" type="text/css" href="/Styles/main.css" />
+    <link rel="stylesheet" type="text/css" href="/Styles/style.css" />
+    <link rel="stylesheet" type="text/css" href="/Styles/list.css" />
+    <script src="/Scripts/jquery-1.4.1.min.js" type="text/javascript" language="javascript"></script>
+    <script src="/Scripts/Site.js" type="text/javascript" language="javascript"></script>
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div class="top ">
+        <div class="main ">
+            <div class="topleft ">
+                欢迎您！ 请 <a href="../user/UsLogin.aspx">登录</a> <a href="../user/UsReg.aspx">注册</a>
+            </div>
+            <div class="topright ">
+                <ul>
+                    <li><a href="#" onclick="this.style.behavior='url(#default#homepage)';this.setHomePage(document.location.href);"
+                        title="设为主页" class="index">&nbsp;</a></li>
+                    <li><a href="#" onclick="window.external.AddFavorite(document.location.href,document.title)"
+                        title="加入收藏" class="shoucang">&nbsp;</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+	<div class="main menu_logo1"><img src="images/log.jpg" height="211" width="1156"></div>
+
+    <div class="main">
+  
+        <div class="menu_m">
+            <ul>
+                <li><a href="../Default.aspx">网站首页</a></li>
+                <li>
+                    <div>
+                        <a href="../NewsList.aspx?ntid=1">新闻中心</a></div>
+                </li>
+                <li>
+                    <div >
+                        <a href="../NewsList.aspx?ntid=2">政策法规</a></div>
+                </li>
+                <li>
+                    <div >
+                        <a href="../NewsList.aspx?ntid=4">办事指南</a></div>
+                </li>
+                <li><a href="../BidList.aspx">交易项目</a></li>
+                <li class="end"><a href="../NewsList.aspx?ntid=10">股份权能改革</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="main" >
+        <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+    </div>
+    <div class="main" >
+        <div class="link">
+            <span id="lblLinks"></span>
+        </div>
+    </div>
+    <uc1:WebFoot ID="WebFootControl" runat="server" />
+</body>
+</html>

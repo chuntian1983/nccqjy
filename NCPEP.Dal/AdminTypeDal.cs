@@ -14,7 +14,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using NCPEP.Com.Util;
+  
 using NCPEP.Model;
 using System.Data;
 using System.Data.SqlClient;
@@ -24,10 +24,10 @@ namespace NCPEP.Dal
 {
     public class AdminTypeDal
     {
-        private dynamic db = null;
+        //private dynamic db = null;
         public AdminTypeDal()
         {
-            db = new MsSqlHelper();
+            //db = new MsSqlHelper();
         }
         //
         public bool Create(AdminType model)
@@ -125,7 +125,7 @@ namespace NCPEP.Dal
 					new SqlParameter("@Id", SqlDbType.Int,4)
 			};
                 parameters[0].Value = Id;
-                using (dynamic read = db.ExecuteReader(strSql.ToString(), parameters))
+                using (dynamic read =DbHelperSQL.ExecuteReader(strSql.ToString(), parameters))
                 {
                     if (read.Read())
                     {

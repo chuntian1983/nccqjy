@@ -1,0 +1,43 @@
+.usertop{background: #3175b7 url(../images/userbg.jpg) no-repeat; height: 65px;  text-align: right; padding-right: 50px; padding-top: 25px;}
+.usertop a{color:#fff;padding:0 15px;}
+.usertop a span{color:#e70326; font-weight: bold;}
+.usermain{padding-top:15px;overflow: hidden;background-size:100%;background: #c0c4da url(../images/bg.jpg) no-repeat left top;min-height:200px}
+.userleft .userh{background: url(../images/userh.jpg) no-repeat center 30px; height: 18px; width: 100%; text-align: center;padding-top:160px;font-size: 10pt; font-weight: bold; color:#3174b8;padding-bottom:20px;}
+.userleft .userpad{margin:0 20px 0 18px;background: #f0f0f0;padding-bottom:55px; }
+.userleft{width: 18%; float: left; }
+.userleft ul li{height: 64px; text-align: center; line-height: 64px; font-size:12pt;font-weight: bold; background: #e2e2e2;border-bottom: 1px solid #c6c6c6;}
+.userleft ul li.check1{background: #3893e1;color:#fff;}
+.userright{margin-top:20px;float: left; width: 80%;}
+.userright ul{ clear: both;}
+.userright li{float: left;  width: 125px; height: 95px; text-align: left;padding-left:55px; line-height: 95px; background: url(../images/but.png) no-repeat 15px 38px; }
+.userright li.bg2{background-position:15px -32px;}
+.userright li.bg3{background-position:15px -100px;}
+.userright li.bg4{background-position:15px -167px;}
+.userright li.bg5{background-position:15px -235px;}
+.userright li.bg6{background-position:-153px -235px;}
+.userright li.bg7{background-position:-153px 32px;}
+.userright li.bg8{background-position:-153px -32px;}
+.userright li.bg9{background-position:-153px -100px;}
+.userright li.bg10{background-position:-153px -167px;}
+.userright li.a2,.userright li.a3,.userright li.a1,.userright li.a4{background: url(../images/user1.jpg) no-repeat 30px 10px;padding-left:0;width: 100px;text-align: center; padding-top:25px; height: 70px;}
+.userright li.a2{background-image: url(../images/user2.jpg);}
+.userright li.a3{background-image: url(../images/user3.jpg);}
+.userright li.a4{background-image: url(../images/user4.jpg);}
+.userright ul.userbg{background: #f6f6f6; height: 95px; border-top:1px solid #eaeaea;border-bottom:1px solid #eaeaea; }
+.red{color:#e70326;}
+.usertop strong{float: left;color:#fff; font-size: 20pt; padding-left:130px;}
+@media screen and (min-width: 1201px) { 
+.userleft {width:17%;} 
+.userright{width:83%;}
+} 
+/* 设置了浏览器宽度不小于1201px时 abc 显示1200px宽度 */ 
+@media screen and (max-width: 1200px) { 
+.userleft {width: 20%;} 
+.userright{width:80%;} 
+} 
+/* 设置了浏览器宽度不大于1200px时 abc 显示900px宽度 */ 
+@media screen and (max-width: 900px) { 
+.userleft {width: 200px;}
+.userright{width:650px;}
+} 
+/* 设置了浏览器宽度不大于900px时 abc 显示200px宽度 */ 

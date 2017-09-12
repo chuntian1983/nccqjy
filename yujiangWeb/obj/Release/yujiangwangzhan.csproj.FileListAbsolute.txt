@@ -1,0 +1,10 @@
+F:\mywork\newland\农村产权网站\南昌产权交易\南昌产权交易\NCPEP\yujiangWeb\bin\Web.dll
+F:\mywork\newland\农村产权网站\南昌产权交易\南昌产权交易\NCPEP\yujiangWeb\bin\Web.pdb
+F:\mywork\newland\农村产权网站\南昌产权交易\南昌产权交易\NCPEP\yujiangWeb\bin\NCPEP.Com.Util.dll
+F:\mywork\newland\农村产权网站\南昌产权交易\南昌产权交易\NCPEP\yujiangWeb\bin\NCPEP.Dal.pdb
+F:\mywork\newland\农村产权网站\南昌产权交易\南昌产权交易\NCPEP\yujiangWeb\bin\Newtonsoft.Json.Net20.pdb
+F:\mywork\newland\农村产权网站\南昌产权交易\南昌产权交易\NCPEP\yujiangWeb\bin\Newtonsoft.Json.Net20.xml
+F:\mywork\newland\农村产权网站\南昌产权交易\南昌产权交易\NCPEP\yujiangWeb\bin\NCPEP.Com.Util.pdb
+F:\mywork\newland\农村产权网站\南昌产权交易\南昌产权交易\NCPEP\yujiangWeb\obj\Release\yujiangwangzhan.csprojResolveAssemblyReference.cache
+F:\mywork\newland\农村产权网站\南昌产权交易\南昌产权交易\NCPEP\yujiangWeb\obj\Release\Web.dll
+F:\mywork\newland\农村产权网站\南昌产权交易\南昌产权交易\NCPEP\yujiangWeb\obj\Release\Web.pdb

@@ -92,6 +92,7 @@
     <Reference Include="System.Web.ApplicationServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\ncpep.sql" />
     <Content Include="App_Data\script.sql" />
     <Content Include="BidDetails.aspx" />
     <Content Include="BidList2.aspx" />

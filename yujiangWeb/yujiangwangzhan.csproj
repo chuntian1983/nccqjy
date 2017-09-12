@@ -1,0 +1,2223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E0DF3800-04EE-4323-BB1D-697FC6C93927}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Web</RootNamespace>
+    <AssemblyName>Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PublishDatabaseSettings>
+      <Objects>
+      </Objects>
+    </PublishDatabaseSettings>
+    <GenerateSerializationAssemblies>On</GenerateSerializationAssemblies>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AspNetPager, Version=7.3.2.0, Culture=neutral, PublicKeyToken=fb0a0fe055d40fd4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\AspNetPager.dll</HintPath>
+    </Reference>
+    <Reference Include="Common, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Common.dll</HintPath>
+    </Reference>
+    <Reference Include="DBUtility, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\DBUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="LitJSON">
+      <HintPath>..\..\..\..\青县网站Z\Web\bin\LitJSON.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NCPEP.BidCar, Version=1.0.0.0, Culture=neutral, PublicKeyToken=76b2aefa1f7e07fc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\NCPEP.BidCar.dll</HintPath>
+    </Reference>
+    <Reference Include="NCPEP.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=76b2aefa1f7e07fc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\NCPEP.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json.Net20">
+      <HintPath>..\..\南昌产权交易\NongCunPropertyExchangeProject\NCPEP\Web\bin\Newtonsoft.Json.Net20.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BidDetails.aspx" />
+    <Content Include="bin\Config.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="bin\DBUtility.dll" />
+    <Content Include="bin\itextsharp.dll" />
+    <Content Include="chumoping\content.html" />
+    <Content Include="chumoping\gplist.aspx" />
+    <Content Include="chumoping\gpview.aspx" />
+    <Content Include="chumoping\gqlist.html" />
+    <Content Include="chumoping\images\ban.jpg" />
+    <Content Include="chumoping\images\bg.jpg" />
+    <Content Include="chumoping\images\bg1.jpg" />
+    <Content Include="chumoping\images\bszn.png" />
+    <Content Include="chumoping\images\cbg.jpg" />
+    <Content Include="chumoping\images\cbg.png" />
+    <Content Include="chumoping\images\fh.png" />
+    <Content Include="chumoping\images\gqxx.png" />
+    <Content Include="chumoping\images\gzdt.png" />
+    <Content Include="chumoping\images\jyxm.png" />
+    <Content Include="chumoping\images\log.png" />
+    <Content Include="chumoping\images\menu.png" />
+    <Content Include="chumoping\images\sy.png" />
+    <Content Include="chumoping\index.html" />
+    <Content Include="chumoping\jycontent.html" />
+    <Content Include="chumoping\list.html" />
+    <Content Include="chumoping\newlist.html" />
+    <Content Include="chumoping\newslist.aspx" />
+    <Content Include="chumoping\style\main.css" />
+    <Content Include="chumoping\view.aspx" />
+    <Content Include="Controls\ValidateCode.aspx" />
+    <Content Include="Controls\WebFoot.ascx" />
+    <Content Include="Images\01.jpg" />
+    <Content Include="Images\02.jpg" />
+    <Content Include="Images\404.jpg" />
+    <Content Include="Images\ad.jpg" />
+    <Content Include="Images\ajax_loading.gif" />
+    <Content Include="Images\an.png" />
+    <Content Include="Images\anniu.png" />
+    <Content Include="Images\an_bg.jpg" />
+    <Content Include="Images\ban.jpg" />
+    <Content Include="Images\banner.jpg" />
+    <Content Include="Images\bg.jpg" />
+    <Content Include="Images\but.png" />
+    <Content Include="Images\cq.png" />
+    <Content Include="Images\ewm.jpg" />
+    <Content Include="Images\focus.swf" />
+    <Content Include="Images\guanli.jpg" />
+    <Content Include="Images\hd.jpg" />
+    <Content Include="Images\huiyuan.jpg" />
+    <Content Include="Images\jdtu.jpg" />
+    <Content Include="Images\jingjia.jpg" />
+    <Content Include="Images\jt.png" />
+    <Content Include="Images\jy.png" />
+    <Content Include="Images\jy2.png" />
+    <Content Include="Images\jy_bg.jpg" />
+    <Content Include="Images\lic.jpg" />
+    <Content Include="Images\link1.jpg" />
+    <Content Include="Images\link2.jpg" />
+    <Content Include="Images\link3.jpg" />
+    <Content Include="Images\link4.jpg" />
+    <Content Include="Images\log.jpg" />
+    <Content Include="Images\login.jpg" />
+    <Content Include="Images\login.png" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\map.jpg" />
+    <Content Include="Images\mech.jpg" />
+    <Content Include="Images\menu.jpg" />
+    <Content Include="Images\menu1.jpg" />
+    <Content Include="Images\nc_02-111111.jpg" />
+    <Content Include="Images\nc_02.jpg" />
+    <Content Include="Images\nc_05.jpg" />
+    <Content Include="Images\nc_08.jpg" />
+    <Content Include="Images\nc_11.jpg" />
+    <Content Include="Images\nc_13.jpg" />
+    <Content Include="Images\nc_19.jpg" />
+    <Content Include="Images\nc_22.jpg" />
+    <Content Include="Images\nc_26.jpg" />
+    <Content Include="Images\nc_30.jpg" />
+    <Content Include="Images\nc_33.jpg" />
+    <Content Include="Images\nc_36.jpg" />
+    <Content Include="Images\nc_40.jpg" />
+    <Content Include="Images\new.jpg" />
+    <Content Include="Images\news.jpg" />
+    <Content Include="Images\no.jpg" />
+    <Content Include="Images\nojpg.jpg" />
+    <Content Include="Images\ot.png" />
+    <Content Include="Images\qss.jpg" />
+    <Content Include="Images\sousuo.jpg" />
+    <Content Include="Images\sreach.jpg" />
+    <Content Include="Images\ss.jpg" />
+    <Content Include="Images\ss1.jpg" />
+    <Content Include="Images\sx.jpg" />
+    <Content Include="Images\tb.jpg" />
+    <Content Include="Images\tb.png" />
+    <Content Include="Images\tb1.png" />
+    <Content Include="Images\titbg.jpg" />
+    <Content Include="Images\top.jpg" />
+    <Content Include="Images\tubiao.png" />
+    <Content Include="Images\unload.jpg" />
+    <Content Include="Images\user1.jpg" />
+    <Content Include="Images\user2.jpg" />
+    <Content Include="Images\user3.jpg" />
+    <Content Include="Images\user4.jpg" />
+    <Content Include="Images\userbg.jpg" />
+    <Content Include="Images\userh.jpg" />
+    <Content Include="Images\wb.jpg" />
+    <Content Include="Images\wx.jpg" />
+    <Content Include="Images\wz.jpg" />
+    <Content Include="Images\wz.png" />
+    <Content Include="Images\xian.jpg" />
+    <Content Include="Images\xz.png" />
+    <Content Include="Images\yes.jpg" />
+    <Content Include="Images\yuanjiao.png" />
+    <Content Include="Images\zt.jpg" />
+    <Content Include="Images\ztnew.jpg" />
+    <Content Include="IntenDetails.aspx" />
+    <Content Include="kindeditor\asp.net\bin\LitJSON.dll" />
+    <Content Include="kindeditor\asp.net\demo.aspx" />
+    <Content Include="kindeditor\asp.net\README.txt" />
+    <Content Include="kindeditor\asp\demo.asp" />
+    <Content Include="kindeditor\asp\file_manager_json.asp" />
+    <Content Include="kindeditor\asp\JSON_2.0.4.asp" />
+    <Content Include="kindeditor\asp\UpLoad_Class.asp" />
+    <Content Include="kindeditor\asp\upload_json.asp" />
+    <Content Include="kindeditor\examples\auto-height.html" />
+    <Content Include="kindeditor\examples\colorpicker.html" />
+    <Content Include="kindeditor\examples\custom-plugin.html" />
+    <Content Include="kindeditor\examples\custom-theme.html" />
+    <Content Include="kindeditor\examples\default.html" />
+    <Content Include="kindeditor\examples\dialog.html" />
+    <Content Include="kindeditor\examples\dynamic-load.html" />
+    <Content Include="kindeditor\examples\file-dialog.html" />
+    <Content Include="kindeditor\examples\file-manager.html" />
+    <Content Include="kindeditor\examples\filter-mode.html" />
+    <Content Include="kindeditor\examples\image-dialog.html" />
+    <Content Include="kindeditor\examples\index.css" />
+    <Content Include="kindeditor\examples\index.html" />
+    <Content Include="kindeditor\examples\jquery-ui.html" />
+    <Content Include="kindeditor\examples\jquery-ui\css\smoothness\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="kindeditor\examples\jquery-ui\css\smoothness\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="kindeditor\examples\jquery-ui\css\smoothness\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="kindeditor\examples\jquery-ui\css\smoothness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="kindeditor\examples\jquery-ui\css\smoothness\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="kindeditor\examples\jquery-ui\css\smoothness\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="kindeditor\examples\jquery-ui\css\smoothness\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="kindeditor\examples\jquery-ui\css\smoothness\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="kindeditor\examples\jquery-ui\css\smoothness\images\ui-icons_222222_256x240.png" />
+    <Content Include="kindeditor\examples\jquery-ui\css\smoothness\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="kindeditor\examples\jquery-ui\css\smoothness\images\ui-icons_454545_256x240.png" />
+    <Content Include="kindeditor\examples\jquery-ui\css\smoothness\images\ui-icons_888888_256x240.png" />
+    <Content Include="kindeditor\examples\jquery-ui\css\smoothness\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="kindeditor\examples\jquery-ui\css\smoothness\jquery-ui-1.9.2.custom.css" />
+    <Content Include="kindeditor\examples\jquery-ui\css\smoothness\jquery-ui-1.9.2.custom.min.css" />
+    <Content Include="kindeditor\examples\jquery-ui\js\jquery-ui-1.9.2.custom.js" />
+    <Content Include="kindeditor\examples\jquery-ui\js\jquery-ui-1.9.2.custom.min.js" />
+    <Content Include="kindeditor\examples\jquery.html" />
+    <Content Include="kindeditor\examples\jquery.js" />
+    <Content Include="kindeditor\examples\multi-image-dialog.html" />
+    <Content Include="kindeditor\examples\multi-language.html" />
+    <Content Include="kindeditor\examples\newline.html" />
+    <Content Include="kindeditor\examples\node.html" />
+    <Content Include="kindeditor\examples\paste-type.html" />
+    <Content Include="kindeditor\examples\qqstyle.html" />
+    <Content Include="kindeditor\examples\readonly.html" />
+    <Content Include="kindeditor\examples\simple.html" />
+    <Content Include="kindeditor\examples\uploadbutton.html" />
+    <Content Include="kindeditor\examples\url-type.html" />
+    <Content Include="kindeditor\examples\word-count.html" />
+    <Content Include="kindeditor\jsp\lib\commons-fileupload-1.2.1.jar" />
+    <Content Include="kindeditor\jsp\lib\commons-io-1.4.jar" />
+    <Content Include="kindeditor\jsp\lib\json_simple-1.1.jar" />
+    <Content Include="kindeditor\jsp\README.txt" />
+    <Content Include="kindeditor\kindeditor-all-min.js" />
+    <Content Include="kindeditor\kindeditor-all.js" />
+    <Content Include="kindeditor\kindeditor-min.js" />
+    <Content Include="kindeditor\kindeditor.js" />
+    <Content Include="kindeditor\lang\ar.js" />
+    <Content Include="kindeditor\lang\en.js" />
+    <Content Include="kindeditor\lang\ko.js" />
+    <Content Include="kindeditor\lang\zh_CN.js" />
+    <Content Include="kindeditor\lang\zh_TW.js" />
+    <Content Include="kindeditor\license.txt" />
+    <Content Include="kindeditor\plugins\anchor\anchor.js" />
+    <Content Include="kindeditor\plugins\autoheight\autoheight.js" />
+    <Content Include="kindeditor\plugins\baidumap\baidumap.js" />
+    <Content Include="kindeditor\plugins\baidumap\index.html" />
+    <Content Include="kindeditor\plugins\baidumap\map.html" />
+    <Content Include="kindeditor\plugins\clearhtml\clearhtml.js" />
+    <Content Include="kindeditor\plugins\code\code.js" />
+    <Content Include="kindeditor\plugins\code\prettify.css" />
+    <Content Include="kindeditor\plugins\code\prettify.js" />
+    <Content Include="kindeditor\plugins\emoticons\emoticons.js" />
+    <Content Include="kindeditor\plugins\emoticons\images\0.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\1.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\10.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\100.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\101.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\102.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\103.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\104.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\105.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\106.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\107.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\108.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\109.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\11.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\110.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\111.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\112.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\113.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\114.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\115.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\116.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\117.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\118.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\119.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\12.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\120.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\121.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\122.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\123.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\124.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\125.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\126.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\127.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\128.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\129.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\13.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\130.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\131.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\132.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\133.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\134.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\14.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\15.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\16.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\17.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\18.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\19.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\2.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\20.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\21.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\22.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\23.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\24.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\25.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\26.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\27.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\28.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\29.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\3.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\30.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\31.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\32.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\33.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\34.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\35.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\36.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\37.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\38.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\39.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\4.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\40.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\41.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\42.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\43.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\44.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\45.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\46.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\47.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\48.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\49.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\5.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\50.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\51.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\52.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\53.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\54.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\55.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\56.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\57.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\58.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\59.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\6.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\60.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\61.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\62.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\63.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\64.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\65.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\66.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\67.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\68.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\69.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\7.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\70.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\71.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\72.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\73.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\74.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\75.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\76.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\77.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\78.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\79.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\8.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\80.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\81.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\82.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\83.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\84.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\85.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\86.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\87.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\88.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\89.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\9.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\90.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\91.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\92.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\93.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\94.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\95.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\96.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\97.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\98.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\99.gif" />
+    <Content Include="kindeditor\plugins\emoticons\images\static.gif" />
+    <Content Include="kindeditor\plugins\filemanager\filemanager.js" />
+    <Content Include="kindeditor\plugins\filemanager\images\file-16.gif" />
+    <Content Include="kindeditor\plugins\filemanager\images\file-64.gif" />
+    <Content Include="kindeditor\plugins\filemanager\images\folder-16.gif" />
+    <Content Include="kindeditor\plugins\filemanager\images\folder-64.gif" />
+    <Content Include="kindeditor\plugins\filemanager\images\go-up.gif" />
+    <Content Include="kindeditor\plugins\flash\flash.js" />
+    <Content Include="kindeditor\plugins\image\image.js" />
+    <Content Include="kindeditor\plugins\image\images\align_left.gif" />
+    <Content Include="kindeditor\plugins\image\images\align_right.gif" />
+    <Content Include="kindeditor\plugins\image\images\align_top.gif" />
+    <Content Include="kindeditor\plugins\image\images\refresh.png" />
+    <Content Include="kindeditor\plugins\insertfile\insertfile.js" />
+    <Content Include="kindeditor\plugins\lineheight\lineheight.js" />
+    <Content Include="kindeditor\plugins\link\link.js" />
+    <Content Include="kindeditor\plugins\map\map.html" />
+    <Content Include="kindeditor\plugins\map\map.js" />
+    <Content Include="kindeditor\plugins\media\media.js" />
+    <Content Include="kindeditor\plugins\multiimage\images\image.png" />
+    <Content Include="kindeditor\plugins\multiimage\images\select-files-en.png" />
+    <Content Include="kindeditor\plugins\multiimage\images\select-files-zh_CN.png" />
+    <Content Include="kindeditor\plugins\multiimage\images\swfupload.swf" />
+    <Content Include="kindeditor\plugins\multiimage\multiimage.js" />
+    <Content Include="kindeditor\plugins\pagebreak\pagebreak.js" />
+    <Content Include="kindeditor\plugins\plainpaste\plainpaste.js" />
+    <Content Include="kindeditor\plugins\preview\preview.js" />
+    <Content Include="kindeditor\plugins\quickformat\quickformat.js" />
+    <Content Include="kindeditor\plugins\table\table.js" />
+    <Content Include="kindeditor\plugins\template\html\1.html" />
+    <Content Include="kindeditor\plugins\template\html\2.html" />
+    <Content Include="kindeditor\plugins\template\html\3.html" />
+    <Content Include="kindeditor\plugins\template\template.js" />
+    <Content Include="kindeditor\plugins\wordpaste\wordpaste.js" />
+    <Content Include="kindeditor\themes\common\anchor.gif" />
+    <Content Include="kindeditor\themes\common\blank.gif" />
+    <Content Include="kindeditor\themes\common\flash.gif" />
+    <Content Include="kindeditor\themes\common\loading.gif" />
+    <Content Include="kindeditor\themes\common\media.gif" />
+    <Content Include="kindeditor\themes\common\rm.gif" />
+    <Content Include="kindeditor\themes\default\background.png" />
+    <Content Include="kindeditor\themes\default\default.css" />
+    <Content Include="kindeditor\themes\default\default.png" />
+    <Content Include="kindeditor\themes\qq\editor.gif" />
+    <Content Include="kindeditor\themes\qq\qq.css" />
+    <Content Include="kindeditor\themes\simple\simple.css" />
+    <Content Include="linkImg\20160701113059.png" />
+    <Content Include="linkImg\20160701113131.png" />
+    <Content Include="linkImg\20160701113517.png" />
+    <Content Include="linkImg\20160701113642.png" />
+    <Content Include="NewsDetails.aspx" />
+    <Content Include="NewsList.aspx" />
+    <Content Include="PlacardDetails.aspx" />
+    <Content Include="PlacardList.aspx" />
+    <Content Include="robots.txt" />
+    <Content Include="Scripts\BidDetail.js" />
+    <Content Include="Scripts\BidList.js" />
+    <Content Include="Scripts\Default.js" />
+    <Content Include="Scripts\IntenList.js" />
+    <Content Include="Scripts\Intention.js" />
+    <Content Include="Scripts\jquery.pagination.js" />
+    <Content Include="Scripts\LiceTranScanUpload.js" />
+    <Content Include="Scripts\LiTr.js" />
+    <Content Include="Scripts\NewsList.js" />
+    <Content Include="Scripts\PlacardList.js" />
+    <Content Include="Scripts\Site.js" />
+    <Content Include="Scripts\UserMain.js" />
+    <Content Include="Scripts\Users.js" />
+    <Content Include="Scripts\UsLogin.js" />
+    <Content Include="Scripts\UsReg.js" />
+    <Content Include="Scripts\VeriUser.js" />
+    <Content Include="sfz.aspx" />
+    <Content Include="sfzcx.aspx" />
+    <Content Include="Styles\images\col.png" />
+    <Content Include="Styles\images\cut.png" />
+    <Content Include="Styles\images\del.png" />
+    <Content Include="Styles\images\edit.png" />
+    <Content Include="Styles\images\news.png" />
+    <Content Include="Styles\images\search.png" />
+    <Content Include="Styles\listnew.css" />
+    <Content Include="Styles\style.css" />
+    <Content Include="Super\Bi\AttAuditReport.aspx" />
+    <Content Include="Super\Bi\AttContractNo.aspx" />
+    <Content Include="Super\Bi\AuditReport.aspx" />
+    <Content Include="Super\Bi\BidContrScan.aspx" />
+    <Content Include="Super\Data\Summary.aspx" />
+    <Content Include="Super\Files\Demands.aspx" />
+    <Content Include="Super\Images\login_bg.jpg" />
+    <Content Include="Super\Scripts\Arbi.js" />
+    <Content Include="Super\Scripts\AttAuditReport.js" />
+    <Content Include="Super\Scripts\AttContractNo.js" />
+    <Content Include="Super\Scripts\AttPrint.js" />
+    <Content Include="Super\Scripts\AuditReport.js" />
+    <Content Include="Super\Scripts\BidContrScan.js" />
+    <Content Include="Super\Scripts\Change.js" />
+    <Content Include="Super\Scripts\link.js" />
+    <Content Include="Super\Scripts\OneAgree.js" />
+    <Content Include="Super\Scripts\print\CheckActivX.js" />
+    <Content Include="Super\Scripts\print\install_lodop.exe" />
+    <Content Include="Super\Scripts\Summary.js" />
+    <Content Include="Super\Scripts\TwoAgree.js" />
+    <Content Include="Super\Scripts\UpPass.js" />
+    <Content Include="Super\Scripts\WebBProgress.js" />
+    <Content Include="Styles\list.css" />
+    <Content Include="Styles\main.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Styles\pagination.css" />
+    <Content Include="Styles\user.css" />
+    <Content Include="Super\Bi\Agreement.aspx" />
+    <Content Include="Super\Bi\Attestation.aspx" />
+    <Content Include="Super\Bi\AttestationPrint.aspx" />
+    <Content Include="Super\Bi\AttPrint.aspx" />
+    <Content Include="Super\Bi\BidClinchScan.aspx" />
+    <Content Include="Super\Bi\BidPage.aspx" />
+    <Content Include="Super\Bi\BidTr.aspx" />
+    <Content Include="Super\Bi\Head.aspx" />
+    <Content Include="Super\Bi\OneAgree.aspx" />
+    <Content Include="Super\Bi\Super.aspx" />
+    <Content Include="Super\Bi\TranAcc.aspx" />
+    <Content Include="Super\Bi\TwoAgree.aspx" />
+    <Content Include="Super\Default.aspx" />
+    <Content Include="Super\Dic\AdminType.aspx" />
+    <Content Include="Super\Dic\IndRel.aspx" />
+    <Content Include="Super\Dic\JobType.aspx" />
+    <Content Include="Super\Dic\MemberType.aspx" />
+    <Content Include="Super\Dic\PropertyType.aspx" />
+    <Content Include="Super\Dic\StandardMode.aspx" />
+    <Content Include="Super\Dic\StandardType.aspx" />
+    <Content Include="Super\Dic\TurnOutType.aspx" />
+    <Content Include="Super\Dic\UploadTypeIndicator.aspx" />
+    <Content Include="Super\Images\adminstart.jpg" />
+    <Content Include="Super\Images\bg.jpg" />
+    <Content Include="Super\Images\bg1.jpg" />
+    <Content Include="Super\Images\bg2.jpg" />
+    <Content Include="Super\Images\bgright.jpg" />
+    <Content Include="Super\Images\butn.jpg" />
+    <Content Include="Super\Images\loading.gif" />
+    <Content Include="Super\Images\logo.jpg" />
+    <Content Include="Super\Images\Seal\bb.png" />
+    <Content Include="Super\Images\Seal\bg.png" />
+    <Content Include="Super\Images\Seal\gp.png" />
+    <Content Include="Super\Images\Seal\jy.png" />
+    <Content Include="Super\Images\Seal\lb.png" />
+    <Content Include="Super\Images\Seal\qz.png" />
+    <Content Include="Super\Images\Seal\sh.png" />
+    <Content Include="Super\Images\Seal\ty.png" />
+    <Content Include="Super\Images\Seal\ys.png" />
+    <Content Include="Super\Images\Seal\zx.png" />
+    <Content Include="Super\Images\tabicons.png" />
+    <Content Include="Super\Index.aspx" />
+    <Content Include="Super\Lt\LiceOrTran.aspx" />
+    <Content Include="Super\Lt\ScanUpload.aspx" />
+    <Content Include="Super\Main.aspx" />
+    <Content Include="Super\Power\Permis.aspx" />
+    <Content Include="Super\Power\Roleper.aspx" />
+    <Content Include="Super\Scripts\Admin.js" />
+    <Content Include="Super\Scripts\AdminType.js" />
+    <Content Include="Super\Scripts\Agreement.js" />
+    <Content Include="Super\Scripts\Attestation.js" />
+    <Content Include="Super\Scripts\AttestationPrint.js" />
+    <Content Include="Super\Scripts\Bid.js" />
+    <Content Include="Super\Scripts\BidClinchScan.js" />
+    <Content Include="Super\Scripts\BidTr.js" />
+    <Content Include="Super\Scripts\Contacts.js" />
+    <Content Include="Super\Scripts\easyUI\easyloader.js" />
+    <Content Include="Super\Scripts\easyUI\jquery.easyui.min.js" />
+    <Content Include="Super\Scripts\easyUI\jquery.min.js" />
+    <Content Include="Super\Scripts\easyUI\locale\easyui-lang-af.js" />
+    <Content Include="Super\Scripts\easyUI\locale\easyui-lang-am.js" />
+    <Content Include="Super\Scripts\easyUI\locale\easyui-lang-ar.js" />
+    <Content Include="Super\Scripts\easyUI\locale\easyui-lang-bg.js" />
+    <Content Include="Super\Scripts\easyUI\locale\easyui-lang-ca.js" />
+    <Content Include="Super\Scripts\easyUI\locale\easyui-lang-cs.js" />
+    <Content Include="Super\Scripts\easyUI\locale\easyui-lang-cz.js" />
+    <Content Include="Super\Scripts\easyUI\locale\easyui-lang-da.js" />
+    <Content Include="Super\Scripts\easyUI\locale\easyui-lang-de.js" />
+    <Content Include="Super\Scripts\easyUI\locale\easyui-lang-el.js" />
+    <Content Include="Super\Scripts\easyUI\locale\easyui-lang-en.js" />
+    <Content Include="Super\Scripts\easyUI\locale\easyui-lang-es.js" />
+    <Content Include="Super\Scripts\easyUI\locale\easyui-lang-fr.js" />
+    <Content Include="Super\Scripts\easyUI\locale\easyui-lang-it.js" />
+    <Content Include="Super\Scripts\easyUI\locale\easyui-lang-jp.js" />
+    <Content Include="Super\Scripts\easyUI\locale\easyui-lang-nl.js" />
+    <Content Include="Super\Scripts\easyUI\locale\easyui-lang-pl.js" />
+    <Content Include="Super\Scripts\easyUI\locale\easyui-lang-pt_BR.js" />
+    <Content Include="Super\Scripts\easyUI\locale\easyui-lang-ru.js" />
+    <Content Include="Super\Scripts\easyUI\locale\easyui-lang-sv_SE.js" />
+    <Content Include="Super\Scripts\easyUI\locale\easyui-lang-tr.js" />
+    <Content Include="Super\Scripts\easyUI\locale\easyui-lang-zh_CN.js" />
+    <Content Include="Super\Scripts\easyUI\locale\easyui-lang-zh_TW.js" />
+    <Content Include="Super\Scripts\easyUI\plugins\jquery.accordion.js" />
+    <Content Include="Super\Scripts\easyUI\plugins\jquery.calendar.js" />
+    <Content Include="Super\Scripts\easyUI\plugins\jquery.combo.js" />
+    <Content Include="Super\Scripts\easyUI\plugins\jquery.combobox.js" />
+    <Content Include="Super\Scripts\easyUI\plugins\jquery.combogrid.js" />
+    <Content Include="Super\Scripts\easyUI\plugins\jquery.combotree.js" />
+    <Content Include="Super\Scripts\easyUI\plugins\jquery.datagrid.js" />
+    <Content Include="Super\Scripts\easyUI\plugins\jquery.datebox.js" />
+    <Content Include="Super\Scripts\easyUI\plugins\jquery.datetimebox.js" />
+    <Content Include="Super\Scripts\easyUI\plugins\jquery.datetimespinner.js" />
+    <Content Include="Super\Scripts\easyUI\plugins\jquery.dialog.js" />
+    <Content Include="Super\Scripts\easyUI\plugins\jquery.draggable.js" />
+    <Content Include="Super\Scripts\easyUI\plugins\jquery.droppable.js" />
+    <Content Include="Super\Scripts\easyUI\plugins\jquery.filebox.js" />
+    <Content Include="Super\Scripts\easyUI\plugins\jquery.form.js" />
+    <Content Include="Super\Scripts\easyUI\plugins\jquery.layout.js" />
+    <Content Include="Super\Scripts\easyUI\plugins\jquery.linkbutton.js" />
+    <Content Include="Super\Scripts\easyUI\plugins\jquery.menu.js" />
+    <Content Include="Super\Scripts\easyUI\plugins\jquery.menubutton.js" />
+    <Content Include="Super\Scripts\easyUI\plugins\jquery.messager.js" />
+    <Content Include="Super\Scripts\easyUI\plugins\jquery.numberbox.js" />
+    <Content Include="Super\Scripts\easyUI\plugins\jquery.numberspinner.js" />
+    <Content Include="Super\Scripts\easyUI\plugins\jquery.pagination.js" />
+    <Content Include="Super\Scripts\easyUI\plugins\jquery.panel.js" />
+    <Content Include="Super\Scripts\easyUI\plugins\jquery.parser.js" />
+    <Content Include="Super\Scripts\easyUI\plugins\jquery.progressbar.js" />
+    <Content Include="Super\Scripts\easyUI\plugins\jquery.propertygrid.js" />
+    <Content Include="Super\Scripts\easyUI\plugins\jquery.resizable.js" />
+    <Content Include="Super\Scripts\easyUI\plugins\jquery.searchbox.js" />
+    <Content Include="Super\Scripts\easyUI\plugins\jquery.slider.js" />
+    <Content Include="Super\Scripts\easyUI\plugins\jquery.spinner.js" />
+    <Content Include="Super\Scripts\easyUI\plugins\jquery.splitbutton.js" />
+    <Content Include="Super\Scripts\easyUI\plugins\jquery.tabs.js" />
+    <Content Include="Super\Scripts\easyUI\plugins\jquery.textbox.js" />
+    <Content Include="Super\Scripts\easyUI\plugins\jquery.timespinner.js" />
+    <Content Include="Super\Scripts\easyUI\plugins\jquery.tooltip.js" />
+    <Content Include="Super\Scripts\easyUI\plugins\jquery.tree.js" />
+    <Content Include="Super\Scripts\easyUI\plugins\jquery.treegrid.js" />
+    <Content Include="Super\Scripts\easyUI\plugins\jquery.validatebox.js" />
+    <Content Include="Super\Scripts\easyUI\plugins\jquery.window.js" />
+    <Content Include="Super\Scripts\easyUI\themes\black\accordion.css" />
+    <Content Include="Super\Scripts\easyUI\themes\black\calendar.css" />
+    <Content Include="Super\Scripts\easyUI\themes\black\combo.css" />
+    <Content Include="Super\Scripts\easyUI\themes\black\combobox.css" />
+    <Content Include="Super\Scripts\easyUI\themes\black\datagrid.css" />
+    <Content Include="Super\Scripts\easyUI\themes\black\datebox.css" />
+    <Content Include="Super\Scripts\easyUI\themes\black\dialog.css" />
+    <Content Include="Super\Scripts\easyUI\themes\black\easyui.css" />
+    <Content Include="Super\Scripts\easyUI\themes\black\filebox.css" />
+    <Content Include="Super\Scripts\easyUI\themes\black\images\accordion_arrows.png" />
+    <Content Include="Super\Scripts\easyUI\themes\black\images\blank.gif" />
+    <Content Include="Super\Scripts\easyUI\themes\black\images\calendar_arrows.png" />
+    <Content Include="Super\Scripts\easyUI\themes\black\images\combo_arrow.png" />
+    <Content Include="Super\Scripts\easyUI\themes\black\images\datagrid_icons.png" />
+    <Content Include="Super\Scripts\easyUI\themes\black\images\datebox_arrow.png" />
+    <Content Include="Super\Scripts\easyUI\themes\black\images\layout_arrows.png" />
+    <Content Include="Super\Scripts\easyUI\themes\black\images\linkbutton_bg.png" />
+    <Content Include="Super\Scripts\easyUI\themes\black\images\loading.gif" />
+    <Content Include="Super\Scripts\easyUI\themes\black\images\menu_arrows.png" />
+    <Content Include="Super\Scripts\easyUI\themes\black\images\messager_icons.png" />
+    <Content Include="Super\Scripts\easyUI\themes\black\images\pagination_icons.png" />
+    <Content Include="Super\Scripts\easyUI\themes\black\images\panel_tools.png" />
+    <Content Include="Super\Scripts\easyUI\themes\black\images\searchbox_button.png" />
+    <Content Include="Super\Scripts\easyUI\themes\black\images\slider_handle.png" />
+    <Content Include="Super\Scripts\easyUI\themes\black\images\spinner_arrows.png" />
+    <Content Include="Super\Scripts\easyUI\themes\black\images\tabs_icons.png" />
+    <Content Include="Super\Scripts\easyUI\themes\black\images\tree_icons.png" />
+    <Content Include="Super\Scripts\easyUI\themes\black\images\validatebox_warning.png" />
+    <Content Include="Super\Scripts\easyUI\themes\black\layout.css" />
+    <Content Include="Super\Scripts\easyUI\themes\black\linkbutton.css" />
+    <Content Include="Super\Scripts\easyUI\themes\black\menu.css" />
+    <Content Include="Super\Scripts\easyUI\themes\black\menubutton.css" />
+    <Content Include="Super\Scripts\easyUI\themes\black\messager.css" />
+    <Content Include="Super\Scripts\easyUI\themes\black\numberbox.css" />
+    <Content Include="Super\Scripts\easyUI\themes\black\pagination.css" />
+    <Content Include="Super\Scripts\easyUI\themes\black\panel.css" />
+    <Content Include="Super\Scripts\easyUI\themes\black\progressbar.css" />
+    <Content Include="Super\Scripts\easyUI\themes\black\propertygrid.css" />
+    <Content Include="Super\Scripts\easyUI\themes\black\searchbox.css" />
+    <Content Include="Super\Scripts\easyUI\themes\black\slider.css" />
+    <Content Include="Super\Scripts\easyUI\themes\black\spinner.css" />
+    <Content Include="Super\Scripts\easyUI\themes\black\splitbutton.css" />
+    <Content Include="Super\Scripts\easyUI\themes\black\tabs.css" />
+    <Content Include="Super\Scripts\easyUI\themes\black\textbox.css" />
+    <Content Include="Super\Scripts\easyUI\themes\black\tooltip.css" />
+    <Content Include="Super\Scripts\easyUI\themes\black\tree.css" />
+    <Content Include="Super\Scripts\easyUI\themes\black\validatebox.css" />
+    <Content Include="Super\Scripts\easyUI\themes\black\window.css" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\accordion.css" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\calendar.css" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\combo.css" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\combobox.css" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\datagrid.css" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\datebox.css" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\dialog.css" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\easyui.css" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\filebox.css" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\images\accordion_arrows.png" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\images\blank.gif" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\images\calendar_arrows.png" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\images\combo_arrow.png" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\images\datagrid_icons.png" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\images\datebox_arrow.png" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\images\layout_arrows.png" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\images\linkbutton_bg.png" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\images\loading.gif" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\images\menu_arrows.png" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\images\messager_icons.png" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\images\pagination_icons.png" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\images\panel_tools.png" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\images\searchbox_button.png" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\images\slider_handle.png" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\images\spinner_arrows.png" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\images\tabs_icons.png" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\images\tree_icons.png" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\images\validatebox_warning.png" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\layout.css" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\linkbutton.css" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\menu.css" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\menubutton.css" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\messager.css" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\numberbox.css" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\pagination.css" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\panel.css" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\progressbar.css" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\propertygrid.css" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\searchbox.css" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\slider.css" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\spinner.css" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\splitbutton.css" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\tabs.css" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\textbox.css" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\tooltip.css" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\tree.css" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\validatebox.css" />
+    <Content Include="Super\Scripts\easyUI\themes\bootstrap\window.css" />
+    <Content Include="Super\Scripts\easyUI\themes\color.css" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\accordion.css" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\calendar.css" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\combo.css" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\combobox.css" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\datagrid.css" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\datebox.css" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\dialog.css" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\easyui.css" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\blank.gif" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\calendar_nextmonth.gif" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\calendar_nextyear.gif" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\calendar_prevmonth.gif" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\calendar_prevyear.gif" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\datagrid_row_collapse.gif" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\datagrid_row_expand.gif" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\datebox_arrow.png" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\menu.gif" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\menu_downarrow.png" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\menu_rightarrow.png" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\menu_sep.png" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\menu_split_downarrow.png" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\messager_error.gif" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\messager_info.gif" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\messager_question.gif" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\messager_warning.gif" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\pagination_loading.gif" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\panel_loading.gif" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\slider_handle.png" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\tabs_close.gif" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\tree_arrows.gif" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\tree_checkbox_0.gif" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\tree_checkbox_1.gif" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\tree_checkbox_2.gif" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\tree_dnd_no.png" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\tree_dnd_yes.png" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\tree_elbow.png" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\tree_file.gif" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\tree_folder.gif" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\tree_folder_open.gif" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\tree_loading.gif" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\ui-bg_diagonals-thick_90_eeeeee_40x40.png" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\ui-bg_flat_15_cd0a0a_40x100.png" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\ui-bg_glass_100_e4f1fb_1x400.png" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\ui-bg_glass_50_3baae3_1x400.png" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\ui-bg_glass_80_d7ebf9_1x400.png" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\ui-bg_highlight-hard_100_f2f5f7_1x100.png" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\ui-bg_highlight-hard_70_000000_1x100.png" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\ui-bg_highlight-soft_100_deedf7_1x100.png" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\ui-bg_highlight-soft_25_ffef8f_1x100.png" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\ui-icons_2694e8_256x240.png" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\ui-icons_3d80b3_256x240.png" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\ui-icons_72a7cf_256x240.png" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\validatebox_pointer.gif" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\images\validatebox_warning.png" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\layout.css" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\linkbutton.css" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\menu.css" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\menubutton.css" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\messager.css" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\pagination.css" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\panel.css" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\progressbar.css" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\propertygrid.css" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\searchbox.css" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\slider.css" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\spinner.css" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\splitbutton.css" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\tabs.css" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\tree.css" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\validatebox.css" />
+    <Content Include="Super\Scripts\easyUI\themes\cupertino\window.css" />
+    <Content Include="Super\Scripts\easyUI\themes\default\accordion.css" />
+    <Content Include="Super\Scripts\easyUI\themes\default\calendar.css" />
+    <Content Include="Super\Scripts\easyUI\themes\default\combo.css" />
+    <Content Include="Super\Scripts\easyUI\themes\default\combobox.css" />
+    <Content Include="Super\Scripts\easyUI\themes\default\datagrid.css" />
+    <Content Include="Super\Scripts\easyUI\themes\default\datebox.css" />
+    <Content Include="Super\Scripts\easyUI\themes\default\dialog.css" />
+    <Content Include="Super\Scripts\easyUI\themes\default\easyui.css" />
+    <Content Include="Super\Scripts\easyUI\themes\default\filebox.css" />
+    <Content Include="Super\Scripts\easyUI\themes\default\images\accordion_arrows.png" />
+    <Content Include="Super\Scripts\easyUI\themes\default\images\blank.gif" />
+    <Content Include="Super\Scripts\easyUI\themes\default\images\calendar_arrows.png" />
+    <Content Include="Super\Scripts\easyUI\themes\default\images\combo_arrow.png" />
+    <Content Include="Super\Scripts\easyUI\themes\default\images\datagrid_icons.png" />
+    <Content Include="Super\Scripts\easyUI\themes\default\images\datebox_arrow.png" />
+    <Content Include="Super\Scripts\easyUI\themes\default\images\layout_arrows.png" />
+    <Content Include="Super\Scripts\easyUI\themes\default\images\linkbutton_bg.png" />
+    <Content Include="Super\Scripts\easyUI\themes\default\images\loading.gif" />
+    <Content Include="Super\Scripts\easyUI\themes\default\images\menu_arrows.png" />
+    <Content Include="Super\Scripts\easyUI\themes\default\images\messager_icons.png" />
+    <Content Include="Super\Scripts\easyUI\themes\default\images\pagination_icons.png" />
+    <Content Include="Super\Scripts\easyUI\themes\default\images\panel_tools.png" />
+    <Content Include="Super\Scripts\easyUI\themes\default\images\searchbox_button.png" />
+    <Content Include="Super\Scripts\easyUI\themes\default\images\slider_handle.png" />
+    <Content Include="Super\Scripts\easyUI\themes\default\images\spinner_arrows.png" />
+    <Content Include="Super\Scripts\easyUI\themes\default\images\tabs_icons.png" />
+    <Content Include="Super\Scripts\easyUI\themes\default\images\tree_icons.png" />
+    <Content Include="Super\Scripts\easyUI\themes\default\images\validatebox_warning.png" />
+    <Content Include="Super\Scripts\easyUI\themes\default\layout.css" />
+    <Content Include="Super\Scripts\easyUI\themes\default\linkbutton.css" />
+    <Content Include="Super\Scripts\easyUI\themes\default\menu.css" />
+    <Content Include="Super\Scripts\easyUI\themes\default\menubutton.css" />
+    <Content Include="Super\Scripts\easyUI\themes\default\messager.css" />
+    <Content Include="Super\Scripts\easyUI\themes\default\numberbox.css" />
+    <Content Include="Super\Scripts\easyUI\themes\default\pagination.css" />
+    <Content Include="Super\Scripts\easyUI\themes\default\panel.css" />
+    <Content Include="Super\Scripts\easyUI\themes\default\progressbar.css" />
+    <Content Include="Super\Scripts\easyUI\themes\default\propertygrid.css" />
+    <Content Include="Super\Scripts\easyUI\themes\default\searchbox.css" />
+    <Content Include="Super\Scripts\easyUI\themes\default\slider.css" />
+    <Content Include="Super\Scripts\easyUI\themes\default\spinner.css" />
+    <Content Include="Super\Scripts\easyUI\themes\default\splitbutton.css" />
+    <Content Include="Super\Scripts\easyUI\themes\default\tabs.css" />
+    <Content Include="Super\Scripts\easyUI\themes\default\textbox.css" />
+    <Content Include="Super\Scripts\easyUI\themes\default\tooltip.css" />
+    <Content Include="Super\Scripts\easyUI\themes\default\tree.css" />
+    <Content Include="Super\Scripts\easyUI\themes\default\validatebox.css" />
+    <Content Include="Super\Scripts\easyUI\themes\default\window.css" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\accordion.css" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\calendar.css" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\combo.css" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\combobox.css" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\datagrid.css" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\datebox.css" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\dialog.css" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\easyui.css" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\filebox.css" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\images\accordion_arrows.png" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\images\blank.gif" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\images\calendar_arrows.png" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\images\combo_arrow.png" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\images\datagrid_icons.png" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\images\datebox_arrow.png" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\images\layout_arrows.png" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\images\linkbutton_bg.png" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\images\loading.gif" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\images\menu_arrows.png" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\images\messager_icons.png" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\images\pagination_icons.png" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\images\panel_tools.png" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\images\searchbox_button.png" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\images\slider_handle.png" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\images\spinner_arrows.png" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\images\tabs_icons.png" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\images\tree_icons.png" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\images\validatebox_warning.png" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\layout.css" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\linkbutton.css" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\menu.css" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\menubutton.css" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\messager.css" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\numberbox.css" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\pagination.css" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\panel.css" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\progressbar.css" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\propertygrid.css" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\searchbox.css" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\slider.css" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\spinner.css" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\splitbutton.css" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\tabs.css" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\textbox.css" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\tooltip.css" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\tree.css" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\validatebox.css" />
+    <Content Include="Super\Scripts\easyUI\themes\gray\window.css" />
+    <Content Include="Super\Scripts\easyUI\themes\icon.css" />
+    <Content Include="Super\Scripts\easyUI\themes\icons\back.png" />
+    <Content Include="Super\Scripts\easyUI\themes\icons\blank.gif" />
+    <Content Include="Super\Scripts\easyUI\themes\icons\cancel.png" />
+    <Content Include="Super\Scripts\easyUI\themes\icons\clear.png" />
+    <Content Include="Super\Scripts\easyUI\themes\icons\cut.png" />
+    <Content Include="Super\Scripts\easyUI\themes\icons\edit_add.png" />
+    <Content Include="Super\Scripts\easyUI\themes\icons\edit_remove.png" />
+    <Content Include="Super\Scripts\easyUI\themes\icons\filesave.png" />
+    <Content Include="Super\Scripts\easyUI\themes\icons\filter.png" />
+    <Content Include="Super\Scripts\easyUI\themes\icons\help.png" />
+    <Content Include="Super\Scripts\easyUI\themes\icons\large_chart.png" />
+    <Content Include="Super\Scripts\easyUI\themes\icons\large_clipart.png" />
+    <Content Include="Super\Scripts\easyUI\themes\icons\large_picture.png" />
+    <Content Include="Super\Scripts\easyUI\themes\icons\large_shapes.png" />
+    <Content Include="Super\Scripts\easyUI\themes\icons\large_smartart.png" />
+    <Content Include="Super\Scripts\easyUI\themes\icons\lock.png" />
+    <Content Include="Super\Scripts\easyUI\themes\icons\man.png" />
+    <Content Include="Super\Scripts\easyUI\themes\icons\mini_add.png" />
+    <Content Include="Super\Scripts\easyUI\themes\icons\mini_edit.png" />
+    <Content Include="Super\Scripts\easyUI\themes\icons\mini_refresh.png" />
+    <Content Include="Super\Scripts\easyUI\themes\icons\no.png" />
+    <Content Include="Super\Scripts\easyUI\themes\icons\ok.png" />
+    <Content Include="Super\Scripts\easyUI\themes\icons\pencil.png" />
+    <Content Include="Super\Scripts\easyUI\themes\icons\print.png" />
+    <Content Include="Super\Scripts\easyUI\themes\icons\redo.png" />
+    <Content Include="Super\Scripts\easyUI\themes\icons\reload.png" />
+    <Content Include="Super\Scripts\easyUI\themes\icons\search.png" />
+    <Content Include="Super\Scripts\easyUI\themes\icons\sum.png" />
+    <Content Include="Super\Scripts\easyUI\themes\icons\table.png" />
+    <Content Include="Super\Scripts\easyUI\themes\icons\tip.png" />
+    <Content Include="Super\Scripts\easyUI\themes\icons\undo.png" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\accordion.css" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\calendar.css" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\combo.css" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\combobox.css" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\datagrid.css" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\datebox.css" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\dialog.css" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\easyui.css" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\filebox.css" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\images\accordion_arrows.png" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\images\blank.gif" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\images\calendar_arrows.png" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\images\combo_arrow.png" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\images\datagrid_icons.png" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\images\datebox_arrow.png" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\images\layout_arrows.png" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\images\linkbutton_bg.png" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\images\loading.gif" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\images\menu_arrows.png" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\images\messager_icons.png" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\images\pagination_icons.png" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\images\panel_tools.png" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\images\searchbox_button.png" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\images\slider_handle.png" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\images\spinner_arrows.png" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\images\tabs_icons.png" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\images\tree_icons.png" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\images\validatebox_warning.png" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\layout.css" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\linkbutton.css" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\menu.css" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\menubutton.css" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\messager.css" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\numberbox.css" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\pagination.css" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\panel.css" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\progressbar.css" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\propertygrid.css" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\searchbox.css" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\slider.css" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\spinner.css" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\splitbutton.css" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\tabs.css" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\textbox.css" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\tooltip.css" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\tree.css" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\validatebox.css" />
+    <Content Include="Super\Scripts\easyUI\themes\metro\window.css" />
+    <Content Include="Super\Scripts\Head.js" />
+    <Content Include="Super\Scripts\Index.js" />
+    <Content Include="Super\Scripts\IndRel.js" />
+    <Content Include="Super\Scripts\JobType.js" />
+    <Content Include="Super\Scripts\kindeditor\kindeditor-min.js" />
+    <Content Include="Super\Scripts\kindeditor\kindeditor.js" />
+    <Content Include="Super\Scripts\kindeditor\lang\ar.js" />
+    <Content Include="Super\Scripts\kindeditor\lang\en.js" />
+    <Content Include="Super\Scripts\kindeditor\lang\examples\colorpicker.html" />
+    <Content Include="Super\Scripts\kindeditor\lang\examples\custom-plugin.html" />
+    <Content Include="Super\Scripts\kindeditor\lang\examples\custom-theme.html" />
+    <Content Include="Super\Scripts\kindeditor\lang\examples\default.html" />
+    <Content Include="Super\Scripts\kindeditor\lang\examples\dialog.html" />
+    <Content Include="Super\Scripts\kindeditor\lang\examples\dynamic-load.html" />
+    <Content Include="Super\Scripts\kindeditor\lang\examples\file-dialog.html" />
+    <Content Include="Super\Scripts\kindeditor\lang\examples\file-manager.html" />
+    <Content Include="Super\Scripts\kindeditor\lang\examples\filter-mode.html" />
+    <Content Include="Super\Scripts\kindeditor\lang\examples\image-dialog.html" />
+    <Content Include="Super\Scripts\kindeditor\lang\examples\index.css" />
+    <Content Include="Super\Scripts\kindeditor\lang\examples\index.html" />
+    <Content Include="Super\Scripts\kindeditor\lang\examples\jquery.html" />
+    <Content Include="Super\Scripts\kindeditor\lang\examples\mootools.html" />
+    <Content Include="Super\Scripts\kindeditor\lang\examples\multi-language.html" />
+    <Content Include="Super\Scripts\kindeditor\lang\examples\newline.html" />
+    <Content Include="Super\Scripts\kindeditor\lang\examples\node.html" />
+    <Content Include="Super\Scripts\kindeditor\lang\examples\paste-type.html" />
+    <Content Include="Super\Scripts\kindeditor\lang\examples\readonly.html" />
+    <Content Include="Super\Scripts\kindeditor\lang\examples\simple.html" />
+    <Content Include="Super\Scripts\kindeditor\lang\examples\total.html" />
+    <Content Include="Super\Scripts\kindeditor\lang\examples\uploadbutton.html" />
+    <Content Include="Super\Scripts\kindeditor\lang\examples\url-type.html" />
+    <Content Include="Super\Scripts\kindeditor\lang\examples\word-count.html" />
+    <Content Include="Super\Scripts\kindeditor\lang\zh_CN.js" />
+    <Content Include="Super\Scripts\kindeditor\lang\zh_TW.js" />
+    <Content Include="Super\Scripts\kindeditor\plugins\anchor\anchor.js" />
+    <Content Include="Super\Scripts\kindeditor\plugins\clearhtml\clearhtml.js" />
+    <Content Include="Super\Scripts\kindeditor\plugins\code\code.js" />
+    <Content Include="Super\Scripts\kindeditor\plugins\code\prettify.css" />
+    <Content Include="Super\Scripts\kindeditor\plugins\code\prettify.js" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\emoticons.js" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\0.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\1.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\10.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\100.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\101.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\102.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\103.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\104.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\105.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\106.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\107.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\108.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\109.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\11.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\110.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\111.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\112.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\113.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\114.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\115.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\116.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\117.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\118.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\119.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\12.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\120.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\121.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\122.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\123.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\124.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\125.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\126.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\127.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\128.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\129.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\13.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\130.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\131.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\132.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\133.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\134.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\14.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\15.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\16.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\17.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\18.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\19.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\2.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\20.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\21.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\22.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\23.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\24.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\25.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\26.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\27.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\28.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\29.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\3.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\30.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\31.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\32.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\33.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\34.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\35.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\36.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\37.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\38.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\39.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\4.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\40.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\41.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\42.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\43.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\44.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\45.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\46.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\47.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\48.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\49.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\5.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\50.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\51.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\52.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\53.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\54.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\55.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\56.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\57.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\58.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\59.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\6.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\60.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\61.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\62.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\63.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\64.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\65.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\66.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\67.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\68.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\69.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\7.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\70.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\71.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\72.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\73.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\74.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\75.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\76.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\77.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\78.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\79.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\8.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\80.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\81.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\82.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\83.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\84.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\85.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\86.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\87.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\88.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\89.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\9.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\90.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\91.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\92.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\93.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\94.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\95.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\96.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\97.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\98.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\99.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\emoticons\images\static.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\filemanager\filemanager.js" />
+    <Content Include="Super\Scripts\kindeditor\plugins\filemanager\images\file-16.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\filemanager\images\file-64.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\filemanager\images\folder-16.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\filemanager\images\folder-64.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\filemanager\images\go-up.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\flash\flash.js" />
+    <Content Include="Super\Scripts\kindeditor\plugins\image\image.js" />
+    <Content Include="Super\Scripts\kindeditor\plugins\image\images\align_left.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\image\images\align_right.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\image\images\align_top.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\image\images\refresh.gif" />
+    <Content Include="Super\Scripts\kindeditor\plugins\insertfile\insertfile.js" />
+    <Content Include="Super\Scripts\kindeditor\plugins\lineheight\lineheight.js" />
+    <Content Include="Super\Scripts\kindeditor\plugins\link\link.js" />
+    <Content Include="Super\Scripts\kindeditor\plugins\map\map.html" />
+    <Content Include="Super\Scripts\kindeditor\plugins\map\map.js" />
+    <Content Include="Super\Scripts\kindeditor\plugins\media\media.js" />
+    <Content Include="Super\Scripts\kindeditor\plugins\pagebreak\pagebreak.js" />
+    <Content Include="Super\Scripts\kindeditor\plugins\plainpaste\plainpaste.js" />
+    <Content Include="Super\Scripts\kindeditor\plugins\preview\preview.js" />
+    <Content Include="Super\Scripts\kindeditor\plugins\quickformat\quickformat.js" />
+    <Content Include="Super\Scripts\kindeditor\plugins\table\table.js" />
+    <Content Include="Super\Scripts\kindeditor\plugins\template\html\1.html" />
+    <Content Include="Super\Scripts\kindeditor\plugins\template\html\2.html" />
+    <Content Include="Super\Scripts\kindeditor\plugins\template\html\3.html" />
+    <Content Include="Super\Scripts\kindeditor\plugins\template\template.js" />
+    <Content Include="Super\Scripts\kindeditor\plugins\wordpaste\wordpaste.js" />
+    <Content Include="Super\Scripts\kindeditor\themes\common\anchor.gif" />
+    <Content Include="Super\Scripts\kindeditor\themes\common\blank.gif" />
+    <Content Include="Super\Scripts\kindeditor\themes\common\flash.gif" />
+    <Content Include="Super\Scripts\kindeditor\themes\common\loading.gif" />
+    <Content Include="Super\Scripts\kindeditor\themes\common\media.gif" />
+    <Content Include="Super\Scripts\kindeditor\themes\common\rm.gif" />
+    <Content Include="Super\Scripts\kindeditor\themes\default\bg.gif" />
+    <Content Include="Super\Scripts\kindeditor\themes\default\default.css" />
+    <Content Include="Super\Scripts\kindeditor\themes\default\default.png" />
+    <Content Include="Super\Scripts\kindeditor\themes\simple\simple.css" />
+    <Content Include="Super\Scripts\LiceOrTran.js" />
+    <Content Include="Super\Scripts\Login.js" />
+    <Content Include="Super\Scripts\Logs.js" />
+    <Content Include="Super\Scripts\Main.js" />
+    <Content Include="Super\Scripts\MemberType.js" />
+    <Content Include="Super\Scripts\News.js" />
+    <Content Include="Super\Scripts\NewsType.js" />
+    <Content Include="Super\Scripts\Org.js" />
+    <Content Include="Super\Scripts\Permis.js" />
+    <Content Include="Super\Scripts\PhoneCode.js" />
+    <Content Include="Super\Scripts\Placard.js" />
+    <Content Include="Super\Scripts\PropertyType.js" />
+    <Content Include="Super\Scripts\Roleper.js" />
+    <Content Include="Super\Scripts\ScanUpload.js" />
+    <Content Include="Super\Scripts\SoftReg.js" />
+    <Content Include="Super\Scripts\StandardMode.js" />
+    <Content Include="Super\Scripts\StandardType.js" />
+    <Content Include="Super\Scripts\Super.js" />
+    <Content Include="Super\Scripts\Sysfun.js" />
+    <Content Include="Super\Scripts\TranAcc.js" />
+    <Content Include="Super\Scripts\TurnOutType.js" />
+    <Content Include="Super\Scripts\UploadTypeIndicator.js" />
+    <Content Include="Super\Scripts\User.js" />
+    <Content Include="Super\Scripts\WebBid.js" />
+    <Content Include="Super\Scripts\WebBTrans.js" />
+    <Content Include="Super\Scripts\WebInten.js" />
+    <Content Include="Super\Scripts\WebUser.js" />
+    <Content Include="Super\SoftReg.aspx" />
+    <Content Include="Super\Styles\default.css" />
+    <Content Include="Super\Styles\login.css" />
+    <Content Include="Super\Styles\tbcss.css" />
+    <Content Include="Super\Sys\Contacts.aspx" />
+    <Content Include="Super\Sys\Links.aspx" />
+    <Content Include="Super\Sys\Map.aspx" />
+    <Content Include="Super\Sys\PhoneCode.aspx" />
+    <Content Include="Super\Sys\Placard.aspx" />
+    <Content Include="Super\Us\UpPass.aspx" />
+    <Content Include="Super\Us\Admin.aspx" />
+    <Content Include="Super\Sys\Logs.aspx" />
+    <Content Include="Super\Sys\Org.aspx" />
+    <Content Include="Super\Sys\SysFun.aspx" />
+    <Content Include="Super\Us\WebUser.aspx" />
+    <Content Include="Super\VerMana\Change.aspx" />
+    <Content Include="Super\VerMana\Logouts.aspx" />
+    <Content Include="Super\VerMana\Loss.aspx" />
+    <Content Include="Super\Version.aspx" />
+    <Content Include="Super\WebMana\addnews.aspx" />
+    <Content Include="Super\WebMana\editnews.aspx" />
+    <Content Include="Super\WebMana\News.aspx" />
+    <Content Include="Super\WebMana\newslist.aspx" />
+    <Content Include="Super\WebMana\NewsType.aspx" />
+    <Content Include="Super\WebMana\newsview.aspx" />
+    <Content Include="Super\WebMana\Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Super\WebMana\Scripts\jquery.uploadify.min.js" />
+    <Content Include="Super\WebMana\Scripts\swfobject.js" />
+    <Content Include="Super\WebMana\Scripts\uploadify-cancel.png" />
+    <Content Include="Super\WebMana\Scripts\uploadify.css" />
+    <Content Include="Super\WebMana\Scripts\uploadify.swf" />
+    <Content Include="Super\WebMana\WebInten.aspx" />
+    <Content Include="Super\WebMana\User.aspx" />
+    <Content Include="Super\Zc\Arbi.aspx" />
+    <Content Include="Test.aspx" />
+    <Content Include="User\Intention.aspx" />
+    <Content Include="User\LiceTranScanUpload.aspx" />
+    <Content Include="User\LiTr.aspx" />
+    <Content Include="User\UserMain.aspx" />
+    <Content Include="User\Users.aspx" />
+    <Content Include="User\UsLogin.aspx" />
+    <Content Include="User\UsReg.aspx" />
+    <Content Include="User\VeriUser.aspx" />
+    <Content Include="User\WebBid.aspx" />
+    <Content Include="User\WebBProgress.aspx" />
+    <Content Include="User\WebBTrans.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="IntenList.aspx" />
+    <Content Include="BidList.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BidDetails.aspx.cs">
+      <DependentUpon>BidDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BidDetails.aspx.designer.cs">
+      <DependentUpon>BidDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="chumoping\gplist.aspx.cs">
+      <DependentUpon>gplist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="chumoping\gplist.aspx.designer.cs">
+      <DependentUpon>gplist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="chumoping\gpview.aspx.cs">
+      <DependentUpon>gpview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="chumoping\gpview.aspx.designer.cs">
+      <DependentUpon>gpview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="chumoping\newslist.aspx.cs">
+      <DependentUpon>newslist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="chumoping\newslist.aspx.designer.cs">
+      <DependentUpon>newslist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="chumoping\view.aspx.cs">
+      <DependentUpon>view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="chumoping\view.aspx.designer.cs">
+      <DependentUpon>view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ValidateCode.aspx.cs">
+      <DependentUpon>ValidateCode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\ValidateCode.aspx.designer.cs">
+      <DependentUpon>ValidateCode.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\WebFoot.ascx.cs">
+      <DependentUpon>WebFoot.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\WebFoot.ascx.designer.cs">
+      <DependentUpon>WebFoot.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Handler\CommH.ashx.cs">
+      <DependentUpon>CommH.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handler\IntentionH.ashx.cs">
+      <DependentUpon>IntentionH.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handler\LiTrScanH.ashx.cs">
+      <DependentUpon>LiTrScanH.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handler\UserManager.ashx.cs">
+      <DependentUpon>UserManager.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handler\WebBidH.ashx.cs">
+      <DependentUpon>WebBidH.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handler\WebBTransH.ashx.cs">
+      <DependentUpon>WebBTransH.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handler\WebLiTrH.ashx.cs">
+      <DependentUpon>WebLiTrH.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handler\WebSite.ashx.cs">
+      <DependentUpon>WebSite.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handler\WebUserBidCar.ashx.cs">
+      <DependentUpon>WebUserBidCar.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="IntenDetails.aspx.cs">
+      <DependentUpon>IntenDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IntenDetails.aspx.designer.cs">
+      <DependentUpon>IntenDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewsDetails.aspx.cs">
+      <DependentUpon>NewsDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewsDetails.aspx.designer.cs">
+      <DependentUpon>NewsDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewsList.aspx.cs">
+      <DependentUpon>NewsList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewsList.aspx.designer.cs">
+      <DependentUpon>NewsList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PlacardDetails.aspx.cs">
+      <DependentUpon>PlacardDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PlacardDetails.aspx.designer.cs">
+      <DependentUpon>PlacardDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PlacardList.aspx.cs">
+      <DependentUpon>PlacardList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PlacardList.aspx.designer.cs">
+      <DependentUpon>PlacardList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sfz.aspx.cs">
+      <DependentUpon>sfz.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sfz.aspx.designer.cs">
+      <DependentUpon>sfz.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sfzcx.aspx.cs">
+      <DependentUpon>sfzcx.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sfzcx.aspx.designer.cs">
+      <DependentUpon>sfzcx.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\Admin.ashx.cs">
+      <DependentUpon>Admin.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\AdminType.ashx.cs">
+      <DependentUpon>AdminType.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\ArbitH.ashx.cs">
+      <DependentUpon>ArbitH.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\AttAuRep.ashx.cs">
+      <DependentUpon>AttAuRep.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\BidAucti.ashx.cs">
+      <DependentUpon>BidAucti.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\BidClinchSca.ashx.cs">
+      <DependentUpon>BidClinchSca.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\BidContractScanH.ashx.cs">
+      <DependentUpon>BidContractScanH.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\BidH.ashx.cs">
+      <DependentUpon>BidH.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\BidInfo.ashx.cs">
+      <DependentUpon>BidInfo.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\BidPlac.ashx.cs">
+      <DependentUpon>BidPlac.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\BidPrint.ashx.cs">
+      <DependentUpon>BidPrint.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\BidTran.ashx.cs">
+      <DependentUpon>BidTran.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\Contacts.ashx.cs">
+      <DependentUpon>Contacts.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\IndRel.ashx.cs">
+      <DependentUpon>IndRel.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\JobType.ashx.cs">
+      <DependentUpon>JobType.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\LiceOrTran.ashx.cs">
+      <DependentUpon>LiceOrTran.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\Link.ashx.cs">
+      <DependentUpon>Link.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\LiTrCheck.ashx.cs">
+      <DependentUpon>LiTrCheck.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\LiTrScan.ashx.cs">
+      <DependentUpon>LiTrScan.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\Login.ashx.cs">
+      <DependentUpon>Login.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\Logs.ashx.cs">
+      <DependentUpon>Logs.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\Main.ashx.cs">
+      <DependentUpon>Main.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\MemberType.ashx.cs">
+      <DependentUpon>MemberType.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\News.ashx.cs">
+      <DependentUpon>News.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\NewsType.ashx.cs">
+      <DependentUpon>NewsType.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\OneAgreeH.ashx.cs">
+      <DependentUpon>OneAgreeH.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\Opinion.ashx.cs">
+      <DependentUpon>Opinion.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\Org.ashx.cs">
+      <DependentUpon>Org.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\Permis.ashx.cs">
+      <DependentUpon>Permis.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\PhoneCode.ashx.cs">
+      <DependentUpon>PhoneCode.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\Placard.ashx.cs">
+      <DependentUpon>Placard.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\PropertyType.ashx.cs">
+      <DependentUpon>PropertyType.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\RolePermiss.ashx.cs">
+      <DependentUpon>RolePermiss.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\SoftRegh.ashx.cs">
+      <DependentUpon>SoftRegh.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\StandardMode.ashx.cs">
+      <DependentUpon>StandardMode.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\StandardType.ashx.cs">
+      <DependentUpon>StandardType.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\SysFun.ashx.cs">
+      <DependentUpon>SysFun.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\TurnOutType.ashx.cs">
+      <DependentUpon>TurnOutType.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\TwoAgreeH.ashx.cs">
+      <DependentUpon>TwoAgreeH.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\UploadTypeIndicator.ashx.cs">
+      <DependentUpon>UploadTypeIndicator.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\User.ashx.cs">
+      <DependentUpon>User.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\WebInten.ashx.cs">
+      <DependentUpon>WebInten.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\WebUser.ashx.cs">
+      <DependentUpon>WebUser.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Bi\Agreement.aspx.cs">
+      <DependentUpon>Agreement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Bi\Agreement.aspx.designer.cs">
+      <DependentUpon>Agreement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Bi\AttAuditReport.aspx.cs">
+      <DependentUpon>AttAuditReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Bi\AttAuditReport.aspx.designer.cs">
+      <DependentUpon>AttAuditReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Bi\AttContractNo.aspx.cs">
+      <DependentUpon>AttContractNo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Bi\AttContractNo.aspx.designer.cs">
+      <DependentUpon>AttContractNo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Bi\Attestation.aspx.cs">
+      <DependentUpon>Attestation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Bi\Attestation.aspx.designer.cs">
+      <DependentUpon>Attestation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Bi\AttestationPrint.aspx.cs">
+      <DependentUpon>AttestationPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Bi\AttestationPrint.aspx.designer.cs">
+      <DependentUpon>AttestationPrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Bi\AttPrint.aspx.cs">
+      <DependentUpon>AttPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Bi\AttPrint.aspx.designer.cs">
+      <DependentUpon>AttPrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Bi\AuditReport.aspx.cs">
+      <DependentUpon>AuditReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Bi\AuditReport.aspx.designer.cs">
+      <DependentUpon>AuditReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Bi\BidClinchScan.aspx.cs">
+      <DependentUpon>BidClinchScan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Bi\BidClinchScan.aspx.designer.cs">
+      <DependentUpon>BidClinchScan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Bi\BidContrScan.aspx.cs">
+      <DependentUpon>BidContrScan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Bi\BidContrScan.aspx.designer.cs">
+      <DependentUpon>BidContrScan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Bi\BidPage.aspx.cs">
+      <DependentUpon>BidPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Bi\BidPage.aspx.designer.cs">
+      <DependentUpon>BidPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Bi\BidTr.aspx.cs">
+      <DependentUpon>BidTr.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Bi\BidTr.aspx.designer.cs">
+      <DependentUpon>BidTr.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Bi\Head.aspx.cs">
+      <DependentUpon>Head.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Bi\Head.aspx.designer.cs">
+      <DependentUpon>Head.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Bi\OneAgree.aspx.cs">
+      <DependentUpon>OneAgree.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Bi\OneAgree.aspx.designer.cs">
+      <DependentUpon>OneAgree.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Bi\Super.aspx.cs">
+      <DependentUpon>Super.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Bi\Super.aspx.designer.cs">
+      <DependentUpon>Super.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Bi\TranAcc.aspx.cs">
+      <DependentUpon>TranAcc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Bi\TranAcc.aspx.designer.cs">
+      <DependentUpon>TranAcc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Bi\TwoAgree.aspx.cs">
+      <DependentUpon>TwoAgree.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Bi\TwoAgree.aspx.designer.cs">
+      <DependentUpon>TwoAgree.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Data\Summary.aspx.cs">
+      <DependentUpon>Summary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Data\Summary.aspx.designer.cs">
+      <DependentUpon>Summary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Dic\AdminType.aspx.cs">
+      <DependentUpon>AdminType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Dic\AdminType.aspx.designer.cs">
+      <DependentUpon>AdminType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Dic\IndRel.aspx.cs">
+      <DependentUpon>IndRel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Dic\IndRel.aspx.designer.cs">
+      <DependentUpon>IndRel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Dic\JobType.aspx.cs">
+      <DependentUpon>JobType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Dic\JobType.aspx.designer.cs">
+      <DependentUpon>JobType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Dic\MemberType.aspx.cs">
+      <DependentUpon>MemberType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Dic\MemberType.aspx.designer.cs">
+      <DependentUpon>MemberType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Dic\PropertyType.aspx.cs">
+      <DependentUpon>PropertyType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Dic\PropertyType.aspx.designer.cs">
+      <DependentUpon>PropertyType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Dic\StandardMode.aspx.cs">
+      <DependentUpon>StandardMode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Dic\StandardMode.aspx.designer.cs">
+      <DependentUpon>StandardMode.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Dic\StandardType.aspx.cs">
+      <DependentUpon>StandardType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Dic\StandardType.aspx.designer.cs">
+      <DependentUpon>StandardType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Dic\TurnOutType.aspx.cs">
+      <DependentUpon>TurnOutType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Dic\TurnOutType.aspx.designer.cs">
+      <DependentUpon>TurnOutType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Dic\UploadTypeIndicator.aspx.cs">
+      <DependentUpon>UploadTypeIndicator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Dic\UploadTypeIndicator.aspx.designer.cs">
+      <DependentUpon>UploadTypeIndicator.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Files\Demands.aspx.cs">
+      <DependentUpon>Demands.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Files\Demands.aspx.designer.cs">
+      <DependentUpon>Demands.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Lt\LiceOrTran.aspx.cs">
+      <DependentUpon>LiceOrTran.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Lt\LiceOrTran.aspx.designer.cs">
+      <DependentUpon>LiceOrTran.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Lt\ScanUpload.aspx.cs">
+      <DependentUpon>ScanUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Lt\ScanUpload.aspx.designer.cs">
+      <DependentUpon>ScanUpload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Main.aspx.cs">
+      <DependentUpon>Main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Main.aspx.designer.cs">
+      <DependentUpon>Main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Power\Permis.aspx.cs">
+      <DependentUpon>Permis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Power\Permis.aspx.designer.cs">
+      <DependentUpon>Permis.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Power\Roleper.aspx.cs">
+      <DependentUpon>Roleper.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Power\Roleper.aspx.designer.cs">
+      <DependentUpon>Roleper.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\SoftReg.aspx.cs">
+      <DependentUpon>SoftReg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\SoftReg.aspx.designer.cs">
+      <DependentUpon>SoftReg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Sys\Contacts.aspx.cs">
+      <DependentUpon>Contacts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Sys\Contacts.aspx.designer.cs">
+      <DependentUpon>Contacts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Sys\Links.aspx.cs">
+      <DependentUpon>Links.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Sys\Links.aspx.designer.cs">
+      <DependentUpon>Links.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Sys\Map.aspx.cs">
+      <DependentUpon>Map.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Sys\Map.aspx.designer.cs">
+      <DependentUpon>Map.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Sys\PhoneCode.aspx.cs">
+      <DependentUpon>PhoneCode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Sys\PhoneCode.aspx.designer.cs">
+      <DependentUpon>PhoneCode.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Sys\Placard.aspx.cs">
+      <DependentUpon>Placard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Sys\Placard.aspx.designer.cs">
+      <DependentUpon>Placard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\TranPro.ashx.cs">
+      <DependentUpon>TranPro.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Us\UpPass.aspx.cs">
+      <DependentUpon>UpPass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Us\UpPass.aspx.designer.cs">
+      <DependentUpon>UpPass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Us\Admin.aspx.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Us\Admin.aspx.designer.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Sys\Logs.aspx.cs">
+      <DependentUpon>Logs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Sys\Logs.aspx.designer.cs">
+      <DependentUpon>Logs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Sys\Org.aspx.cs">
+      <DependentUpon>Org.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Sys\Org.aspx.designer.cs">
+      <DependentUpon>Org.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Sys\SysFun.aspx.cs">
+      <DependentUpon>SysFun.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Sys\SysFun.aspx.designer.cs">
+      <DependentUpon>SysFun.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Us\WebUser.aspx.cs">
+      <DependentUpon>WebUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Us\WebUser.aspx.designer.cs">
+      <DependentUpon>WebUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\VerMana\Change.aspx.cs">
+      <DependentUpon>Change.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\VerMana\Change.aspx.designer.cs">
+      <DependentUpon>Change.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\VerMana\Logouts.aspx.cs">
+      <DependentUpon>Logouts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\VerMana\Logouts.aspx.designer.cs">
+      <DependentUpon>Logouts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\VerMana\Loss.aspx.cs">
+      <DependentUpon>Loss.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\VerMana\Loss.aspx.designer.cs">
+      <DependentUpon>Loss.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Version.aspx.cs">
+      <DependentUpon>Version.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Version.aspx.designer.cs">
+      <DependentUpon>Version.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\WebMana\addnews.aspx.cs">
+      <DependentUpon>addnews.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\WebMana\addnews.aspx.designer.cs">
+      <DependentUpon>addnews.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\WebMana\editnews.aspx.cs">
+      <DependentUpon>editnews.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\WebMana\editnews.aspx.designer.cs">
+      <DependentUpon>editnews.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\WebMana\News.aspx.cs">
+      <DependentUpon>News.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\WebMana\News.aspx.designer.cs">
+      <DependentUpon>News.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\WebMana\newslist.aspx.cs">
+      <DependentUpon>newslist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\WebMana\newslist.aspx.designer.cs">
+      <DependentUpon>newslist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\WebMana\NewsType.aspx.cs">
+      <DependentUpon>NewsType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\WebMana\NewsType.aspx.designer.cs">
+      <DependentUpon>NewsType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\WebMana\newsview.aspx.cs">
+      <DependentUpon>newsview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\WebMana\newsview.aspx.designer.cs">
+      <DependentUpon>newsview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\WebMana\WebInten.aspx.cs">
+      <DependentUpon>WebInten.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\WebMana\WebInten.aspx.designer.cs">
+      <DependentUpon>WebInten.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\WebMana\User.aspx.cs">
+      <DependentUpon>User.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\WebMana\User.aspx.designer.cs">
+      <DependentUpon>User.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Zc\Arbi.aspx.cs">
+      <DependentUpon>Arbi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\Zc\Arbi.aspx.designer.cs">
+      <DependentUpon>Arbi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Intention.aspx.cs">
+      <DependentUpon>Intention.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Intention.aspx.designer.cs">
+      <DependentUpon>Intention.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\LiceTranScanUpload.aspx.cs">
+      <DependentUpon>LiceTranScanUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\LiceTranScanUpload.aspx.designer.cs">
+      <DependentUpon>LiceTranScanUpload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\LiTr.aspx.cs">
+      <DependentUpon>LiTr.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\LiTr.aspx.designer.cs">
+      <DependentUpon>LiTr.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\UserMain.aspx.cs">
+      <DependentUpon>UserMain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\UserMain.aspx.designer.cs">
+      <DependentUpon>UserMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Users.aspx.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Users.aspx.designer.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\UsLogin.aspx.cs">
+      <DependentUpon>UsLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\UsLogin.aspx.designer.cs">
+      <DependentUpon>UsLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\UsReg.aspx.cs">
+      <DependentUpon>UsReg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\UsReg.aspx.designer.cs">
+      <DependentUpon>UsReg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IntenList.aspx.cs">
+      <DependentUpon>IntenList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IntenList.aspx.designer.cs">
+      <DependentUpon>IntenList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BidList.aspx.cs">
+      <DependentUpon>BidList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BidList.aspx.designer.cs">
+      <DependentUpon>BidList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\VeriUser.aspx.cs">
+      <DependentUpon>VeriUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\VeriUser.aspx.designer.cs">
+      <DependentUpon>VeriUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\WebBid.aspx.cs">
+      <DependentUpon>WebBid.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\WebBid.aspx.designer.cs">
+      <DependentUpon>WebBid.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\WebBProgress.aspx.cs">
+      <DependentUpon>WebBProgress.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\WebBProgress.aspx.designer.cs">
+      <DependentUpon>WebBProgress.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\WebBTrans.aspx.cs">
+      <DependentUpon>WebBTrans.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\WebBTrans.aspx.designer.cs">
+      <DependentUpon>WebBTrans.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="kindeditor\attached\" />
+    <Folder Include="newsImg\max\" />
+    <Folder Include="Super\Scan\biscan\" />
+    <Folder Include="Super\Scan\lt\" />
+    <Folder Include="Super\Scan\qz\bb\" />
+    <Folder Include="Super\Scan\qz\bg\" />
+    <Folder Include="Super\Scan\qz\zx\" />
+    <Folder Include="Super\Scan\us\" />
+    <Folder Include="Super\Scripts\easyUI\themes\css\" />
+    <Folder Include="Super\Scripts\kindeditor\attached\" />
+    <Folder Include="Super\WebMana\Upload\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Handler\WebSite.ashx" />
+    <Content Include="Super\Ashx\Login.ashx" />
+    <Content Include="Super\Ashx\Main.ashx" />
+    <Content Include="Super\Ashx\SoftRegh.ashx" />
+    <Content Include="Super\Ashx\SysFun.ashx" />
+    <Content Include="Super\Ashx\Org.ashx" />
+    <Content Include="Super\Ashx\Logs.ashx" />
+    <Content Include="Super\Ashx\Admin.ashx" />
+    <Content Include="Super\Ashx\AdminType.ashx" />
+    <Content Include="Super\Ashx\Permis.ashx" />
+    <Content Include="Super\Ashx\RolePermiss.ashx" />
+    <Content Include="Super\Ashx\JobType.ashx" />
+    <Content Include="Super\Ashx\MemberType.ashx" />
+    <Content Include="Super\Ashx\TurnOutType.ashx" />
+    <Content Include="Super\Ashx\StandardType.ashx" />
+    <Content Include="Super\Ashx\StandardMode.ashx" />
+    <Content Include="Super\Ashx\PropertyType.ashx" />
+    <Content Include="Super\Ashx\UploadTypeIndicator.ashx" />
+    <Content Include="Super\Ashx\IndRel.ashx" />
+    <Content Include="Super\Ashx\Contacts.ashx" />
+    <Content Include="Super\Ashx\Placard.ashx" />
+    <Content Include="Super\Ashx\WebUser.ashx" />
+    <Content Include="Super\Ashx\PhoneCode.ashx" />
+    <Content Include="Super\Ashx\Opinion.ashx" />
+    <Content Include="Super\Ashx\LiceOrTran.ashx" />
+    <Content Include="Super\Ashx\LiTrCheck.ashx" />
+    <Content Include="Super\Ashx\LiTrScan.ashx" />
+    <Content Include="Super\Ashx\BidH.ashx" />
+    <Content Include="Super\Ashx\BidInfo.ashx" />
+    <Content Include="Super\Ashx\BidTran.ashx" />
+    <Content Include="Super\Ashx\NewsType.ashx" />
+    <Content Include="Super\Ashx\News.ashx" />
+    <Content Include="Super\Ashx\file_manager_json.ashx" />
+    <Content Include="Super\Ashx\upload_json.ashx" />
+    <Content Include="Super\Ashx\BidPlac.ashx" />
+    <Content Include="Super\Ashx\BidClinchSca.ashx" />
+    <Content Include="Super\Ashx\BidAucti.ashx" />
+    <Content Include="Super\Ashx\BidPrint.ashx" />
+    <Content Include="Super\Ashx\User.ashx" />
+    <Content Include="Super\Ashx\WebInten.ashx" />
+    <Content Include="Handler\UserManager.ashx" />
+    <Content Include="Handler\IntentionH.ashx" />
+    <Content Include="Handler\WebLiTrH.ashx" />
+    <Content Include="Handler\CommH.ashx" />
+    <Content Include="Handler\WebBidH.ashx" />
+    <Content Include="Handler\LiTrScanH.ashx" />
+    <Content Include="Handler\WebBTransH.ashx" />
+    <Content Include="Handler\WebUserBidCar.ashx" />
+    <Content Include="kindeditor\asp.net\file_manager_json.ashx" />
+    <Content Include="kindeditor\asp.net\upload_json.ashx" />
+    <None Include="kindeditor\jsp\demo.jsp" />
+    <None Include="kindeditor\jsp\file_manager_json.jsp" />
+    <None Include="kindeditor\jsp\upload_json.jsp" />
+    <None Include="kindeditor\php\demo.php" />
+    <None Include="kindeditor\php\file_manager_json.php" />
+    <None Include="kindeditor\php\JSON.php" />
+    <None Include="kindeditor\php\upload_json.php" />
+    <None Include="Logs\SystemErrorRecord.log" />
+    <Content Include="Super\Ashx\ArbitH.ashx" />
+    <Content Include="Super\Ashx\OneAgreeH.ashx" />
+    <Content Include="Super\Ashx\AttAuRep.ashx" />
+    <Content Include="Super\Ashx\BidContractScanH.ashx" />
+    <Content Include="Super\Ashx\Link.ashx" />
+    <Content Include="Super\Ashx\TwoAgreeH.ashx" />
+    <None Include="Super\Scan\caution.log" />
+    <Content Include="Super\Ashx\TranPro.ashx" />
+    <None Include="Super\Scripts\print\npActiveXFirefox4x.xpi" />
+    <Content Include="Super\WebMana\Upload.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NCPEP.Bll\NCPEP.Bll.csproj">
+      <Project>{C3BABFCB-A2CB-4DB7-B16E-32262D4E2186}</Project>
+      <Name>NCPEP.Bll</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NCPEP.Dal\NCPEP.Dal.csproj">
+      <Project>{44B72AED-E6DB-4692-ACE1-2219D089034D}</Project>
+      <Name>NCPEP.Dal</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>15998</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -17,7 +17,7 @@ using System.Text;
 using System.Data.SqlClient;
 using System.Data;
 using NCPEP.Model;
-using NCPEP.Com.Util;
+  
 using System.Net;
 using System.IO;
 using System.Security.Cryptography;

@@ -1,0 +1,8 @@
+﻿#
+# ZhangWeiwei
+#
+User-agent: *
+Disallow: /Super/
+Disallow: /Handler/
+Disallow: /User/
+Disallow: /Controls/

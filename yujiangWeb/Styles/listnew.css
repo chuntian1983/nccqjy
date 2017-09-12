@@ -1,0 +1,49 @@
+﻿.body{ }
+a{ text-decoration:none;}
+ul,li{list-style: none; padding: 0; margin: 0}
+.t_work{background: #f3f3f3; padding:0px 0; width: 100%;font-size: 12px; overflow: hidden;}
+.t_work li{ float: left;}
+ .t_work li:hover{ border: 1px solid #b6c7e3;
+    -moz-border-radius: 3px;     
+    -webkit-border-radius: 3px;   
+    border-radius:3px; 
+   background: #d4e3fb;
+   width: 58px;
+   height: 22px;
+  
+
+}
+
+.t_work li input{ width: 60px; height: 24px; line-height: 24px; border:0;
+ border-right: 1px solid #cdcdcd; border-left:1px solid #fff; color:#646464; 
+ text-decoration: none;padding-left:28px;}
+.t_work li input.t_news{background: url(images/news.png) no-repeat 5px 3px; 	}
+.t_work li input.t_del{background: url(images/del.png) no-repeat 5px 3px; }
+.t_work li input.t_cut{background: url(images/cut.png) no-repeat 5px 3px; }
+.t_work li input.t_col{background: url(images/col.png) no-repeat 5px 3px;}
+.t_work li input.t_view{background: url(images/search.png) no-repeat 5px 3px; }
+.t_more{background: url(images/edit.png) no-repeat 5px 3px; padding-left:30px;
+color:#000; height: 24px; display:block;}
+
+
+
+ .t_title table{ border-collapse:collapse;width:100%;  border:0;font-size: 12px;table-layout:fixed;}
+ .t_title table th{width:6%;font-weight:100; font-size: 12px; text-align: left;
+ 	background: #f3f3f3;border-top:1px solid #ddd; border-bottom:1px solid #ddd; 
+ 	}
+.t_title table th,.t_title table td{border-right: 1px dashed #e5e5e5;empty-cells:show;
+ padding-left:5px;}
+  .t_title table td{text-overflow:ellipsis;height: 24px; line-height: 24px;
+   -moz-text-overflow: ellipsis; /* for Firefox,mozilla */      overflow: hidden;  
+    white-space: nowrap; border-bottom: 1px dashed #e5e5e5;}
+   .t_title table tr:hover{background: #e9f1ff!important;}
+ .t_title table th.t_cow1{width: 3%}
+ .t_title table th.t_cow2{width:20%;}
+ .t_title table th.t_cow3{width:10%;}
+ .t_title table th.t_cow4{width:2%;}
+ .t_title table tr:nth-child(even){background:#f9f9f9;}
+ .t_tg{color:#0306ff;}
+ .t_wtg{color:#fe0000;}
+ 
+ 
+  .pager{background:url(images/con_100.gif) no-repeat 5px center;padding-left:20px;overflow:hidden;line-height:33px;height:33px; font-size:12px;}

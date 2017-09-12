@@ -17,7 +17,7 @@ using System.Text;
 using System.Data.SqlClient;
 using NCPEP.Model;
 using System.Data;
-using NCPEP.Com.Util;
+  
 using Maticsoft.DBUtility;
 
 namespace NCPEP.Dal

@@ -16,7 +16,7 @@ using System.Linq;
 using System.Text;
 using NCPEP.Model;
 using System.Data;
-using NCPEP.Com.Util;
+  
 using Maticsoft.DBUtility;
 
 namespace NCPEP.Dal

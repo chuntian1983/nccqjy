@@ -41,10 +41,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\新建文件夹\Maticsoft.DBUtility.dll</HintPath>
     </Reference>
-    <Reference Include="NCPEP.Com.Util, Version=1.0.0.0, Culture=neutral, PublicKeyToken=76b2aefa1f7e07fc, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Web\Code\NCPEP.Com.Util.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />

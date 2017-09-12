@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<WebFoot>
+  <!--地址-->
+  <Date name="GovAddress">
+    产权交易中心地址  乘坐11路公交车至产权交易大楼</Date>
+  <!--电话-->
+  <Date name="GovTel">0000-1234567 传真：0000-1234567</Date>
+  <!--备案号-->
+  <Date name="GovFiling">洪ICP备 00000000号</Date>
+  <!--平台所有的后缀名称-->
+  <Date name="AllTitle">农村综合产权交易中心</Date>
+  <!--禁止随便更改-->
+  <Date name="OrgCode">3601</Date>
+</WebFoot>

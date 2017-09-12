@@ -90,7 +90,7 @@
                     handler: function () {
                         var rows = $('#tdg').datagrid('getSelections');
                         if (rows.length > 0) {
-                            var va = rows[0].DepaStatus;
+                            var va = rows[0].DepaStatusId;
                             if (va == "5") {
                                 $('#addCheck').window('open');
                                 $("#txtSay").val("审核通过");
