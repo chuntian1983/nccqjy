@@ -52,7 +52,8 @@
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>NCPEP.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AspNetPager, Version=7.3.2.0, Culture=neutral, PublicKeyToken=fb0a0fe055d40fd4, processorArchitecture=MSIL">
@@ -2786,7 +2787,6 @@
     <None Include="kindeditor\php\JSON.php" />
     <None Include="kindeditor\php\upload_json.php" />
     <None Include="Logs\SystemErrorRecord.log" />
-    <None Include="NCPEP.pfx" />
     <Content Include="Super\Ashx\ArbitH.ashx" />
     <Content Include="Super\Ashx\OneAgreeH.ashx" />
     <Content Include="Super\Ashx\AttAuRep.ashx" />
