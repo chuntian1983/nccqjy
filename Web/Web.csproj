@@ -133,7 +133,10 @@
     <Content Include="Images\an_bg.jpg" />
     <Content Include="Images\an_bg1.jpg" />
     <Content Include="Images\ban.jpg" />
+    <Content Include="Images\beijing.jpg" />
     <Content Include="Images\bg.jpg" />
+    <Content Include="Images\hzs.jpg" />
+    <Content Include="Images\xbeijing.jpg" />
     <Content Include="jyview.aspx" />
     <Content Include="Super\DZJJ\jbtwo-add.aspx" />
     <Content Include="Super\DZJJ\jbtwo-addtwo.aspx" />
@@ -153,8 +156,11 @@
     <Content Include="Super\DZJJ\yxsrfview.aspx" />
     <Content Include="Super\hzs\daoru.aspx" />
     <Content Include="Super\hzs\list.aspx" />
+    <Content Include="Super\hzs\listnc.aspx" />
     <Content Include="Super\hzs\mapcss\mapcontrol.css" />
     <Content Include="Super\hzs\mapset.aspx" />
+    <Content Include="Super\hzs\mapsetnc.aspx" />
+    <Content Include="Super\Images\beijing.jpg" />
     <Content Include="Super\Images\bgjj.jpg" />
     <Content Include="Super\Images\bgnewjj.jpg" />
     <Content Include="Images\but.png" />
@@ -603,6 +609,7 @@
     <Content Include="Super\Images\login_bg.jpg" />
     <Content Include="Super\Images\mbg.png" />
     <Content Include="Super\Images\news.png" />
+    <Content Include="Super\Images\xbeijing.jpg" />
     <Content Include="Super\loginuser.aspx" />
     <Content Include="Super\Lt\fujianUpload.aspx" />
     <Content Include="Super\Lt\fujianview.aspx" />
@@ -2219,12 +2226,26 @@
     <Compile Include="Super\hzs\list.aspx.designer.cs">
       <DependentUpon>list.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Super\hzs\listnc.aspx.cs">
+      <DependentUpon>listnc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\hzs\listnc.aspx.designer.cs">
+      <DependentUpon>listnc.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Super\hzs\mapset.aspx.cs">
       <DependentUpon>mapset.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Super\hzs\mapset.aspx.designer.cs">
       <DependentUpon>mapset.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\hzs\mapsetnc.aspx.cs">
+      <DependentUpon>mapsetnc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\hzs\mapsetnc.aspx.designer.cs">
+      <DependentUpon>mapsetnc.aspx</DependentUpon>
     </Compile>
     <Compile Include="Super\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>

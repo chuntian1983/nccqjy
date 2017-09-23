@@ -57,7 +57,7 @@ namespace Web.Super.hzs
             int sindex = (this.pg.CurrentPageIndex - 1) * this.pg.PageSize + 1;
             int eindex = this.pg.CurrentPageIndex * this.pg.PageSize;
 
-            DataSet ds = bll.GetListByPage(sb.ToString(), "id desc", sindex, eindex);
+            DataSet ds = bll.GetListByPage(sb.ToString(), "id asc", sindex, eindex);
             //DataSet ds = bll.GetList(this.AspNetPager1.PageSize, this.AspNetPager1.CurrentPageIndex, sb.ToString());
             this.rep.DataSource = ds;
             this.rep.DataBind();
@@ -177,7 +177,7 @@ namespace Web.Super.hzs
             else
             {
 
-                Response.Redirect("mapset.aspx?st=" + sysID + "");
+                Response.Redirect("mapsetnc.aspx?st=" + sysID + "");
             }
         }
     }

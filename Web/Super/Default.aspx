@@ -31,23 +31,11 @@ else if(navigator.appName == "Microsoft Internet Explorer" && navigator.appVersi
 } 
 </script>
 </head>
-<body scroll="no" oncontextmenu="return false" onselectstart="return false" >
-    <noscript>
-        <iframe scr="*.htm"></iframe>
-    </noscript>
-    <div id="divload" style="display: none; position: absolute; top: 0%; left: 0%; width: 100%;
-        height: 100%; background-color: #F6F6F6; z-index: 1001; -moz-opacity: 0.8; opacity: 0.8;
-        filter: alpha(opacity=80);">
-        <div style="height: 25px; top: 30%; right: 45%; position: absolute; padding: 0px;
-            margin: 0px; z-index: 999; border-color: #94BEE7; border-style: solid; border-width: 2px;">
-            <img src="../Images/ajax_loading.gif" alt="正在加载" align="middle" height="23" /><span
-                style="color: Red; font-size: 16px; font-weight: bold;">正在加载数据中。。。。。。</span>
-        </div>
-    </div>
+<body>
     <form runat="server">
         <div class="login">
             <div class="form">
-                <p>
+                <p style=" display:none;">
                     <% =Application["OrgShortName"] %><%= Application["AllTitle"]%>
                 </p>
                 <ul>

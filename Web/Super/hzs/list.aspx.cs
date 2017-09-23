@@ -45,6 +45,7 @@ namespace Web.Super.hzs
             //{
             //    sb.Append(" and IsCheck='" + this.DropDownList2.SelectedValue + "'");
             //}
+            
             NCPEP.Bll.T_hzs bll = new NCPEP.Bll.T_hzs();
             this.pg.RecordCount = bll.GetRecordCount(sb.ToString());
             this.pg.PageSize = 10;
@@ -57,7 +58,7 @@ namespace Web.Super.hzs
             int sindex = (this.pg.CurrentPageIndex - 1) * this.pg.PageSize + 1;
             int eindex = this.pg.CurrentPageIndex * this.pg.PageSize;
 
-            DataSet ds = bll.GetListByPage(sb.ToString(), "id desc", sindex, eindex);
+            DataSet ds = bll.GetListByPage(sb.ToString(), "id asc", sindex, eindex);
             //DataSet ds = bll.GetList(this.AspNetPager1.PageSize, this.AspNetPager1.CurrentPageIndex, sb.ToString());
             this.rep.DataSource = ds;
             this.rep.DataBind();
