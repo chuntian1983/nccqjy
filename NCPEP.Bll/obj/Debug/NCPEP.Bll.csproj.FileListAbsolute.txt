@@ -87,3 +87,13 @@ F:\mywork\newland\农村产权网站\南昌产权交易\NCPEP-1.1111\NCPEP-1.111
 F:\mywork\newland\农村产权网站\南昌产权交易\NCPEP-1.1111\NCPEP-1.1110\2010版本\NCPEP.Bll\obj\Debug\NCPEP.Bll.csprojResolveAssemblyReference.cache
 F:\mywork\newland\农村产权网站\南昌产权交易\NCPEP-1.1111\NCPEP-1.1110\2010版本\NCPEP.Bll\obj\Debug\NCPEP.Bll.dll
 F:\mywork\newland\农村产权网站\南昌产权交易\NCPEP-1.1111\NCPEP-1.1110\2010版本\NCPEP.Bll\obj\Debug\NCPEP.Bll.pdb
+F:\mywork\newland\农村产权网站\weihaihezuoshe\2010版本\NCPEP.Bll\bin\Debug\NCPEP.Bll.dll
+F:\mywork\newland\农村产权网站\weihaihezuoshe\2010版本\NCPEP.Bll\bin\Debug\NCPEP.Bll.pdb
+F:\mywork\newland\农村产权网站\weihaihezuoshe\2010版本\NCPEP.Bll\bin\Debug\NCPEP.Dal.dll
+F:\mywork\newland\农村产权网站\weihaihezuoshe\2010版本\NCPEP.Bll\bin\Debug\NCPEP.Model.dll
+F:\mywork\newland\农村产权网站\weihaihezuoshe\2010版本\NCPEP.Bll\bin\Debug\Maticsoft.DBUtility.dll
+F:\mywork\newland\农村产权网站\weihaihezuoshe\2010版本\NCPEP.Bll\bin\Debug\NCPEP.Dal.pdb
+F:\mywork\newland\农村产权网站\weihaihezuoshe\2010版本\NCPEP.Bll\bin\Debug\NCPEP.Model.pdb
+F:\mywork\newland\农村产权网站\weihaihezuoshe\2010版本\NCPEP.Bll\obj\Debug\NCPEP.Bll.csprojResolveAssemblyReference.cache
+F:\mywork\newland\农村产权网站\weihaihezuoshe\2010版本\NCPEP.Bll\obj\Debug\NCPEP.Bll.dll
+F:\mywork\newland\农村产权网站\weihaihezuoshe\2010版本\NCPEP.Bll\obj\Debug\NCPEP.Bll.pdb

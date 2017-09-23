@@ -37,5 +37,8 @@ a:hover{ color:Red; text-decoration:underline;}
 .tablebodersfc table tr td{ border:solid 1px #ccc;}
 .tablebodersfc input{ width:300px;}
 .topbg1{background: url(../Images/bg2.jpg) repeat-x;height: 92px;overflow: hidden;}
+/*
 .topbg1 .topleft1{background: url(../Images/logo.jpg) no-repeat left top;float: left;height: 62px;padding-left: 100px;padding-top: 39px;font-size: 38px;color:Blue;font-weight: bold;text-shadow: 1px 1px #fff;-moz-text-shadow: 1px 1px #fff;-webkit-text-shadow: 1px 1px #fff;font-family: 方正行楷简体; overflow:hidden;}
+*/
+.topbg1 .topleft1{float: left;height: 62px;padding-left: 100px;padding-top: 39px;font-size: 38px;color:#15428b;font-weight: bold;text-shadow: 1px 1px #fff;-moz-text-shadow: 1px 1px #fff;-webkit-text-shadow: 1px 1px #fff;font-family:@华文楷体; overflow:hidden;}
  .topbg1 .topright1{background: url(../Images/bgright.jpg) no-repeat right top;float: right;text-align: right;font-size: 12px;height: 84px;padding-top: 8px;padding-right: 15px;}

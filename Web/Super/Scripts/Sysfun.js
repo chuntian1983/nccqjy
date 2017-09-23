@@ -97,6 +97,20 @@ jQuery(function ($) {
 });
 jQuery(function ($) {
     $("#btnDel").click(function () {
-        slide("提示", "系统菜单不能任意删除操作！");
+        var va = $("#txtNodeId").val();
+        $.get("../Ashx/fun.ashx?action=by", { NodeId: va }, function (data) {
+            slide("提示", data);
+            
+        }, "text");
+
+        $("#funTree").tree({
+            url: '../Ashx/SysFun.ashx?action=tree',
+            lines: true,
+            onClick: function (node) {
+                onSel(node.id);
+            }
+        });
+
+//        slide("提示", "系统菜单不能任意删除操作！");
     });
 });

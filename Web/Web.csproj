@@ -76,6 +76,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Code\NCPEP.BidCar.dll</HintPath>
     </Reference>
+    <Reference Include="NPOI, Version=2.1.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\NPOI.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
@@ -95,13 +99,12 @@
   <ItemGroup>
     <Content Include="App_Data\ncpep.sql" />
     <Content Include="App_Data\script.sql" />
-    <Content Include="BidDetails.aspx" />
-    <Content Include="BidList2.aspx" />
     <Content Include="bin\Common.dll" />
     <Content Include="bin\Config.xml">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="bin\DBUtility.dll" />
+    <Content Include="bin\NPOI.dll" />
     <Content Include="Controls\ValidateCode.aspx" />
     <Content Include="Controls\WebFoot.ascx" />
     <Content Include="css\bootstrap-theme.css" />
@@ -111,6 +114,16 @@
     <Content Include="data\ncpep.sql" />
     <Content Include="dzjj.aspx" />
     <Content Include="error.html" />
+    <Content Include="html\css\style.css" />
+    <Content Include="html\img\anniu.png" />
+    <Content Include="html\img\bg.jpg" />
+    <Content Include="html\img\colse.png" />
+    <Content Include="html\img\jian.png" />
+    <Content Include="html\img\map.jpg" />
+    <Content Include="html\img\map_bg.png" />
+    <Content Include="html\img\news.jpg" />
+    <Content Include="html\img\sreach.png" />
+    <Content Include="html\index.html" />
     <Content Include="Images\01.jpg" />
     <Content Include="Images\02.jpg" />
     <Content Include="Images\404.jpg" />
@@ -138,6 +151,10 @@
     <Content Include="Super\DZJJ\jbtwo.aspx" />
     <Content Include="Super\DZJJ\yxsrf.aspx" />
     <Content Include="Super\DZJJ\yxsrfview.aspx" />
+    <Content Include="Super\hzs\daoru.aspx" />
+    <Content Include="Super\hzs\list.aspx" />
+    <Content Include="Super\hzs\mapcss\mapcontrol.css" />
+    <Content Include="Super\hzs\mapset.aspx" />
     <Content Include="Super\Images\bgjj.jpg" />
     <Content Include="Super\Images\bgnewjj.jpg" />
     <Content Include="Images\but.png" />
@@ -209,7 +226,6 @@
     <Content Include="Images\yes.jpg" />
     <Content Include="Images\zt.jpg" />
     <Content Include="Images\ztnew.jpg" />
-    <Content Include="IntenDetails.aspx" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\jquery.js" />
@@ -507,7 +523,6 @@
     <Content Include="My97DatePicker\开发包\skin\whyGreen\bg.jpg" />
     <Content Include="My97DatePicker\开发包\skin\whyGreen\datepicker.css" />
     <Content Include="My97DatePicker\开发包\skin\whyGreen\img.gif" />
-    <Content Include="NewsDetails.aspx" />
     <Content Include="newsImg\max\20160706080457.jpg" />
     <Content Include="newsImg\max\20160706080647.jpg" />
     <Content Include="newsImg\max\20160706080817.JPG" />
@@ -516,11 +531,8 @@
     <Content Include="newsImg\min\20160706080647.jpg" />
     <Content Include="newsImg\min\20160706080817.JPG" />
     <Content Include="newsImg\min\20160706080914.JPG" />
-    <Content Include="NewsList.aspx" />
     <Content Include="orgdaoru.aspx" />
     <Content Include="pdfchajian\readerdc_cn_d_install.exe" />
-    <Content Include="PlacardDetails.aspx" />
-    <Content Include="PlacardList.aspx" />
     <Content Include="reg.aspx" />
     <Content Include="robots.txt" />
     <Content Include="Scripts\BidDetail.js" />
@@ -587,6 +599,7 @@
     <Content Include="Super\Images\cut.png" />
     <Content Include="Super\Images\del.png" />
     <Content Include="Super\Images\edit.png" />
+    <Content Include="Super\Images\hzs.jpg" />
     <Content Include="Super\Images\login_bg.jpg" />
     <Content Include="Super\Images\mbg.png" />
     <Content Include="Super\Images\news.png" />
@@ -1340,6 +1353,7 @@
     <Content Include="Super\Scripts\WebUser.js" />
     <Content Include="Super\Scripts\Xmbeian.js" />
     <Content Include="Super\Scripts\Xmbeiansh.js" />
+    <Content Include="Super\shouye.aspx" />
     <Content Include="Super\SoftReg.aspx" />
     <Content Include="Super\Styles\default.css" />
     <Content Include="Styles\images\col.png" />
@@ -1409,27 +1423,8 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="IntenList.aspx" />
-    <Content Include="BidList.aspx" />
-    <Content Include="WebForm1.aspx" />
-    <Content Include="xmlist.aspx" />
-    <Content Include="xmview.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BidDetails.aspx.cs">
-      <DependentUpon>BidDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="BidDetails.aspx.designer.cs">
-      <DependentUpon>BidDetails.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="BidList2.aspx.cs">
-      <DependentUpon>BidList2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="BidList2.aspx.designer.cs">
-      <DependentUpon>BidList2.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Controls\ValidateCode.aspx.cs">
       <DependentUpon>ValidateCode.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1491,13 +1486,6 @@
     <Compile Include="Handler\WebUserBidCar.ashx.cs">
       <DependentUpon>WebUserBidCar.ashx</DependentUpon>
     </Compile>
-    <Compile Include="IntenDetails.aspx.cs">
-      <DependentUpon>IntenDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="IntenDetails.aspx.designer.cs">
-      <DependentUpon>IntenDetails.aspx</DependentUpon>
-    </Compile>
     <Compile Include="jyview.aspx.cs">
       <DependentUpon>jyview.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1547,40 +1535,12 @@
     <Compile Include="map.aspx.designer.cs">
       <DependentUpon>map.aspx</DependentUpon>
     </Compile>
-    <Compile Include="NewsDetails.aspx.cs">
-      <DependentUpon>NewsDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="NewsDetails.aspx.designer.cs">
-      <DependentUpon>NewsDetails.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="NewsList.aspx.cs">
-      <DependentUpon>NewsList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="NewsList.aspx.designer.cs">
-      <DependentUpon>NewsList.aspx</DependentUpon>
-    </Compile>
     <Compile Include="orgdaoru.aspx.cs">
       <DependentUpon>orgdaoru.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="orgdaoru.aspx.designer.cs">
       <DependentUpon>orgdaoru.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="PlacardDetails.aspx.cs">
-      <DependentUpon>PlacardDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="PlacardDetails.aspx.designer.cs">
-      <DependentUpon>PlacardDetails.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="PlacardList.aspx.cs">
-      <DependentUpon>PlacardList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="PlacardList.aspx.designer.cs">
-      <DependentUpon>PlacardList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="reg.aspx.cs">
@@ -1652,6 +1612,9 @@
     </Compile>
     <Compile Include="Super\Ashx\Dzjj.ashx.cs">
       <DependentUpon>Dzjj.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\Ashx\fun.ashx.cs">
+      <DependentUpon>fun.ashx</DependentUpon>
     </Compile>
     <Compile Include="Super\Ashx\IndRel.ashx.cs">
       <DependentUpon>IndRel.ashx</DependentUpon>
@@ -2242,6 +2205,27 @@
     <Compile Include="Super\Files\Demands.aspx.designer.cs">
       <DependentUpon>Demands.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Super\hzs\daoru.aspx.cs">
+      <DependentUpon>daoru.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\hzs\daoru.aspx.designer.cs">
+      <DependentUpon>daoru.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\hzs\list.aspx.cs">
+      <DependentUpon>list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\hzs\list.aspx.designer.cs">
+      <DependentUpon>list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\hzs\mapset.aspx.cs">
+      <DependentUpon>mapset.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\hzs\mapset.aspx.designer.cs">
+      <DependentUpon>mapset.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Super\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2339,6 +2323,13 @@
     </Compile>
     <Compile Include="Super\Scan\warning.aspx.designer.cs">
       <DependentUpon>warning.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Super\shouye.aspx.cs">
+      <DependentUpon>shouye.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Super\shouye.aspx.designer.cs">
+      <DependentUpon>shouye.aspx</DependentUpon>
     </Compile>
     <Compile Include="Super\SoftReg.aspx.cs">
       <DependentUpon>SoftReg.aspx</DependentUpon>
@@ -2637,20 +2628,6 @@
     <Compile Include="User\UsReg.aspx.designer.cs">
       <DependentUpon>UsReg.aspx</DependentUpon>
     </Compile>
-    <Compile Include="IntenList.aspx.cs">
-      <DependentUpon>IntenList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="IntenList.aspx.designer.cs">
-      <DependentUpon>IntenList.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="BidList.aspx.cs">
-      <DependentUpon>BidList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="BidList.aspx.designer.cs">
-      <DependentUpon>BidList.aspx</DependentUpon>
-    </Compile>
     <Compile Include="User\VeriUser.aspx.cs">
       <DependentUpon>VeriUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2679,29 +2656,9 @@
     <Compile Include="User\WebBTrans.aspx.designer.cs">
       <DependentUpon>WebBTrans.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="xmlist.aspx.cs">
-      <DependentUpon>xmlist.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="xmlist.aspx.designer.cs">
-      <DependentUpon>xmlist.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="xmview.aspx.cs">
-      <DependentUpon>xmview.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="xmview.aspx.designer.cs">
-      <DependentUpon>xmview.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="html\js\" />
     <Folder Include="kindeditor\attached\" />
     <Folder Include="linkImg\" />
     <Folder Include="Super\Scan\biscan\" />
@@ -2801,6 +2758,7 @@
     <None Include="Properties\PublishProfiles\配置文件1.pubxml" />
     <Content Include="Super\Ashx\Ycjb.ashx" />
     <Content Include="Super\Ashx\Dzjj.ashx" />
+    <Content Include="Super\Ashx\fun.ashx" />
     <None Include="Super\Lt\Acrobat.pdf" />
     <None Include="Super\Lt\pdf.rar" />
     <None Include="Super\Scan\caution.log" />

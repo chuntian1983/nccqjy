@@ -97,9 +97,11 @@
     <Compile Include="T_Dyzt.cs" />
     <Compile Include="T_Fujian.cs" />
     <Compile Include="T_FujianBiao.cs" />
+    <Compile Include="T_hzs.cs" />
     <Compile Include="T_IndicatorsRelations.cs" />
     <Compile Include="T_JBONE.cs" />
     <Compile Include="T_JBTWO.cs" />
+    <Compile Include="T_jtnc.cs" />
     <Compile Include="T_Jzs.cs" />
     <Compile Include="T_LiceTran.cs" />
     <Compile Include="T_MemberTypeCertification.cs" />
@@ -108,6 +110,7 @@
     <Compile Include="T_Notice.cs" />
     <Compile Include="T_Organization.cs" />
     <Compile Include="T_PropertyType.cs" />
+    <Compile Include="T_SysFun.cs" />
     <Compile Include="T_TurnOutType.cs" />
     <Compile Include="T_UploadTypeIndicator.cs" />
     <Compile Include="T_Wztou.cs" />

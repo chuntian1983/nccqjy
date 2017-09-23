@@ -82,14 +82,14 @@ namespace Web.Super
                         }
                         else
                         {
-                            SysLogBll.Create("登陆页面", "账户禁用", adminUser.AdminName);
+                            //SysLogBll.Create("登陆页面", "账户禁用", adminUser.AdminName);
                             MessageBox.Show(this, "用于登录后台管理的账户已经被禁用");
                             return;
                         }
                     }
                     else
                     {
-                        SysLogBll.Create("登陆页面", "密码错误", adminUser.AdminName);
+                        //SysLogBll.Create("登陆页面", "密码错误", adminUser.AdminName);
                        
                         MessageBox.Show(this, "密码不正确请重新输入密码！");
                         return;
@@ -97,7 +97,7 @@ namespace Web.Super
                 }
                 else
                 {
-                    SysLogBll.Create("登陆页面", "用户名错误", adminUser.AdminName);
+                    //SysLogBll.Create("登陆页面", "用户名错误", adminUser.AdminName);
                     
                     MessageBox.Show(this, "用户名不存在请联系上级单位！");
                     return;

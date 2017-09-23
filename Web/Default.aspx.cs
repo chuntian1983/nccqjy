@@ -24,6 +24,7 @@ namespace Web
         public string strxw = string.Empty;
         protected void Page_Load(object sender, EventArgs e)
         {
+            Response.Redirect("super/default.aspx");
             if (!IsPostBack)
             {
                 DataTable dataTable = new WebSiteBll().GetImgList();

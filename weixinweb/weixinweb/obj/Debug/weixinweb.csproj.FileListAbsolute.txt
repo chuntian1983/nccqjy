@@ -1,4 +1,0 @@
-F:\mywork\newland\农村产权网站\南昌产权交易\NCPEP-1.1111\NCPEP-1.1110\2010版本\weixinweb\weixinweb\bin\weixinweb.dll
-F:\mywork\newland\农村产权网站\南昌产权交易\NCPEP-1.1111\NCPEP-1.1110\2010版本\weixinweb\weixinweb\bin\weixinweb.pdb
-F:\mywork\newland\农村产权网站\南昌产权交易\NCPEP-1.1111\NCPEP-1.1110\2010版本\weixinweb\weixinweb\obj\Debug\weixinweb.dll
-F:\mywork\newland\农村产权网站\南昌产权交易\NCPEP-1.1111\NCPEP-1.1110\2010版本\weixinweb\weixinweb\obj\Debug\weixinweb.pdb

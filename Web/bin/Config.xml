@@ -9,7 +9,7 @@
   <!--备案号-->
   <Date name="GovFiling">洪ICP备 00000000号</Date>
   <!--平台所有的后缀名称-->
-  <Date name="AllTitle">农村综合产权交易管理平台</Date>
+  <Date name="AllTitle">优秀农村新型主体管理系统</Date>
   <!--禁止随便更改-->
-  <Date name="OrgCode">3601</Date>
+  <Date name="OrgCode">3701</Date>
 </WebFoot>

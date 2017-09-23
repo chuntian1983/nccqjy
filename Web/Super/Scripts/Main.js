@@ -133,7 +133,8 @@ jQuery(function ($) {
     });
 });
 jQuery(function ($) {
-    $("#home").attr("src", "index.aspx?flag=" + Math.random());
+//    $("#home").attr("src", "index.aspx?flag=" + Math.random());
+    $("#home").attr("src", "shouye.aspx?flag=" + Math.random());
 });
 $.ajaxSetup({
     global: false,

@@ -5,9 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title>
-        南昌市农村产权交易电子竞价系统</title>
-    <meta name="description" content="南昌市农村产权交易电子竞价系统" />
-    <meta name="keywords" content="南昌市农村产权交易电子竞价系统" />
+        优秀农村新型经营主体展示管理系统</title>
+    <meta name="description" content="优秀农村新型经营主体展示管理系统" />
+    <meta name="keywords" content="优秀农村新型经营主体展示管理系统" />
     <link href="Scripts/easyUI/themes/default/easyui.css" rel="stylesheet" type="text/css" />
     <link href="Styles/default.css" rel="stylesheet" type="text/css" />
     <link href="Scripts/easyUI/themes/icon.css" rel="stylesheet" type="text/css" />
@@ -157,7 +157,7 @@
         background-image: url(images/bg.jpg); line-height: 20px; color: #fff;">
         <div class="topbg1">
             <div class="topleft1" style="height:91px; padding-top:0px; line-height:91px; vertical-align:middle;">
-                南昌市农村产权交易电子竞价系统</div>
+                优秀农村新型经营主体展示管理系统</div>
             <div class="topright1">
                 <span id="v" runat="server"></span>&nbsp;&nbsp;
                 欢迎您 <span id="lblUserName" runat="server" style="color: Yellow;"></span>&nbsp;&nbsp;&nbsp;&nbsp;<a
@@ -167,7 +167,7 @@
     </div>
     <div region="south" split="true" style="height: 27px; background: #D2E0F2;">
         <div class="footer">
-            南昌市农村产权交易电子竞价系统 © 电话:<%= NCPEP.Bll.Component.ReadXml("GovTel").InnerText%>
+            优秀农村新型经营主体展示管理系统 © 电话:<%= NCPEP.Bll.Component.ReadXml("GovTel").InnerText%>
         </div>
     </div>
     <div region="west" split="true" title="菜单列表" style="width: 180px;" id="west">
