@@ -36,7 +36,7 @@ namespace Web.Super.hzs
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            Response.Redirect("list.aspx");
+            Response.Redirect("list.aspx?pg="+Request.QueryString["pg"]+"");
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -56,7 +56,7 @@ namespace Web.Super.hzs
                     model.zuobiaoy = txty.Text;
                 }
                 bll.Update(model);
-                MessageBox.ShowAndRedirect(this, "设置成功！", "list.aspx");
+                MessageBox.ShowAndRedirect(this, "设置成功！", "list.aspx?pg="+Request.QueryString["pg"]+"");
 
             }
         }

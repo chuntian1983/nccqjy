@@ -23,8 +23,8 @@ namespace Web.Super.hzs
                 if (Request.QueryString["st"] != null)
                 {
                     string strid = Request.QueryString["st"];
-                    NCPEP.Model.T_hzs model = new NCPEP.Model.T_hzs();
-                    NCPEP.Bll.T_hzs bll = new NCPEP.Bll.T_hzs();
+                    NCPEP.Model.T_jtnc model = new NCPEP.Model.T_jtnc();
+                    NCPEP.Bll.T_jtnc bll = new NCPEP.Bll.T_jtnc();
                     model = bll.GetModel(int.Parse(strid));
                     this.hdzb.Value = model.dizhi;
                     strname = model.mingcheng;
@@ -37,7 +37,7 @@ namespace Web.Super.hzs
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            Response.Redirect("list.aspx");
+            Response.Redirect("listnc.aspx?pg="+Request.QueryString["pg"]+"");
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -45,8 +45,8 @@ namespace Web.Super.hzs
             if (Request.QueryString["st"] != null)
             {
                 string strid = Request.QueryString["st"];
-                NCPEP.Model.T_hzs model = new NCPEP.Model.T_hzs();
-                NCPEP.Bll.T_hzs bll = new NCPEP.Bll.T_hzs();
+                NCPEP.Model.T_jtnc model = new NCPEP.Model.T_jtnc();
+                NCPEP.Bll.T_jtnc bll = new NCPEP.Bll.T_jtnc();
                 model = bll.GetModel(int.Parse(strid));
                 if (!string.IsNullOrEmpty(txtx.Text))
                 {
@@ -57,7 +57,7 @@ namespace Web.Super.hzs
                     model.zuobiaoy = txty.Text;
                 }
                 bll.Update(model);
-                MessageBox.ShowAndRedirect(this, "设置成功！", "list.aspx");
+                MessageBox.ShowAndRedirect(this, "设置成功！", "listnc.aspx?pg="+Request.QueryString["pg"]+"");
 
             }
         }

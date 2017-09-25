@@ -111,10 +111,11 @@
     <Content Include="css\bootstrap-theme.min.css" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
-    <Content Include="data\ncpep.sql" />
+    <Content Include="data\weihaihzs.sql" />
     <Content Include="dzjj.aspx" />
     <Content Include="error.html" />
     <Content Include="html\css\style.css" />
+    <Content Include="html\default.aspx" />
     <Content Include="html\img\anniu.png" />
     <Content Include="html\img\bg.jpg" />
     <Content Include="html\img\colse.png" />
@@ -1492,6 +1493,13 @@
     </Compile>
     <Compile Include="Handler\WebUserBidCar.ashx.cs">
       <DependentUpon>WebUserBidCar.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="html\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="html\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
     </Compile>
     <Compile Include="jyview.aspx.cs">
       <DependentUpon>jyview.aspx</DependentUpon>

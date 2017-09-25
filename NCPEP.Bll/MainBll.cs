@@ -77,7 +77,8 @@ namespace NCPEP.Bll
                 }
                 else
                 {
-                    dataTable = new RolePermissionsBll().GetAllList(adminUser.Id, parentNodeId);
+                    //dataTable = new RolePermissionsBll().GetAllList(adminUser.Id, parentNodeId);
+                    dataTable = new RolePermissionsBll().GetFunListByRole(adminUser.Id, parentNodeId);
                 }
                 for (int i = 1; i < dataTable.Rows.Count + 1; i++)
                 {
@@ -110,7 +111,8 @@ namespace NCPEP.Bll
                 }
                 else
                 {
-                    dataTable = new RolePermissionsBll().GetAllList(adminUser.Id, parentNodeId);
+                    //dataTable = new RolePermissionsBll().GetAllList(adminUser.Id, parentNodeId);
+                    dataTable = new RolePermissionsBll().GetFunListByRole(adminUser.Id,parentNodeId);
                 }
                 for (int i = 1; i < dataTable.Rows.Count + 1; i++)
                 {

@@ -41,12 +41,12 @@ function GridView() {
 { field: 'AdminLogPass', title: '登录密码', width: 80, align: 'left', sortable: true, formatter: function (value, row, index) { return "******"; } }
 ]],
         columns: [[
-{ field: 'AdminName', title: '管理员姓名', width: 80, align: 'left', sortable: true },
+{ field: 'AdminName', title: '用户姓名', width: 80, align: 'left', sortable: true },
 { field: 'JobId', title: '职务', width: 80, align: 'left', sortable: true },
-{ field: 'AdminTel', title: '管理员电话', width: 80, align: 'left', sortable: true },
+{ field: 'AdminTel', title: '用户电话', width: 80, align: 'left', sortable: true },
 { field: 'OrgShortName', title: '组织单位', width: 80, align: 'left', sortable: true },
-{ field: 'AdminTypeId', title: '管理员类型', width: 80, align: 'left', sortable: true },
-{ field: 'AdminState', title: '管理员状态', width: 50, align: 'left', sortable: true, formatter: function (value, row, index) { return row.AdminState == 0 ? "<span style='color:red;'>禁用</span>" : "<span style='color:blue;'>正常<span>"; } },
+{ field: 'AdminTypeId', title: '用户角色', width: 80, align: 'left', sortable: true },
+{ field: 'AdminState', title: '用户状态', width: 50, align: 'left', sortable: true, formatter: function (value, row, index) { return row.AdminState == 0 ? "<span style='color:red;'>禁用</span>" : "<span style='color:blue;'>正常<span>"; } },
 { field: 'AdminLogNum', title: '登录次数', width: 50, align: 'left', sortable: true },
 { field: 'IsCheck', title: '越级审核权限', width: 50, align: 'left', sortable: true, formatter: function (value, row, index) { return row.IsCheck == 0 ? "否" : "是"; } },
 { field: 'EndDate', title: '最后登录时间', width: 80, align: 'left', sortable: true },

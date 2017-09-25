@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<WebFoot>
+  <!--地址-->
+  <Date name="GovAddress">
+     南昌市红谷滩新区国体大道333号
+  </Date>
+  <!--电话-->
+  <Date name="GovTel">0791-85262338</Date>
+  <!--备案号-->
+  <Date name="GovFiling">洪ICP备 00000000号</Date>
+  <!--平台所有的后缀名称-->
+  <Date name="AllTitle">优秀农村新型主体管理系统</Date>
+  <!--禁止随便更改-->
+  <Date name="OrgCode">3701</Date>
+</WebFoot>

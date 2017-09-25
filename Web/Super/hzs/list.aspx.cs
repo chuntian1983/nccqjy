@@ -50,11 +50,13 @@ namespace Web.Super.hzs
             this.pg.RecordCount = bll.GetRecordCount(sb.ToString());
             this.pg.PageSize = 10;
             this.pg.UrlPageIndexName = "pg";
-            if (!string.IsNullOrEmpty(hdpage.Value) && hdpage.Value != "1")
+            if (!string.IsNullOrEmpty(hdpage.Value) && hdpage.Value == "1")
             {
-                pg.CurrentPageIndex = int.Parse(hdpage.Value);
+                if (Request.QueryString["pg"] != null)
+                {
+                    pg.CurrentPageIndex = int.Parse(Request.QueryString["pg"]);
+                }
             }
-
             int sindex = (this.pg.CurrentPageIndex - 1) * this.pg.PageSize + 1;
             int eindex = this.pg.CurrentPageIndex * this.pg.PageSize;
 
@@ -67,7 +69,7 @@ namespace Web.Super.hzs
         }
         protected void Pager_PageChanged(object sender, EventArgs e)
         {
-            hdpage.Value = "1";
+            hdpage.Value = "2";
             BindDate();
         }
         protected void rep_ItemDataBound(object sender, RepeaterItemEventArgs e)
@@ -178,7 +180,7 @@ namespace Web.Super.hzs
             else
             {
 
-                Response.Redirect("mapset.aspx?st=" + sysID + "");
+                Response.Redirect("mapset.aspx?st=" + sysID + "&pg=" + this.pg.CurrentPageIndex + "");
             }
         }
     }

@@ -94,6 +94,25 @@ namespace NCPEP.Dal
             }
             catch { throw; }
         }
+        /// <summary>
+        /// 根据角色获得权限
+        /// </summary>
+        /// <param name="userid"></param>
+        /// <param name="pid"></param>
+        /// <returns></returns>
+        public DataTable GetFunListByRole(int userid,int pid)
+        {
+            try
+            {
+                string strsql = "select c.NodeId,c.NodeURL,c.DisplayName,c.FunImgNum from T_Permissions as a left join T_AdminUser as b on a.AdminTypeId = b.AdminTypeId left join T_SysFun as c on a.SysFunId = c.NodeId where b.Id = "+userid+" and c.ParentNodeId="+pid+" order by c.DisplayOrder asc";
+                return DbHelperSQL.QueryTable(strsql);
+            }
+            catch
+            {
+                
+                throw;
+            }
+        }
         public DataTable GetAllListByPid(int parentNodeId)
         {
             try

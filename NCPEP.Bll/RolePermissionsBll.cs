@@ -98,6 +98,18 @@ namespace NCPEP.Bll
                 return null;
             }
         }
+        public dynamic GetFunListByRole(int adminUserId, int parentNodeId)
+        {
+            try
+            {
+                return dal.GetFunListByRole(adminUserId, parentNodeId);
+            }
+            catch (Exception ex)
+            {
+                SystemErrorPlug.ErrorRecord("时间:[" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "]类名:[" + this.GetType().Name + "],行号:[" + Component.GetLineNum().ToString() + "行],错误信息:[" + ex.Message + "]");
+                return null;
+            }
+        }
         public dynamic GetAllList(int parentNodeId)
         {
             try
